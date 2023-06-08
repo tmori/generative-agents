@@ -15,7 +15,14 @@ Referring to the generative agent mentioned in the reference document.
 
 ### Reflection
 
-### History Selection
+### History Selector
+The HistorySelector class allows selecting data from a MemoryStream based on a specified threshold. It has the following methods:
+
+- `__init__(self, memory_stream)`: Initializes the HistorySelector object with a MemoryStream instance provided as memory_stream.
+- `select(self, threshold)`: Selects data from the MemoryStream based on the given threshold. It retrieves data with points greater than or equal to the threshold and stores it in self.history. It returns the selected data.
+- `get_history(self)`: Returns the stored history data that has been previously selected.
+
+This class facilitates the selection of data from a MemoryStream instance based on a threshold and provides access to the selected data and the stored history.
 
 ## Managed Data
 
@@ -32,6 +39,7 @@ It is a collection of data sets, with each set consisting of the following infor
 - Point
 
 ### History
+History is a subset of MemoryStream. It consists of selections that have high points.
 
 ### Reflection
 
