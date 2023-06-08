@@ -22,6 +22,13 @@ Referring to the generative agent mentioned in the reference document.
 ### Plan
 
 ### MemoryStream
+MemoryStream manages all the memories.
+It is a collection of data sets, with each set consisting of the following information:
+
+- ID
+- Target Document ID
+- Question
+- Reply
 
 ### History
 
