@@ -1,0 +1,142 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import sys
+
+# hyper parameters
+llm_name="gpt-4"
+embedding_model='text-embedding-ada-002'
+page_chunk_size = 1024
+max_token_num = 4096
+conversation_window_size = 3
+conversation_token_num = 1024
+conversation_history_type = "window" # token or window
+
+if __name__ == "__main__":
+    if (len(sys.argv) == 1) or (len(sys.argv) > 4):
+        print("USAGE: " + sys.argv[0] + " new [<doc_dir> [<db_dir>]]")
+        print("USAGE: " + sys.argv[0] + " chat [<db_dir>]")
+        sys.exit(1)
+
+    mode=sys.argv[1]
+    db_dir = "DB"
+    doc_dir = "documents"
+    ans_dir = "answer"
+
+    if mode == "chat":
+        if len(sys.argv) != 2 and len(sys.argv) != 3:
+            print("USAGE: " + sys.argv[0] + " chat [<db_dir>]")
+            sys.exit(1)
+        if len(sys.argv) == 3:
+            db_dir = sys.argv[2]
+        
+
+    if mode == "new":
+        if len(sys.argv) != 2 and len(sys.argv) != 4:
+            print("USAGE: " + sys.argv[0] + " new [<doc_dir> [<db_dir>]]")
+            sys.exit(1)
+        if len(sys.argv) == 4:
+            doc_dir=sys.argv[2]
+            db_dir = sys.argv[3]
+    print("DB_DIR =" + db_dir)
+    print("DOC_DIR=" + doc_dir)
+else:
+    conversation_history_type="window"
+    conversation_window_size=0
+
+import os
+import openai
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.vectorstores import Chroma
+from langchain.chat_models import ChatOpenAI
+from langchain.chains import ConversationalRetrievalChain
+from langchain.document_loaders import PyPDFLoader
+from langchain.document_loaders import CSVLoader
+from langchain.document_loaders import UnstructuredPowerPointLoader
+from langchain.document_loaders import UnstructuredURLLoader
+from langchain.text_splitter import CharacterTextSplitter
+from langchain.memory import ConversationBufferWindowMemory, ConversationTokenBufferMemory
+
+def create_db(doc_dir, db_dir, embedding_model, chunk_size):
+    pdf_files = [ file for file in os.listdir(doc_dir) if file.endswith(".pdf")]
+    csv_files = [ file for file in os.listdir(doc_dir) if file.endswith(".csv")]
+    pptx_files = [ file for file in os.listdir(doc_dir) if file.endswith(".pptx")]
+    url_files = [ file for file in os.listdir(doc_dir) if file.endswith(".url")]
+    text_splitter = CharacterTextSplitter(
+        separator = "\n",
+        chunk_size = chunk_size,
+        chunk_overlap = 0,
+    )
+    files = pdf_files + csv_files + pptx_files + url_files
+    pages = []
+    for file in files:
+        print("INFO: Loading document=" + file)
+        if ".pdf" in file:
+            loader = PyPDFLoader(doc_dir + '/' + file)
+        elif ".csv" in file:
+            loader = CSVLoader(doc_dir + '/' + file)
+        elif ".pptx" in file:
+            loader = UnstructuredPowerPointLoader(doc_dir + '/' + file)
+        elif ".url" in file:
+            with open(doc_dir + '/' + file, 'r') as file:
+                urls = file.read().splitlines()
+            loader = UnstructuredURLLoader(urls = urls)
+        else:
+            print("WARNING: Not supported document=" + file)
+            continue
+        #print("INFO: Spliting document=" + file)
+        tmp_pages = loader.load_and_split()
+        chanked_pages = text_splitter.split_documents(tmp_pages)
+        pages = pages + chanked_pages
+
+    print("INFO: Storing Vector DB:" + db_dir)
+    embeddings = OpenAIEmbeddings(deployment=embedding_model)
+    vectorstore = Chroma.from_documents(pages, embedding=embeddings, persist_directory=db_dir)
+    vectorstore.persist()
+
+
+def load_db(db_dir, llm_name, embedding_model, token_num, history_type, num):
+    print("INFO: Setting up LLM:" + db_dir)
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+    llm = ChatOpenAI(
+        temperature=0, 
+        model_name=llm_name, 
+        max_tokens=token_num)
+
+    embeddings = OpenAIEmbeddings(deployment=embedding_model)
+    vectorstore = Chroma(persist_directory=db_dir, embedding_function=embeddings)
+    if (history_type == "window"):
+        memory = ConversationBufferWindowMemory(k=num, memory_key="chat_history", return_messages=True)
+    else:
+        memory = ConversationTokenBufferMemory(llm=llm, max_token_limit=num, memory_key="chat_history", return_messages=True)
+    qa = ConversationalRetrievalChain.from_llm(
+        llm, 
+        vectorstore.as_retriever(), 
+        memory=memory
+        )
+    return qa
+
+def load_db_with_type(db_dir):
+    global llm_name, max_token_num, conversation_history_type, conversation_window_size, conversation_token_num
+    if (conversation_history_type == "window"):
+        qa = load_db(db_dir, llm_name, embedding_model, max_token_num, conversation_history_type, conversation_window_size)
+    else:
+        qa = load_db(db_dir, llm_name, embedding_model, max_token_num, conversation_history_type, conversation_token_num)
+    return qa
+
+
+if __name__ == "__main__":
+    if mode == "new":
+        _ = create_db(doc_dir, db_dir, embedding_model, page_chunk_size)
+    else:
+        qa = load_db_with_type(db_dir)
+        while True:
+            query = input("> ")
+            if query == 'exit' or query == 'q' or query == "quit":
+                print("See you again!")
+                sys.exit(0)
+            print("Q: " + query)
+
+            result = qa({"question": query})
+            print("A: "+result["answer"])
+
