@@ -1,0 +1,4 @@
+TargetDocID:{TargetDocID}
+question:{question}
+reply:{reply}
+point:{point}
