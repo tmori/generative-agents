@@ -5,12 +5,13 @@ import pandas as pd
 
 class MemoryStream:
     def __init__(self):
-        self.data = pd.DataFrame(columns=["ID", "TargetDocID", "Question", "Reply"])
+        self.columns = ["ID", "TargetDocID", "Question", "Reply", "Point"]
+        self.data = pd.DataFrame(columns=self.columns)
         self.current_id = 1
 
-    def add_data(self, target_doc_id, question, reply):
-        data = [[self.current_id, target_doc_id, question, reply]]
-        new_data = pd.DataFrame(data, columns=["ID", "TargetDocID", "Question", "Reply"])
+    def add_data(self, target_doc_id, question, reply, point):
+        data = [[self.current_id, target_doc_id, question, reply, point]]
+        new_data = pd.DataFrame(data, columns=self.columns)
         self.data = pd.concat([self.data, new_data], ignore_index=True)
         self.current_id += 1
 
@@ -23,7 +24,8 @@ if __name__ == "__main__":
         target_doc_id = input("TargetDocID> ")
         question = input("question> ")
         reply = input("reply> ")
-        memory_stream.add_data(target_doc_id, question, reply)
+        point = input("point> ")
+        memory_stream.add_data(target_doc_id, question, reply, int(point))
         print(memory_stream.get_data())
 else:
     pass

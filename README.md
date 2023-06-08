@@ -29,6 +29,7 @@ It is a collection of data sets, with each set consisting of the following infor
 - Target Document ID
 - Question
 - Reply
+- Point
 
 ### History
 
