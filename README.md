@@ -58,6 +58,13 @@ This class facilitates the selection of data from a MemoryStream instance based 
 ## Managed Data
 
 ### Plan
+Plan includes the following information in the order of investigation:
+
+- Document ID to be investigated
+- Purpose of investigation for the target document ID
+- Perspectives of investigation for the target document ID
+- The set of investigation result IDs (MemoryStream IDs)
+- Status of investigation(None, Doing, Done)
 
 ### MemoryStream
 MemoryStream manages all memories related to the questions and answers during mission execution.
