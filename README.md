@@ -12,8 +12,7 @@ Referring to the generative agent mentioned in the reference document.
 ### Planner
 
 ### Tactical Planning
-The purpose of `TacticalPlanning` is as follows: 
-to refer to all the information in the Plan and create detailed sub-questions for the target document.
+The purpose of `TacticalPlanning` is to refer to all the information in the Plan and create detailed sub-questions for the target document.
 
 The procedure is as follows:
 1. Refer to the information in the `Plan` and select the highest priority (with the smallest PlanID) among the ones that are not investigated or under investigation. (In the case of both being under investigation or not investigated, the one under investigation takes priority.)
