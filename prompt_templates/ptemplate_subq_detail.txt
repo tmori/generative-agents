@@ -1,5 +1,3 @@
-以下の目的と観点で、ドキュメントに対する問い合わせ用の質問を作ってください。
-document_id: ${document_id}
+以下の目的と観点で、情報を取得してください
 purpose: {purpose}
 perspectives: {perspectives}
-なお、質問はドキュメントに対してのみ行えます。外部のデータは参照できません。
