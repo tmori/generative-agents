@@ -9,9 +9,9 @@ Experimenting with an agent that searches documents and asks questions repeatedl
 Referring to the generative agent mentioned in the reference document.
 
 ## Actions
-### Plan
+### Planner
 
-### Thought
+### Tactical Planning
 
 ### Query
 Query examines the target document based on the inputs of TargetDocumentId, SubQuestion, and PromptQueryTemplate. It evaluates the answer result by determining the relevance and importance between the MainQuestion and SubQuestion, assigning a score between 0 and 100. It then stores this sequence of information in the MemoryStream.
