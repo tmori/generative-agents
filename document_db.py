@@ -45,6 +45,7 @@ else:
     conversation_window_size=0
 
 import os
+import numpy as np
 import openai
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
@@ -124,6 +125,24 @@ def load_db_with_type(db_dir):
         qa = load_db(db_dir, llm_name, embedding_model, max_token_num, conversation_history_type, conversation_token_num)
     return qa
 
+def embedding(text: str) -> list[float]:
+    result = openai.Embedding.create(input=text, model=embedding_model)
+    if isinstance(result, dict):
+        embedding = result["data"][0]["embedding"]
+        return embedding
+    return []
+
+def cos_sim(a, b) -> float:
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
+def calc_similarity(str1, str2):
+    try:
+        s1 = np.array(embedding(str1))
+        s2 = np.array(embedding(str2))
+        return cos_sim(s1, s2)
+    except Exception as e:
+        print("An error occurred:", str(e))
+        return None
 
 if __name__ == "__main__":
     if mode == "new":

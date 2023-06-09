@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from document_db import load_db_with_type
+import re
+from document_db import load_db_with_type, calc_similarity
 from prompt_template import PromptTemplate
 from memory_stream import MemoryStream
 
@@ -18,10 +19,15 @@ class Query:
         reply = self.qa({"question": query})
 
         #calculate point of reply
-        point = 10
-
-        # Store the information in the MemoryStream
-        self.save(sub_question, reply["answer"], point)
+        match = re.search(r"Point: ?([0-9\.]+)$", reply["answer"])
+        if match:
+            point = float(match.group(1))
+            # Store the information in the MemoryStream
+            self.save(sub_question, reply["answer"], point)
+            return True
+        else:
+            print("ERROR: can not find point in reply:" + reply["answer"])
+            return False
 
     def save(self, sub_question: str, reply: str, point: int):
         # Store the information in the MemoryStream
@@ -44,6 +50,7 @@ if __name__ == "__main__":
             print("See you again!")
             sys.exit(0)
         query.run(prompt_template_path, question)
-        print(memory_stream.get_reply())
+        print("REPLY: " + memory_stream.get_reply())
+        print("POINT: " + str(memory_stream.get_point()))
 else:
     pass
