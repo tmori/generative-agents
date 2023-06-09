@@ -61,6 +61,7 @@ This class facilitates the selection of data from a MemoryStream instance based 
 ### Plan
 Plan includes the following information in the order of investigation:
 
+- PlanID
 - Document ID to be investigated
 - Purpose of investigation for the target document ID
 - Perspectives of investigation for the target document ID
