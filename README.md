@@ -12,6 +12,14 @@ Referring to the generative agent mentioned in the reference document.
 ### Planner
 
 ### Tactical Planning
+The purpose of `TacticalPlanning` is as follows: 
+to refer to all the information in the Plan and create detailed sub-questions for the target document.
+
+The procedure is as follows:
+1. Refer to the information in the `Plan` and select the highest priority (with the smallest PlanID) among the ones that are not investigated or under investigation. (In the case of both being under investigation or not investigated, the one under investigation takes priority.)
+2. Refer to the purpose and perspectives of the target document in the investigation data and create matching questions.
+3. Repeat step 2 for each target document.
+4. Output the target documents and questions as a list.
 
 ### Query
 Query examines the target document based on the inputs of TargetDocumentId, SubQuestion, and PromptQueryTemplate. It evaluates the answer result by determining the relevance and importance between the MainQuestion and SubQuestion, assigning a score between 0 and 100. It then stores this sequence of information in the MemoryStream.
