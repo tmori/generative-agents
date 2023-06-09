@@ -15,7 +15,7 @@ class PromptTemplate:
         return self.template.format(**kwargs)
 
 if __name__ == "__main__":
-    pt = PromptTemplate("./ptemplate_query.txt")
+    pt = PromptTemplate("./prompt_templates/ptemplate_query.txt")
     while True:
         target_doc_id = input("TargetDocID> ")
         question = input("question> ")

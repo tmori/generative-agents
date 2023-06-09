@@ -16,6 +16,13 @@ class Plan:
         self.data = pd.concat([self.data, new_data], ignore_index=True)
         self.current_id += 1
 
+    def update_status_doing(self, plan_id: int):
+        self.data.loc[self.data["PlanID"] == plan_id, "InvestigationStatus"] = "Doing"
+
+    def update_status_done(self, plan_id: int, memory_id: int):
+        self.data.loc[self.data["PlanID"] == plan_id, "InvestigationStatus"] = "Done"
+        self.data.loc[self.data["PlanID"] == plan_id, "InvestigationResultIDs"] = memory_id
+
     def save_to_json(self, file_path):
         json_data = self.data.to_dict(orient="records")
 
@@ -47,4 +54,4 @@ if __name__ == "__main__":
         plan.add_data(doc_id, purpose, perspectives, ids, status)
         print(plan.get_data_by_id())
         i += 1
-    plan.save_to_json("plan.json")
+    plan.save_to_json("test/plan.json")
