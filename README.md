@@ -10,6 +10,7 @@ Referring to the generative agent mentioned in the reference document.
 
 ## Actions
 ### Planner
+(TODO)
 
 ### Tactical Planning
 The objective of `TacticalPlanning` is to utilize the entirety of the information within the Plan to formulate comprehensive sub-questions for the designated document.
@@ -83,6 +84,7 @@ The class has the following main methods:
 That concludes the overview of the `Query` class. This class is used to retrieve answers to main questions, store information with points in the `MemoryStream`.
 
 ### Reflection
+(TODO)
 
 ### History Selector
 The HistorySelector class allows selecting data from a MemoryStream based on a specified threshold. It has the following methods:
@@ -119,6 +121,7 @@ It is a collection of data sets, with each set consisting of the following infor
 History is a subset of MemoryStream. It consists of selections that have high points.
 
 ### Reflection
+(TODO)
 
 ## refs
 * https://arxiv.org/abs/2304.03442
