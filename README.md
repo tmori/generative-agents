@@ -21,6 +21,33 @@ The procedure unfolds in the following manner:
 3. Iterate through Step 2 for each individual target document.
 4. Compile the target documents and their respective questions into a cohesive list.
 
+The `TacticalPlanning` class represents a tactical planning system. Here is the description of the class:
+
+- `__init__(self, plan: Plan, db_dir: str, summary_template_path: str)`: 
+  - This is the constructor of the class that initializes the `TacticalPlanning` object.
+  - It takes three parameters:
+    - `plan`: An instance of the `Plan` class that represents the plan data.
+    - `db_dir`: A string that specifies the directory of the database.
+    - `summary_template_path`: A string that specifies the path of the summary template.
+
+- `generate_question(self, prompt_templates)`: 
+  - This method generates a question based on the prioritized plan data.
+  - It takes `prompt_templates` as a parameter, which represents the prompt templates for question generation.
+  - It retrieves the prioritized plan data, selects the first plan, updates its status to "Doing", and extracts the necessary information such as `plan_id`, `document_id`, `purpose`, and `perspectives`.
+  - It then generates a document-specific question using the appropriate prompt template and the extracted information.
+  - The method returns a tuple `(plan_id, document_id, question)`.
+
+- `_prioritize_plan(self)`: 
+  - This is a private method that prioritizes the plan data based on the plan ID.
+  - It retrieves the plan data, sorts it by the plan ID in ascending order, and selects plans with "Doing" or "None" status.
+  - It returns the prioritized plan data.
+
+- `_generate_document_question(self, prompt_template_path, document_id, purpose, perspectives)`: 
+  - This is a private method that generates a document-specific question based on the provided document ID, purpose, and perspectives.
+  - If the document ID is "summary", it uses the summary template to generate the question.
+  - Otherwise, it uses the specified prompt template to generate the question.
+  - The generated
+
 ### Query
 Query examines the target document based on the inputs of TargetDocumentId, SubQuestion, and PromptQueryTemplate. It evaluates the answer result by determining the relevance and importance between the MainQuestion and SubQuestion, assigning a score between 0 and 100. It then stores this sequence of information in the MemoryStream.
 
