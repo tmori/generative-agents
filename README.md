@@ -17,8 +17,6 @@ Query examines the target document based on the inputs of TargetDocumentId, SubQ
 
 Here is the translation of the overview of the class:
 
-The given code defines a class called `Query`. Below is the description of the class:
-
 The `Query` class retrieves information related to a specific document (`target_doc_id`) and a main question (`main_question`) and stores the data in a memory stream called `MemoryStream`. It also loads a database from the specified directory (`db_dir`) to prepare a QA system for answering questions.
 
 The class has the following main methods:
