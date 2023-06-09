@@ -18,6 +18,14 @@ class MemoryStream:
     def get_data(self):
         return self.data
 
+    def get_reply(self, index = None):
+        if (index == None):
+            index = len(self.data) - 1
+        if index >= 0 and index < len(self.data):
+            return self.data.loc[index, "Reply"]
+        else:
+            return None
+
 if __name__ == "__main__":
     memory_stream = MemoryStream()
     while True:
