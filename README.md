@@ -1,8 +1,9 @@
 # generative-agents
 Experimenting with an agent that searches documents and asks questions repeatedly in response to the main question, automatically determining the optimal answer from the current documents or recognizing when there is no answer.
 
-Architecture:
-![image](https://github.com/tmori/generative-agents/assets/164193/af314803-6c7f-460f-917e-e642479229df)
+## Architecture
+
+![image](https://github.com/tmori/generative-agents/assets/164193/2274d26e-0145-41d1-9c07-267f19109b42)
 
 
 Referring to the generative agent mentioned in the reference document.
