@@ -46,7 +46,9 @@ The `TacticalPlanning` class represents a tactical planning system. Here is the 
   - This is a private method that generates a document-specific question based on the provided document ID, purpose, and perspectives.
   - If the document ID is "summary", it uses the summary template to generate the question.
   - Otherwise, it uses the specified prompt template to generate the question.
-  - The generated
+  - The generated question is returned as a string.
+
+This `TacticalPlanning` class represents a system for tactical planning. It has the ability to generate questions based on a prioritized plan, update the plan status, and generate document-specific questions using prompt templates. It serves as a component within a larger system or application that involves tactical planning and question generation based on plan data.
 
 ### Query
 Query examines the target document based on the inputs of TargetDocumentId, SubQuestion, and PromptQueryTemplate. It evaluates the answer result by determining the relevance and importance between the MainQuestion and SubQuestion, assigning a score between 0 and 100. It then stores this sequence of information in the MemoryStream.
