@@ -9,6 +9,6 @@ Input:
  History: {History}
 Output(json format):
  Plan(N plans):
-  DocumentId: <DocumentId>
+  DocumentID: <DocumentID>
   Purpose: <Purpose>
   Perspectives: <Perspectives>

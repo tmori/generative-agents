@@ -6,7 +6,7 @@ import json
 
 class Plan:
     def __init__(self):
-        self.columns = ["PlanID", "DocumentId", "Purpose", "Perspectives", "ResultID", "Status"]
+        self.columns = ["PlanID", "DocumentID", "Purpose", "Perspectives", "ResultID", "Status"]
         self.data = pd.DataFrame(columns=self.columns)
         self.current_id = 1
 

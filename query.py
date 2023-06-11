@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import re
+import openai
 from prompt_template import PromptTemplate
 from memory_stream import MemoryStream
 
@@ -15,7 +16,11 @@ class Query:
         prompt_query_template = PromptTemplate(prompt_template_path)
         # Generate the prompt query using the template and inputs
         query = prompt_query_template.get_prompt(sub_question=sub_question)
-        reply = self.qa({"question": query})
+        try:
+            reply = self.qa({"question": query})
+        except openai.error.InvalidRequestError as e:
+            print("ERROR: can not query:" + query)
+            return -1
 
         #calculate point of reply
         match = re.search(r"Point: ?([0-9\.]+)$", reply["answer"])

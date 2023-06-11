@@ -36,7 +36,7 @@ class Planner:
         self.reply_raw = get_response(self.query_plan)
         self.reply_json = json.loads(self.reply_raw)
         for entry in self.reply_json["Plan"]:
-            self.plan.add_data(entry["DocumentId"], entry["Purpose"], entry["Perspectives"])
+            self.plan.add_data(entry["DocumentID"], entry["Purpose"], entry["Perspectives"])
 
     def save_to_json(self, file_path):
         with open(file_path, 'w') as file:

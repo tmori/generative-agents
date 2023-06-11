@@ -65,6 +65,9 @@ if __name__ == "__main__":
         prompt_template_path = "./prompt_templates/ptemplate_query.txt"
         query = Query(doc_id, question, memory_stream, qa)
         memory_id = query.run(prompt_template_path, question)
+        if memory_id < 0:
+            plan.update_status_done(plan_id, memory_id)
+            continue
         print("REPLY: " + memory_stream.get_reply())
         print("POINT: " + str(memory_stream.get_point()))
         memory_stream.save_to_json("test/memory.json")
