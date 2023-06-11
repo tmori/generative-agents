@@ -10,7 +10,20 @@ Referring to the generative agent mentioned in the reference document.
 
 ## Actions
 ### Planner
-(TODO)
+The purpose of the Planner is to generate investigation plans for a set of documents based on the given input data.
+
+- Input data:
+  - Main Question (natural language question)
+  - Mission (natural language mission)
+  - Strategy (natural language strategy)
+  - Document list (list of documents in natural language)
+  - History (history of questions and answers for target documents in natural language)
+
+- Output data:
+  - Plan (N plans)
+    - Document ID (document ID in natural language)
+    - Purpose (purpose of investigating the target document in natural language)
+    - Perspectives (perspectives for investigating the target document in natural language)
 
 ### Tactical Planning
 The objective of `TacticalPlanning` is to utilize the entirety of the information within the Plan to formulate comprehensive sub-questions for the designated document.
