@@ -23,15 +23,15 @@ class TacticalPlanning:
         self.plan.update_status_doing(plan_id)
 
         document_id = row["DocumentID"]
-        purpose = row["InvestigationPurpose"]
-        perspectives = row["InvestigationPerspectives"]
+        purpose = row["Purpose"]
+        perspectives = row["Perspectives"]
 
         return (plan_id, document_id, self._generate_document_question(prompt_templates, document_id, purpose, perspectives))
 
     def _prioritize_plan(self):
         plan_data = self.plan.get_data()
         prioritized_plan = plan_data.sort_values(by=["PlanID"], ascending=True)
-        prioritized_plan = prioritized_plan.loc[prioritized_plan["InvestigationStatus"].isin(["Doing", "None"])]
+        prioritized_plan = prioritized_plan.loc[prioritized_plan["Status"].isin(["Doing", "None"])]
         return prioritized_plan
 
     def _generate_document_question(self, prompt_template_path, document_id, purpose, perspectives):

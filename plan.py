@@ -6,22 +6,22 @@ import json
 
 class Plan:
     def __init__(self):
-        self.columns = ["PlanID", "DocumentID", "InvestigationPurpose", "InvestigationPerspectives", "InvestigationResultIDs", "InvestigationStatus"]
+        self.columns = ["PlanID", "DocumentId", "Purpose", "Perspectives", "ResultID", "Status"]
         self.data = pd.DataFrame(columns=self.columns)
         self.current_id = 1
 
-    def add_data(self, document_id, purpose, perspectives, result_ids, status):
-        data = [[self.current_id, document_id, purpose, perspectives, result_ids, status]]
+    def add_data(self, document_id, purpose, perspectives):
+        data = [[self.current_id, document_id, purpose, perspectives, "", "None"]]
         new_data = pd.DataFrame(data, columns=self.columns)
         self.data = pd.concat([self.data, new_data], ignore_index=True)
         self.current_id += 1
 
     def update_status_doing(self, plan_id: int):
-        self.data.loc[self.data["PlanID"] == plan_id, "InvestigationStatus"] = "Doing"
+        self.data.loc[self.data["PlanID"] == plan_id, "Status"] = "Doing"
 
     def update_status_done(self, plan_id: int, memory_id: int):
-        self.data.loc[self.data["PlanID"] == plan_id, "InvestigationStatus"] = "Done"
-        self.data.loc[self.data["PlanID"] == plan_id, "InvestigationResultIDs"] = memory_id
+        self.data.loc[self.data["PlanID"] == plan_id, "Status"] = "Done"
+        self.data.loc[self.data["PlanID"] == plan_id, "ResultID"] = memory_id
 
     def save_to_json(self, file_path):
         json_data = self.data.to_dict(orient="records")
@@ -47,10 +47,10 @@ if __name__ == "__main__":
     count = 2
     while i < count:
         doc_id = input("DocumentID> ")
-        purpose = input("InvestigationPurpose> ")
-        perspectives = input("InvestigationPerspectives> ")
-        ids = input("InvestigationResultIDs> ")
-        status = input("InvestigationStatus> ")
+        purpose = input("Purpose> ")
+        perspectives = input("Perspectives> ")
+        ids = input("ResultID> ")
+        status = input("Status> ")
         plan.add_data(doc_id, purpose, perspectives, ids, status)
         print(plan.get_data_by_id())
         i += 1

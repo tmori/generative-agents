@@ -5,6 +5,7 @@ import pandas as pd
 import json
 from prompt_template import PromptTemplate
 from question import get_response
+from plan import Plan
 
 class Planner:
     def __init__(self, main_question, mission_path, strategy_path, query_plan_path):
@@ -12,6 +13,7 @@ class Planner:
         self.mission_path = mission_path
         self.strategy_path = strategy_path
         self.query_plan_path = query_plan_path
+        self.plan = Plan()
 
     def generate_query(self, document_list, history):
         pmission = PromptTemplate(self.mission_path)
@@ -30,15 +32,15 @@ class Planner:
         )
         print(self.query_plan)
 
-    def query(self):
-        self.reply = get_response(self.query_plan)
+    def create_plan(self):
+        self.reply_raw = get_response(self.query_plan)
+        self.reply_json = json.loads(self.reply_raw)
+        for entry in self.reply_json["Plan"]:
+            self.plan.add_data(entry["DocumentId"], entry["Purpose"], entry["Perspectives"])
 
     def save_to_json(self, file_path):
-        # JSON文字列をPythonの辞書オブジェクトに変換
-        data = json.loads(self.reply)
-        # JSONファイルに書き込み
         with open(file_path, 'w') as file:
-            json.dump(data, file, indent=4, ensure_ascii=False)
+            json.dump(self.reply_json, file, indent=4, ensure_ascii=False)
 
 if __name__ == "__main__":
     import sys
@@ -57,5 +59,6 @@ if __name__ == "__main__":
         query_plan_path= "./prompt_templates/ptemplate_query_plan.txt"
         )
     planner.generate_query(doc_list, "")
-    planner.query()
+    planner.create_plan()
+    planner.plan.save_to_json("test/plan.json")
     planner.save_to_json("reply.json")
