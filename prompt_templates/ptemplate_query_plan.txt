@@ -1,0 +1,14 @@
+Main Question に対して、Mission、Strategy の内容に従い、
+回答に必要な情報を抽出するための Plan をjson形式で生成してください。
+
+Input:
+ Main Question: {MainQuestion}
+ Mission: {Mission}
+ Strategy: {Strategy}
+ Document List: {DocumentList}
+ History: {History}
+Output(json format):
+ Plan(N plans):
+  DocumentId: <DocumentId>
+  Purpose: <Purpose>
+  Perspectives: <Perspectives>
