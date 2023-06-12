@@ -1,7 +1,0 @@
-purpose: {purpose}
-perspectives: {perspectives}
-Please identify one document that seems to contain ample information for the above purpose and perspectives.
-And provide the response in the following format: 
-RESULT: <DocumentName> 
-If not found then please indicates the reason in the following format: 
-RESULT: None <Reason> 

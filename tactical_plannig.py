@@ -6,10 +6,9 @@ from prompt_template import PromptTemplate
 from db_manager import get_qa
 
 class TacticalPlanning:
-    def __init__(self, plan: Plan, db_dir: str, summary_template_path: str):
+    def __init__(self, plan: Plan, db_dir: str):
         self.plan = plan
         self.db_dir = db_dir
-        self.summary_template_path = summary_template_path
 
     def generate_question(self, prompt_templates):
         prioritized_plan = self._prioritize_plan()
@@ -35,22 +34,17 @@ class TacticalPlanning:
         return prioritized_plan
 
     def _generate_document_question(self, prompt_template_path, document_id, purpose, perspectives):
-        if document_id == "summary":
-            prompt_query_template = PromptTemplate(self.summary_template_path)
-            query = prompt_query_template.get_prompt(document_id=document_id, purpose=purpose, perspectives=perspectives)
-            return query
-        else:
-            prompt_query_template = PromptTemplate(prompt_template_path)
-            query = prompt_query_template.get_prompt(document_id=document_id, purpose=purpose, perspectives=perspectives)
-            return query
+        prompt_query_template = PromptTemplate(prompt_template_path)
+        query = prompt_query_template.get_prompt(document_id=document_id, purpose=purpose, perspectives=perspectives)
+        return query
 
 if __name__ == "__main__":
     from query import Query
     from memory_stream import MemoryStream
     plan = Plan()
     plan.load_from_json("./test/plan.json")
-    db_dir = "../tutorial_langchain/dbs"
-    tactical_planning = TacticalPlanning(plan, db_dir, "./prompt_templates/ptemplate_subq_summary.txt")
+    db_dir = "../documents/dbs"
+    tactical_planning = TacticalPlanning(plan, db_dir)
     memory_stream = MemoryStream()
 
     while True:
