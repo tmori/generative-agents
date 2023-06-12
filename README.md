@@ -3,12 +3,15 @@ Experimenting with an agent that searches documents and asks questions repeatedl
 
 ## Architecture
 
-![image](https://github.com/tmori/generative-agents/assets/164193/2274d26e-0145-41d1-9c07-267f19109b42)
+![image](https://github.com/tmori/generative-agents/assets/164193/f6263503-5589-4b37-8ce0-04906ac3973f)
 
 
 Referring to the generative agent mentioned in the reference document.
 
 ## Actions
+### Evaluator
+(TODO)
+
 ### Planner
 The purpose of the Planner is to generate investigation plans for a set of documents based on the given input data.
 
