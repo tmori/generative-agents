@@ -16,6 +16,7 @@ if __name__ == "__main__":
     if (len(sys.argv) == 1) or (len(sys.argv) > 4):
         print("USAGE: " + sys.argv[0] + " new [<doc_dir> [<db_dir>]]")
         print("USAGE: " + sys.argv[0] + " chat [<db_dir>]")
+        print("USAGE: " + sys.argv[0] + " question <db_dir>")
         sys.exit(1)
 
     mode=sys.argv[1]
@@ -30,6 +31,12 @@ if __name__ == "__main__":
         if len(sys.argv) == 3:
             db_dir = sys.argv[2]
         
+    if mode == "question":
+        if len(sys.argv) != 4:
+            print("USAGE: " + sys.argv[0] + " question <db_dir>")
+            sys.exit(1)
+        question = sys.argv[2]
+        db_dir = sys.argv[3]
 
     if mode == "new":
         if len(sys.argv) != 2 and len(sys.argv) != 4:
@@ -151,6 +158,10 @@ def calc_similarity(str1, str2):
 if __name__ == "__main__":
     if mode == "new":
         _ = create_db(doc_dir, db_dir, embedding_model, page_chunk_size)
+    elif mode == "question":
+        qa = load_db_with_type(db_dir)
+        result = qa({"question": question})
+        print(result["answer"])
     else:
         qa = load_db_with_type(db_dir)
         while True:

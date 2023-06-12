@@ -26,7 +26,10 @@ def get_response(question):
 
 if __name__ == "__main__":
     import sys
-    arg = input("> ")
+    if (len(sys.argv) == 1):
+        arg = input("> ")
+    else:
+        arg = sys.argv[1]
     if arg == "q" or arg == "quit":
         print("See you again!")
         sys.exit(0)
