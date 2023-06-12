@@ -55,11 +55,13 @@ from langchain.document_loaders import PyPDFLoader
 from langchain.document_loaders import CSVLoader
 from langchain.document_loaders import UnstructuredPowerPointLoader
 from langchain.document_loaders import UnstructuredURLLoader
+from langchain.document_loaders import JSONLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.memory import ConversationBufferWindowMemory, ConversationTokenBufferMemory
 
 def create_db(doc_dir, db_dir, embedding_model, chunk_size):
     pdf_files = [ file for file in os.listdir(doc_dir) if file.endswith(".pdf")]
+    json_files = [ file for file in os.listdir(doc_dir) if file.endswith(".json")]
     csv_files = [ file for file in os.listdir(doc_dir) if file.endswith(".csv")]
     pptx_files = [ file for file in os.listdir(doc_dir) if file.endswith(".pptx")]
     url_files = [ file for file in os.listdir(doc_dir) if file.endswith(".url")]
@@ -68,7 +70,7 @@ def create_db(doc_dir, db_dir, embedding_model, chunk_size):
         chunk_size = chunk_size,
         chunk_overlap = 0,
     )
-    files = pdf_files + csv_files + pptx_files + url_files
+    files = pdf_files + csv_files + pptx_files + url_files + json_files
     pages = []
     for file in files:
         print("INFO: Loading document=" + file)
@@ -78,6 +80,8 @@ def create_db(doc_dir, db_dir, embedding_model, chunk_size):
             loader = CSVLoader(doc_dir + '/' + file)
         elif ".pptx" in file:
             loader = UnstructuredPowerPointLoader(doc_dir + '/' + file)
+        elif ".json" in file:
+            loader = JSONLoader(file_path= doc_dir + '/' + file, jq_schema='.messages[].content')
         elif ".url" in file:
             with open(doc_dir + '/' + file, 'r') as file:
                 urls = file.read().splitlines()
