@@ -7,7 +7,9 @@ Input:
  Strategy: {Strategy}
  Document List: {DocumentList}
  History: {History}
+ PastStrategies: {PastStrategies}
 Output(json format):
+ DetailedStrategy: <DetailedStrategy>
  Plan(N plans):
   DocumentID: <DocumentID>
   Purpose: <Purpose>

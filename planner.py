@@ -28,13 +28,16 @@ class Planner:
             Mission = mission,
             Strategy = strategy,
             DocumentList = document_list,
-            History = history
+            History = history,
+            PastStrategies = []
         )
         print(self.query_plan)
 
     def create_plan(self):
         self.reply_raw = get_response(self.query_plan)
+        print(self.reply_raw)
         self.reply_json = json.loads(self.reply_raw)
+        self.plan.set_strategy(self.reply_json["DetailedStrategy"])
         for entry in self.reply_json["Plan"]:
             self.plan.add_data(entry["DocumentID"], entry["Purpose"], entry["Perspectives"])
 
@@ -48,7 +51,7 @@ if __name__ == "__main__":
         print("Usage: <MainQuestion> <doc_list.txt>")
         sys.exit(1)
     main_question = sys.argv[1]
-    batch_size = 3
+    batch_size = 100
     with open(sys.argv[2], 'r') as file:
         lines = file.readlines()
         total_list = [line.strip() for line in lines]
@@ -62,4 +65,5 @@ if __name__ == "__main__":
     for doc_list in batched_list:
         planner.generate_query(doc_list, "")
         planner.create_plan()
+        planner.save_to_json("reply.json")
     planner.plan.save_to_json("test/plan.json")
