@@ -42,7 +42,7 @@ if __name__ == "__main__":
     from query import Query
     from memory_stream import MemoryStream
     plan = Plan()
-    plan.load_from_json("./test/plan.json")
+    plan.load_from_json("./test/result/plan.json")
     db_dir = "../documents/dbs"
     tactical_planning = TacticalPlanning(plan, db_dir)
     memory_stream = MemoryStream()
@@ -64,8 +64,8 @@ if __name__ == "__main__":
             continue
         print("REPLY: " + memory_stream.get_reply())
         print("POINT: " + str(memory_stream.get_point()))
-        memory_stream.save_to_json("test/memory.json")
+        memory_stream.save_to_json("test/result/memory.json")
 
         plan.update_status_done(plan_id, memory_id)
-        plan.save_to_json("./test/updated_plan.json")
+        plan.save_to_json("./test/result/updated_plan.json")
 

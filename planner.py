@@ -85,6 +85,6 @@ if __name__ == "__main__":
     for doc_list in batched_list:
         planner.generate_query(doc_list, "")
         planner.create_plan()
-        planner.save_to_json("test/reply.json")
-    planner.plan.save_to_json("test/plan.json")
+        planner.save_to_json("test/result/reply.json")
+    planner.plan.save_to_json("test/result/plan.json")
     planner.save_strategy_history()

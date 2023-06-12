@@ -68,4 +68,4 @@ if __name__ == "__main__":
         plan.add_data(doc_id, purpose, perspectives, ids, status)
         print(plan.get_data_by_id())
         i += 1
-    plan.save_to_json("test/plan.json")
+    plan.save_to_json("test/result/plan.json")
