@@ -28,7 +28,14 @@ class MemoryStream:
             return self.data.loc[index, "Reply"]
         else:
             return None
-        
+
+    def get_data(self, id: int):
+        filtered_data = self.data.loc[self.data["ID"] == id]
+        if filtered_data.empty:
+            return None
+        else:
+            return filtered_data.to_dict(orient="records")[0]
+
     def get_point(self, index = None):
         if (index == None):
             index = len(self.data) - 1
@@ -42,6 +49,12 @@ class MemoryStream:
 
         with open(file_path, "w", encoding="utf-8") as f:
             json.dump(json_data, f, indent=4, ensure_ascii=False)
+
+
+    def load_from_json(self, file_path):
+        with open(file_path, 'r') as file:
+            json_data = json.load(file)
+            self.data = pd.DataFrame(json_data)
 
 if __name__ == "__main__":
     memory_stream = MemoryStream()

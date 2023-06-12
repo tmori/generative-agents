@@ -34,11 +34,17 @@ class Plan:
         with open(file_path, "w", encoding="utf-8") as f:
             json.dump(json_data, f, indent=4, ensure_ascii=False)
 
+    def get_json_data(self):
+        self.json_data = dict()
+        self.json_data["DetailedStrategy"] = self.detailed_strategy
+        self.json_data["Plan"] = self.data.to_dict(orient="records")
+        return self.json_data
+
     def load_from_json(self, file_path):
         with open(file_path, 'r') as file:
-            json_data = json.load(file)
-            self.detailed_strategy = json_data["DetailedStrategy"]
-            self.data = pd.DataFrame(json_data['Plan'])
+            self.json_data = json.load(file)
+            self.detailed_strategy = self.json_data["DetailedStrategy"]
+            self.data = pd.DataFrame(self.json_data['Plan'])
 
     def get_data(self):
         return self.data

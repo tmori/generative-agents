@@ -17,16 +17,16 @@ class Planner:
 
     def generate_query(self, document_list, history):
         pmission = PromptTemplate(self.mission_path)
-        mission = pmission.get_prompt()
+        self.mission = pmission.get_prompt()
 
         pstrategy = PromptTemplate(self.strategy_path)
-        strategy = pstrategy.get_prompt()
+        self.strategy = pstrategy.get_prompt()
 
         pquery_plan = PromptTemplate(self.query_plan_path)
         self.query_plan = pquery_plan.get_prompt(
             MainQuestion = self.main_question,
-            Mission = mission,
-            Strategy = strategy,
+            Mission = self.mission,
+            Strategy = self.strategy,
             DocumentList = document_list,
             History = history,
             PastStrategies = []

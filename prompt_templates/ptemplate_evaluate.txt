@@ -1,0 +1,16 @@
+Main Question に対して、Mission、DetailedStrategy の内容に従い、
+回答に必要な情報を抽出した結果はOutputの通りです。
+
+Input:
+ Main Question: {MainQuestion}
+ Mission: {Mission}
+ PastStrategies: {PastStrategies}
+{PlanExecutedResults}
+
+
+ここから、MainQuestionに対する回答の作成を以下の書式でお願いします。
+Result:
+ Answer: <Answer>
+ NewStrategy: <Strategy>
+ただし、回答するには情報が不足する場合は、Answerには、Unknown とし、
+PastStrategies, DetailedStrategy にない新しい調査観点をNewStrategyに設定してください。
