@@ -48,17 +48,18 @@ if __name__ == "__main__":
         print("Usage: <MainQuestion> <doc_list.txt>")
         sys.exit(1)
     main_question = sys.argv[1]
+    batch_size = 3
     with open(sys.argv[2], 'r') as file:
         lines = file.readlines()
-        doc_list = [line.strip() for line in lines]
-    
+        total_list = [line.strip() for line in lines]
+        batched_list = [total_list[i:i+batch_size] for i in range(0, len(total_list), batch_size)]
     planner = Planner(
         main_question = main_question,
         mission_path= "./prompt_templates/ptemplate_mission.txt",
         strategy_path= "./prompt_templates/ptemplate_strategy.txt",
         query_plan_path= "./prompt_templates/ptemplate_query_plan.txt"
-        )
-    planner.generate_query(doc_list, "")
-    planner.create_plan()
+    )
+    for doc_list in batched_list:
+        planner.generate_query(doc_list, "")
+        planner.create_plan()
     planner.plan.save_to_json("test/plan.json")
-    planner.save_to_json("reply.json")
