@@ -78,7 +78,14 @@ It is a collection of data sets, with each set consisting of the following infor
 History is a subset of MemoryStream. It consists of selections that have high points.
 
 ### Reflection
-(TODO)
+The data of Reflection consists of the following two components:
+
+-  Knowledge (Needs)
+- Knowledge (Definition)
+
+Knowledge (Needs) refers to the necessary knowledge/concepts required to answer the question.
+
+Knowledge (Definition) represents the understanding of that knowledge/concept.
 
 ## refs
 * https://arxiv.org/abs/2304.03442
