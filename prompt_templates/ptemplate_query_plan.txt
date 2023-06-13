@@ -2,7 +2,7 @@ Main Question に対して、Mission、Strategy の内容に従い、
 回答に必要な情報を抽出するための Plan をjson形式で生成してください。
 
 Input:
- Main Question: {MainQuestion}
+ Main Question: この質問「{MainQuestion}」は、システムのユーザ操作、システムのトラブルシューティング、仕様理解に関するものです。
  Mission: {Mission}
  Strategy: {Strategy}
  Document List: {DocumentList}

@@ -29,15 +29,18 @@ class Evaluator:
             new_entry["Purpose"] = tmp["Purpose"]
             new_entry["Perspectives"] = tmp["Perspectives"]
             #print(new_entry)
-            if entry["ResultID"] >= 0:
-                data = self.memory_stream.get_data(entry["ResultID"])
-                #print(data)
-                new_entry["ResultID"] = { "Reply": data["Reply"], "Point": data["Point"] }
+            if isinstance(entry["ResultID"], int) or isinstance(entry["ResultID"], float):
+                if entry["ResultID"] >= 0:
+                    data = self.memory_stream.get_data(entry["ResultID"])
+                    #print(data)
+                    new_entry["ResultID"] = { "Reply": data["Reply"], "Point": data["Point"] }
+                else:
+                    new_entry["ResultID"] = { "Reply": "No Reply", "Point": 0.0 }
             else:
-                new_entry["ResultID"] = { "Reply": "No Reply", "Point": 0.0 }
+                    new_entry["ResultID"] = { "Reply": "No Reply", "Point": 0.0 }
             self.merged_data["Plan"].append(new_entry)
         #print(merged_data)
-        with open("./test.json", "w", encoding="utf-8") as f:
+        with open("./test/result/plan_result.json", "w", encoding="utf-8") as f:
             json.dump(self.merged_data, f, indent=4, ensure_ascii=False)
 
     def evaluate(self, template_path):

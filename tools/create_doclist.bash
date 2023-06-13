@@ -1,5 +1,6 @@
 #!/bin/bash
 
+TITLE=""
 function do_task()
 {
     ## CREATE DB
@@ -15,6 +16,7 @@ function do_task()
     mv tmp/DB documents/dbs/$TITLE
 }
 rm -f documents/document.list
+rm -f documents/document-title-mapping.list
 rm -rf documents/dbs/*
 
 ls documents/docs > list.txt
@@ -25,5 +27,6 @@ while IFS= read -r filepath || [[ -n "$filepath" ]]; do
     mkdir tmp
     cp documents/docs/"$filepath" tmp/
     do_task
+    echo "${TITLE}: $filepath" >> documents/document-title-mapping.list
   fi
 done < list.txt
