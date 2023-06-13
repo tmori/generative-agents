@@ -9,11 +9,13 @@ from plan import Plan
 import os
 
 class Planner:
-    def __init__(self, main_question, mission_path, strategy_path, query_plan_path, strategy_history_path):
+    def __init__(self, main_question, mission_path, strategy_path, query_plan_path, strategy_history_path, knowledge_path):
         self.main_question = main_question
         self.mission_path = mission_path
         self.strategy_path = strategy_path
         self.query_plan_path = query_plan_path
+        with open(knowledge_path, 'r') as file:
+            self.knowledges = file.read()
         self.strategy_history_path = strategy_history_path
         if os.path.exists(strategy_history_path):
             with open(strategy_history_path, 'r') as file:
@@ -40,7 +42,8 @@ class Planner:
             Strategy = self.strategy,
             DocumentList = document_list,
             History = history,
-            PastStrategies = past_strategies
+            PastStrategies = past_strategies,
+            Knowledges = self.knowledges
         )
         print(self.query_plan)
 
@@ -66,10 +69,11 @@ class Planner:
 
 if __name__ == "__main__":
     import sys
-    if len(sys.argv) != 3:
-        print("Usage: <MainQuestion> <doc_list.txt>")
+    if len(sys.argv) != 4:
+        print("Usage: <MainQuestion> <doc_list.txt> <knowledge_path>")
         sys.exit(1)
     main_question = sys.argv[1]
+    knowledge_path = sys.argv[3]
     batch_size = 100
     with open(sys.argv[2], 'r') as file:
         lines = file.readlines()
@@ -80,7 +84,8 @@ if __name__ == "__main__":
         mission_path= "./prompt_templates/ptemplate_mission.txt",
         strategy_path= "./prompt_templates/ptemplate_strategy.txt",
         query_plan_path= "./prompt_templates/ptemplate_query_plan.txt",
-        strategy_history_path="./test/strategy_history.json"
+        strategy_history_path="./test/strategy_history.json",
+        knowledge_path = knowledge_path
     )
     for doc_list in batched_list:
         planner.generate_query(doc_list, "")
