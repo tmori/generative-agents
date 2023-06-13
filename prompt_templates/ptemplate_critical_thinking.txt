@@ -1,0 +1,5 @@
+「{MainQuestion}」
+の質問に回答する上で、前提とする知識や概念として考えられることをリスト化してください。
+結果は、以下の json 形式で出力してください。
+Knowledges(N plans):
+  Term: <Term>
