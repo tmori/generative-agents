@@ -22,9 +22,9 @@ query_dir=$1
 query="`cat ${query_dir}/query.txt`"
 
 rm -rf test/result/*
-#rm -rf test/*.json
+rm -rf test/*.json
 
-TRY_NO=2
+TRY_NO=1
 python3 planner.py "$query" ../documents/document.list 
 python3 tactical_plannig.py
 python3 evaluator.py "$query" ./test/result/updated_plan.json ./test/result/memory.json

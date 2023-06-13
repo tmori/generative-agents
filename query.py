@@ -20,6 +20,7 @@ class Query:
             reply = self.qa({"question": query})
         except openai.error.InvalidRequestError as e:
             print("ERROR: can not query:" + query)
+            print("ERROR:" + e)
             return -1
 
         #calculate point of reply

@@ -11,6 +11,7 @@ class CriticalThinking:
         self.query = prompt_template.get_prompt(MainQuestion=main_question)
 
     def create(self):
+        print(self.query)
         self.reply_raw = get_response(self.query)
 
 
