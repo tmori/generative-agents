@@ -14,7 +14,7 @@ Referring to the generative agent mentioned in the reference document.
 
 ## Actions
 ### Evaluator
-(TODO)
+The Evaluator integrates and evaluates the results of the execution of the plan to create an answer to the MainQuestion.
 
 ### Planner
 The purpose of the Planner is to generate investigation plans for a set of documents based on the given input data.
