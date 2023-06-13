@@ -3,5 +3,8 @@
 過去の調査状況:
  PastStrategiesは、過去に調査したDetailedStrategyがリスト化されています。
 調査方法:
- MainQuestion に対して、調査観点を決めて、DetailedStrategyとして調査してください。
- その観点から、DocumentList の中で、回答に必要な情報が含まれているものを推測し、Planを作成してください。
+ MainQuestion に対して、回答をするには、前提とする知識や概念として考えられることは何かをリスト化し、
+ その知識や概念を理解するには、DocumentList の中でどれを調査すべきか考えてください。
+ 
+ その上で、調査方法を DetailedStrategy　として、対象のドキュメント毎に、調査観点を決めて、
+ Plan を作成してください。
