@@ -1,0 +1,17 @@
+この質問「{MainQuestion}」は、システムのユーザ操作、システムのトラブルシューティング、仕様理解に関するものです。
+この質問に回答する上で必要な知識／概念をリスト化されたものが以下です。
+{KnowledgesNeeds}
+上記の概念／知識に関する情報を収集するために、既存のドキュメントに問い合わせした結果は以下の通りでした。
+{PlanResult}
+この結果から、概念／知識の情報をアップデートしてください。
+KnownInfoには、理解した情報を埋めてください。
+UnknownInfoには、まだ理解しきれていない情報を埋めてください。
+Relationsには、他の概念／知識との関係性があるものを列挙してください。またその理由も入れてください。
+書式は以下のjson形式でお願いします。
+Knowledges(N items):
+  Term: <Term>
+  KnownInfo: <KnownInfo>
+  UnknownInfo: <UnknownInfo>
+  Relations(M items):
+    Term: <Term>
+    RelationReason: <RelationReason>
