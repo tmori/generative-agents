@@ -3,11 +3,11 @@ Experimenting with an agent that searches documents and asks questions repeatedl
 
 ## Architecture
 
-![image](https://github.com/tmori/generative-agents/assets/164193/3e8ce4bd-05d6-4fa8-a6ff-278e8142341f)
+![image](https://github.com/tmori/generative-agents/assets/164193/a8b6087d-d214-472c-afc6-bf0e240e1615)
 
 ### Reflection Process
 
-![image](https://github.com/tmori/generative-agents/assets/164193/4ce2acfc-d8e6-4c1e-90cc-adb1902289a4)
+![image](https://github.com/tmori/generative-agents/assets/164193/14acc921-0e0a-433a-9fef-be3e298ab772)
 
 
 Referring to the generative agent mentioned in the reference document.
@@ -77,15 +77,13 @@ It is a collection of data sets, with each set consisting of the following infor
 ### History
 History is a subset of MemoryStream. It consists of selections that have high points.
 
-### Reflection
-The data of Reflection consists of the following two components:
+### Knowledge/Concept
+The output data of Reflection consists of the following two components:
 
--  Knowledge (Needs)
+- Knowledge (Needs)
+  - refers to the necessary knowledge/concepts required to answer the question.
 - Knowledge (Definition)
-
-Knowledge (Needs) refers to the necessary knowledge/concepts required to answer the question.
-
-Knowledge (Definition) represents the understanding of that knowledge/concept.
+  - represents the understanding of that knowledge/concept.
 
 ## refs
 * https://arxiv.org/abs/2304.03442
