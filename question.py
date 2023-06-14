@@ -10,6 +10,7 @@ from langchain.agents import AgentType
 #from getpass import getpass
 import os
 import openai
+import traceback
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 tools = []
@@ -34,5 +35,12 @@ if __name__ == "__main__":
     if arg == "q" or arg == "quit":
         print("See you again!")
         sys.exit(0)
-    ret = get_response(arg)
+    try:
+        ret = get_response(arg)
+    except Exception as e:
+        traceback_str = traceback.format_exc()
+        error_message = f"ERROR: {str(e)}"
+        print(traceback_str + error_message)
+        sys.exit(1)
+
     print(ret)

@@ -4,6 +4,7 @@
 from question import get_response
 from prompt_template import PromptTemplate
 import json
+import traceback
 
 class CriticalThinking:
     def __init__(self, main_question: str, prompt_template_path: str):
@@ -12,7 +13,13 @@ class CriticalThinking:
 
     def create(self):
         print(self.query)
-        self.reply_raw = get_response(self.query)
+        try:
+            self.reply_raw = get_response(self.query)
+        except Exception as e:
+            traceback_str = traceback.format_exc()
+            error_message = f"ERROR: {str(e)}"
+            print(traceback_str + error_message)
+            sys.exit(1)
         print(self.reply_raw)
 
     def save_to_json(self, file_path):

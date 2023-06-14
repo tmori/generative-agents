@@ -21,6 +21,7 @@ fi
 query_dir=$1
 query="`cat ${query_dir}/query.txt`"
 
+export NEW_STARTEGY=
 for TRY_NO in `seq 1 2`
 do
     if [ ${TRY_NO} -eq 1 ]
@@ -35,6 +36,12 @@ do
     python3 tactical_plannig.py
     python3 evaluator.py "$query" ./test/result/updated_plan.json ./test/result/memory.json | tee ./test/result/result.txt
     python3 reflection.py "$query"
+    grep "NewStrategy:" ./test/result/result.txt
+    if [ $? -eq 0 ]
+    then
+        export NEW_STARTEGY=`grep "NewStrategy:" ./test/result/result.txt | awk -F: '{print $2}'`
+        echo $NEW_STRATEGY
+    fi
 
     dir_name=q_${TRY_NO}
     if [ -d ${query_dir}/${dir_name} ]

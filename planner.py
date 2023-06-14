@@ -7,6 +7,7 @@ from prompt_template import PromptTemplate
 from question import get_response
 from plan import Plan
 import os
+import traceback
 
 class Planner:
     def __init__(self, main_question, mission_path, strategy_path, query_plan_path, strategy_history_path, knowledge_path):
@@ -48,13 +49,26 @@ class Planner:
         print(self.query_plan)
 
     def create_plan(self):
-        self.reply_raw = get_response(self.query_plan)
+        try:
+            self.reply_raw = get_response(self.query_plan)
+        except Exception as e:
+            traceback_str = traceback.format_exc()
+            error_message = f"ERROR: {str(e)}"
+            print(traceback_str + error_message)
+            sys.exit(1)
+
         print(self.reply_raw)
         self.reply_json = json.loads(self.reply_raw)
-        self.plan.set_strategy(self.reply_json["DetailedStrategy"])
+
+        new_strategy = os.getenv("NEW_STARTEGY")
+        print("NEW_STRATEGY:" + new_strategy)
+        if new_strategy is None or len(new_strategy.strip()) == 0:
+            new_strategy = self.reply_json["DetailedStrategy"]
+
+        self.plan.set_strategy(new_strategy)
         if "Strategies" not in self.strategy_history_json:
             self.strategy_history_json["Strategies"] = []
-        self.strategy_history_json["Strategies"].append(self.reply_json["DetailedStrategy"])
+        self.strategy_history_json["Strategies"].append(new_strategy)
 
         for entry in self.reply_json["Plan"]:
             self.plan.add_data(entry["DocumentID"], entry["Purpose"], entry["Perspectives"])

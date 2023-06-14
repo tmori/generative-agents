@@ -14,3 +14,4 @@ Result:
  NewStrategy: <Strategy>
 ただし、回答するには情報が不足する場合は、Answerには、Unknown とし、
 PastStrategies, DetailedStrategy にない新しい調査観点をNewStrategyに設定してください。
+NewStrategyがない場合は、<Strategy>には何も設定しないでください

@@ -9,6 +9,7 @@ from prompt_template import PromptTemplate
 from question import get_response
 from plan import Plan
 import copy
+import traceback
 
 class Evaluator:
     def __init__(self, main_question, mission_path, plan: Plan, memory_stream: MemoryStream):
@@ -52,7 +53,13 @@ class Evaluator:
             PastStrategies = [],
             PlanExecutedResults = self.merged_data
         )
-        reply = get_response(prompt)
+        try:
+            reply = get_response(prompt)
+        except Exception as e:
+            traceback_str = traceback.format_exc()
+            error_message = f"ERROR: {str(e)}"
+            print(traceback_str + error_message)
+            sys.exit(1)
         print(reply)
 
 if __name__ == "__main__":
