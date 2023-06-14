@@ -5,6 +5,7 @@ from question import get_response
 from prompt_template import PromptTemplate
 import json
 import traceback
+import json_utils
 
 class Reflection:
     def __init__(self, main_question: str, knowledge_path: str, plan_result_path: str, prompt_template_path: str, document_list_path: str):
@@ -33,6 +34,10 @@ class Reflection:
             sys.exit(1)
         print(self.reply_raw)
 
+    def save_to_raw(self, file_path):
+        with open(file_path, 'w') as file:
+            file.write(self.reply_raw)
+
     def save_to_json(self, file_path):
         with open(file_path, 'w') as file:
             json.dump(json.loads(self.reply_raw), file, indent=4, ensure_ascii=False)
@@ -52,4 +57,4 @@ if __name__ == "__main__":
         "./prompt_templates/ptemplate_reflection.txt",
         document_list_path)
     think.create()
-    think.save_to_json("test/result/reflection.json")
+    think.save_to_raw("test/result/reflection.json")

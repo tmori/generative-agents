@@ -28,14 +28,21 @@ do
     then
         rm -rf test/result/*
         rm -rf test/*.json
+        echo "INFO: CRITICAL THINKING"
         python3 critical_thinking.py  "$query"
+        echo "INFO: PLANNING"
         python3 planner.py "$query" ../documents/document.list test/result/critical_thinking.json
     else
+        echo "INFO: PLANNING"
         python3 planner.py "$query" ../documents/document.list test/result/reflection.json
     fi
+    echo "INFO: TACTICAL PLANNING"
     python3 tactical_plannig.py
+    echo "INFO: MERGING RESULT"
     python3 evaluator.py "$query" ./test/result/updated_plan.json ./test/result/memory.json
+    echo "INFO: REFLECTING..."
     python3 reflection.py "$query" ../documents/document.list
+    echo "INFO: EVALUATE"
     python3 evaluator.py "$query" \
             ./test/result/updated_plan.json \
             ./test/result/memory.json \

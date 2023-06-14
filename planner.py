@@ -8,6 +8,7 @@ from question import get_response
 from plan import Plan
 import os
 import traceback
+import json_utils
 
 class Planner:
     def __init__(self, main_question, mission_path, strategy_path, query_plan_path, strategy_history_path, knowledge_path):
@@ -48,16 +49,6 @@ class Planner:
         )
         print(self.query_plan)
 
-    def _parse(self):
-        lines = self.reply_raw.split("\n")
-        output_lines = []
-
-        for line in lines:
-            if line.strip().startswith("Output:"):
-                continue
-            output_lines.append(line)
-
-        self.reply_raw = "\n".join(output_lines)
 
     def create_plan(self):
         try:
@@ -68,10 +59,16 @@ class Planner:
             print(traceback_str + error_message)
             sys.exit(1)
 
-        self._parse()
+        self.reply_raw = json_utils.parse_plan(self.reply_raw)
         print(self.reply_raw)
 
-        self.reply_json = json.loads(self.reply_raw)
+        try:
+            self.reply_json = json.loads(self.reply_raw)
+        except json.decoder.JSONDecodeError as e:
+            traceback_str = traceback.format_exc()
+            error_message = f"ERROR: {str(e)}"
+            print(traceback_str + error_message)
+            sys.exit(1)
 
         new_strategy = os.getenv("NEW_STARTEGY")
         print("NEW_STRATEGY:" + new_strategy)

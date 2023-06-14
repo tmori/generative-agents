@@ -1,16 +1,17 @@
-Main Question に対して、Mission、Strategy、および 既知の知識／概念である Knowledges から、
-回答に必要な情報を抽出するための Plan を以下のデータ構造で、json形式で生成してください。
+Please generate a JSON data structure in the following format, in JSON format, 
+to extract the necessary information for the answer from the Mission, 
+Strategy, and known knowledge/concepts, in response to the Main Question.
 
-Output:
+PlanFormat(json):
  DetailedStrategy: <DetailedStrategy>
  Plan(N plans):
   DocumentID: <DocumentID>
   Purpose: <Purpose>
   Perspectives: <Perspectives>
 
-以下、入力情報です。
+The input information is as follows.
 Input:
- Main Question: この質問「{MainQuestion}」は、システムのユーザ操作、システムのトラブルシューティング、仕様理解に関するものです。
+ Main Question: The question "{MainQuestion}" pertains to user operations of the system, troubleshooting the system, and understanding specifications.
  Mission: {Mission}
  Strategy: {Strategy}
  Document List: {DocumentList}
