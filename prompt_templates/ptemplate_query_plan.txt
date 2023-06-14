@@ -1,7 +1,7 @@
 Main Question に対して、Mission、Strategy、および 既知の知識／概念である Knowledges から、
-回答に必要な情報を抽出するための Plan を以下のjson形式で生成してください。
+回答に必要な情報を抽出するための Plan を以下のデータ構造で、json形式で生成してください。
 
-
+Output:
  DetailedStrategy: <DetailedStrategy>
  Plan(N plans):
   DocumentID: <DocumentID>

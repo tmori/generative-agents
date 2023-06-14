@@ -48,6 +48,17 @@ class Planner:
         )
         print(self.query_plan)
 
+    def _parse(self):
+        lines = self.reply_raw.split("\n")
+        output_lines = []
+
+        for line in lines:
+            if line.strip().startswith("Output:"):
+                continue
+            output_lines.append(line)
+
+        self.reply_raw = "\n".join(output_lines)
+
     def create_plan(self):
         try:
             self.reply_raw = get_response(self.query_plan)
@@ -57,7 +68,9 @@ class Planner:
             print(traceback_str + error_message)
             sys.exit(1)
 
+        self._parse()
         print(self.reply_raw)
+
         self.reply_json = json.loads(self.reply_raw)
 
         new_strategy = os.getenv("NEW_STARTEGY")

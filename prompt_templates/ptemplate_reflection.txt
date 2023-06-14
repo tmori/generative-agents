@@ -6,13 +6,16 @@
 この結果から、概念／知識の情報をアップデートしてください。
 KnownInfoには、理解した情報を埋めてください。
 UnknownInfoには、まだ理解しきれていない情報を埋めてください。
+DocumentIDs には、関連するDocumentIDを列挙してください。
 Relationsには、他の概念／知識との関係性があるものを列挙してください。またその理由も入れてください。
 また、新しい知識／概念の追加が必要な場合は、追加してください。
-書式は以下のjson形式でお願いします。
+結果は、以下のデータ構造で、json形式で出力ください。
 Knowledges(N items):
   Term: <Term>
   KnownInfo: <KnownInfo>
   UnknownInfo: <UnknownInfo>
+  DocumentIDs: <DocumentID>
   Relations(M items):
     Term: <Term>
     RelationReason: <RelationReason>
+

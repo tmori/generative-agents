@@ -34,8 +34,13 @@ do
         python3 planner.py "$query" ../documents/document.list test/result/reflection.json
     fi
     python3 tactical_plannig.py
-    python3 evaluator.py "$query" ./test/result/updated_plan.json ./test/result/memory.json | tee ./test/result/result.txt
-    python3 reflection.py "$query"
+    python3 evaluator.py "$query" ./test/result/updated_plan.json ./test/result/memory.json
+    python3 reflection.py "$query" ../documents/document.list
+    python3 evaluator.py "$query" \
+            ./test/result/updated_plan.json \
+            ./test/result/memory.json \
+            ./test/result/reflection.json \
+            | tee ./test/result/result.txt
     grep "NewStrategy:" ./test/result/result.txt
     if [ $? -eq 0 ]
     then

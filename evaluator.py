@@ -44,14 +44,17 @@ class Evaluator:
         with open("./test/result/plan_result.json", "w", encoding="utf-8") as f:
             json.dump(self.merged_data, f, indent=4, ensure_ascii=False)
 
-    def evaluate(self, template_path):
-        self.merge_data()
+    def evaluate(self, template_path, ref_json_path):
+        with open(ref_json_path, 'r') as file:
+            reflection = file.read()
+
         temp = PromptTemplate(template_path)
         prompt = temp.get_prompt(
             MainQuestion = self.main_question,
             Mission = self.mission,
             PastStrategies = [],
-            PlanExecutedResults = self.merged_data
+            PlanExecutedResults = self.merged_data,
+            Reflection = reflection
         )
         try:
             reply = get_response(prompt)
@@ -65,8 +68,8 @@ class Evaluator:
 if __name__ == "__main__":
     import sys
 
-    if len(sys.argv) != 4:
-        print("Usage: <MainQuestion> <plan> <memory>")
+    if len(sys.argv) != 4 and len(sys.argv) != 5:
+        print("Usage: <MainQuestion> <plan> <memory> [<reflection>]")
         sys.exit(1)
     main_question = sys.argv[1]
     plan_json_path = sys.argv[2]
@@ -77,4 +80,7 @@ if __name__ == "__main__":
     memory_stream = MemoryStream()
     memory_stream.load_from_json(mem_json_path)
     evaluator = Evaluator(main_question, mission_path, plan, memory_stream)
-    evaluator.evaluate("./prompt_templates/ptemplate_evaluate.txt")
+    evaluator.merge_data()
+    if len(sys.argv) == 5:
+        ref_json_path = sys.argv[4]
+        evaluator.evaluate("./prompt_templates/ptemplate_evaluate.txt", ref_json_path)
