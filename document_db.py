@@ -4,6 +4,7 @@
 import sys
 
 # hyper parameters
+#llm_name="gpt-4-0613"
 llm_name="gpt-4"
 embedding_model='text-embedding-ada-002'
 page_chunk_size = 1024

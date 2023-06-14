@@ -17,6 +17,7 @@ tools = []
 # OpenAI APIでモデルを指定して応答を取得する
 def get_response(question):
     response = openai.ChatCompletion.create(
+#        model="gpt-4-0613",
         model="gpt-4",
         messages=[
             {"role": "user", "content": question }

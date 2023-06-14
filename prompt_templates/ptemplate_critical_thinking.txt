@@ -4,6 +4,3 @@
 Knowledges(N items):
   Term: <Term>
   Reason: <Reason>
-  Relations(M items):
-    Term: <Term>
-    RelationReason: <RelationReason>
