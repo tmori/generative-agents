@@ -13,7 +13,7 @@ class CriticalThinking:
     def create(self):
         print(self.query)
         self.reply_raw = get_response(self.query)
-
+        print(self.reply_raw)
 
     def save_to_json(self, file_path):
         with open(file_path, 'w') as file:
