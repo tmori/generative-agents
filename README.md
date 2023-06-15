@@ -12,7 +12,7 @@ Experimenting with an agent that searches documents and asks questions repeatedl
 
 ### Reflection Process
 
-![image](https://github.com/tmori/generative-agents/assets/164193/14acc921-0e0a-433a-9fef-be3e298ab772)
+![image](https://github.com/tmori/generative-agents/assets/164193/4af2583f-aa1f-4bf1-bd30-902ba24a9c12)
 
 
 Referring to the generative agent mentioned in the reference document.
