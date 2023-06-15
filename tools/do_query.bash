@@ -21,27 +21,42 @@ fi
 query_dir=$1
 query="`cat ${query_dir}/query.txt`"
 
+ADD_REFLECTION="TRUE"
 export NEW_STARTEGY=
 for TRY_NO in `seq 1 2`
 do
-    if [ ${TRY_NO} -eq 1 ]
+    if [ ${ADD_REFLECTION} = "TRUE" ]
     then
-        rm -rf test/result/*
-        rm -rf test/*.json
-        echo "INFO: CRITICAL THINKING"
-        python3 critical_thinking.py  "$query"
-        echo "INFO: PLANNING"
-        python3 planner.py "$query" ../documents/document.list test/result/critical_thinking.json
+        if [ ${TRY_NO} -eq 1 ]
+        then
+            rm -rf test/result/*
+            rm -rf test/*.json
+            echo "INFO: CRITICAL THINKING"
+            python3 critical_thinking.py  "$query"
+            echo "INFO: PLANNING"
+            python3 planner.py "$query" ../documents/document.list test/result/critical_thinking.json
+        else
+            echo "INFO: PLANNING"
+            python3 planner.py "$query" ../documents/document.list test/result/reflection.json
+        fi
     else
         echo "INFO: PLANNING"
+        rm -rf test/result/*
+        rm -rf test/*.json
+        touch test/result/reflection.json
         python3 planner.py "$query" ../documents/document.list test/result/reflection.json
     fi
     echo "INFO: TACTICAL PLANNING"
     python3 tactical_plannig.py
     echo "INFO: MERGING RESULT"
     python3 evaluator.py "$query" ./test/result/updated_plan.json ./test/result/memory.json
-    echo "INFO: REFLECTING..."
-    python3 reflection.py "$query" ../documents/document.list
+    if [ ${ADD_REFLECTION} = "TRUE" ]
+    then
+        echo "INFO: REFLECTING..."
+        python3 reflection.py "$query" ../documents/document.list
+    else
+        echo "INFO: SKIP REFLECTION"
+    fi
     echo "INFO: EVALUATE"
     python3 evaluator.py "$query" \
             ./test/result/updated_plan.json \
