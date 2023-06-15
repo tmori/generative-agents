@@ -1,9 +1,14 @@
 # generative-agents
 Experimenting with an agent that searches documents and asks questions repeatedly in response to the main question, automatically determining the optimal answer from the current documents or recognizing when there is no answer.
 
+## Tool chain for creating document TITLE and DB
+
+![image](https://github.com/tmori/generative-agents/assets/164193/b0e200b6-a178-4d08-afb9-6d7d7c3088a1)
+
 ## Architecture
 
-![image](https://github.com/tmori/generative-agents/assets/164193/a8b6087d-d214-472c-afc6-bf0e240e1615)
+![image](https://github.com/tmori/generative-agents/assets/164193/da5d59f2-15c9-4d95-bc4c-dac31523e105)
+
 
 ### Reflection Process
 
