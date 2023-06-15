@@ -10,12 +10,24 @@ DocumentIDs には、関連するDocumentIDを列挙してください。
 Relationsには、他の概念／知識との関係性があるものを列挙してください。またその理由も入れてください。
 また、新しい知識／概念の追加が必要な場合は、追加してください。
 結果は、以下のデータ構造で、json形式で出力ください。
-Knowledges(N items):
-  Term: <Term>
-  KnownInfo: <KnownInfo>
-  UnknownInfo: <UnknownInfo>
-  DocumentIDs: <DocumentID>
-  Relations(M items):
-    Term: <Term>
-    RelationReason: <RelationReason>
+{{
+  "Knowledges": [
+    {{
+      "Term": "<Term>"
+      "Reason": "<Reason>"
+      "KnownInfo": "<KnownInfo>"
+      "UnknownInfo": "<UnknownInfo>"
+      "DocumentIDs": [ "<DocumentID>", ... ]
+      "Relations": [
+        {{
+          "Term": "<Term>",
+          "RelationReason": "<RelationReason>",
+        }},
+        :
+      ]
+    }},
+    :
+    :
+  ]
+}}
 

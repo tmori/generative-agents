@@ -1,6 +1,13 @@
 この質問「{MainQuestion}」は、システムのユーザ操作、システムのトラブルシューティング、仕様理解に関するものです。
 この質問に回答する上で必要な知識／概念をリスト化し、その理由も示してください。
 結果は、以下の json 形式で出力してください。
-Knowledges(N items):
-  Term: <Term>
-  Reason: <Reason>
+{{
+  "Knowledges": [
+    {{
+      "Term": "<Term>"
+      "Reason": "<Reason>"
+    }},
+    :
+    :
+  ]
+}}

@@ -2,12 +2,18 @@ Please generate a JSON data structure in the following format, in JSON format,
 to extract the necessary information for the answer from the Mission, 
 Strategy, and known knowledge/concepts, in response to the Main Question.
 
-PlanFormat(json):
- DetailedStrategy: <DetailedStrategy>
- Plan(N plans):
-  DocumentID: <DocumentID>
-  Purpose: <Purpose>
-  Perspectives: <Perspectives>
+{{
+  "DetailedStrategy": "<DetailedStrategy>"
+  "Plan": [
+    {{
+      "DocumentID": "<DocumentID>"
+      "Purpose": "<Purpose>"
+      "Perspectives": "<Perspectives>"
+    }},
+    :
+    :
+  ]
+}}
 
 The input information is as follows.
 Input:
