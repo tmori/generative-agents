@@ -28,4 +28,5 @@ Input:
  Document List: {DocumentList}
  History: {History}
  PastStrategies: {PastStrategies}
- Knowledges: {Knowledges}
+ BackgroundKnowledges: {BackgroundKnowledges}
+ AcquiredKnowledges: {AcquiredKnowledges}

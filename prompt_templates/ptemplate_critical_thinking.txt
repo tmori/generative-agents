@@ -11,3 +11,6 @@ The result should be outputted in the following JSON format.
     :
   ]
 }}
+
+The input information is as follows.
+BackgroundKnowledges: {BackgroundKnowledges}

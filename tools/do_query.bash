@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [ $# -ne 1 ]
+if [ $# -ne 2 ]
 then
-    echo "Usage: $0 <query_dir>"
+    echo "Usage: $0 <query_dir> <background_knowledge_path>"
     exit 1
 fi
 
@@ -19,6 +19,7 @@ else
     mkdir test/result
 fi
 query_dir=$1
+background_file=$2
 query="`cat ${query_dir}/query.txt`"
 
 ADD_REFLECTION="TRUE"
@@ -32,19 +33,19 @@ do
             rm -rf test/result/*
             rm -rf test/*.json
             echo "INFO: CRITICAL THINKING"
-            python3 critical_thinking.py  "$query"
+            python3 critical_thinking.py  "$query" ${background_file}
             echo "INFO: PLANNING"
-            python3 planner.py "$query" ../documents/document.list test/result/critical_thinking.json
+            python3 planner.py "$query" ../documents/document.list ${background_file} test/result/critical_thinking.json
         else
             echo "INFO: PLANNING"
-            python3 planner.py "$query" ../documents/document.list test/result/reflection.json
+            python3 planner.py "$query" ../documents/document.list ${background_file} test/result/reflection.json
         fi
     else
         echo "INFO: PLANNING"
         rm -rf test/result/*
         rm -rf test/*.json
         touch test/result/reflection.json
-        python3 planner.py "$query" ../documents/document.list test/result/reflection.json
+        python3 planner.py "$query" ../documents/document.list ${background_file} test/result/reflection.json
     fi
     echo "INFO: TACTICAL PLANNING"
     python3 tactical_plannig.py
@@ -53,7 +54,7 @@ do
     if [ ${ADD_REFLECTION} = "TRUE" ]
     then
         echo "INFO: REFLECTING..."
-        python3 reflection.py "$query" ../documents/document.list
+        python3 reflection.py "$query" ../documents/document.list ${background_file}
     else
         echo "INFO: SKIP REFLECTION"
     fi

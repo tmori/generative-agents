@@ -11,13 +11,15 @@ import traceback
 import json_utils
 
 class Planner:
-    def __init__(self, main_question, mission_path, strategy_path, query_plan_path, strategy_history_path, knowledge_path):
+    def __init__(self, main_question, mission_path, strategy_path, query_plan_path, strategy_history_path, background_knowledge_path, acquired_knowledge_path):
         self.main_question = main_question
         self.mission_path = mission_path
         self.strategy_path = strategy_path
         self.query_plan_path = query_plan_path
-        with open(knowledge_path, 'r') as file:
-            self.knowledges = file.read()
+        with open(background_knowledge_path, 'r') as file:
+            self.background_knowledges = file.read()
+        with open(acquired_knowledge_path, 'r') as file:
+            self.acquired_knowledges = file.read()
         self.strategy_history_path = strategy_history_path
         if os.path.exists(strategy_history_path):
             with open(strategy_history_path, 'r') as file:
@@ -45,7 +47,8 @@ class Planner:
             DocumentList = document_list,
             History = history,
             PastStrategies = past_strategies,
-            Knowledges = self.knowledges
+            BackgroundKnowledges = self.background_knowledges,
+            AcquiredKnowledges = self.acquired_knowledges
         )
         print(self.query_plan)
 
@@ -93,11 +96,12 @@ class Planner:
 
 if __name__ == "__main__":
     import sys
-    if len(sys.argv) != 4:
-        print("Usage: <MainQuestion> <doc_list.txt> <knowledge_path>")
+    if len(sys.argv) != 5:
+        print("Usage: <MainQuestion> <doc_list.txt> <background_knowledge_path> <acquired_knowledge_path>")
         sys.exit(1)
     main_question = sys.argv[1]
-    knowledge_path = sys.argv[3]
+    background_knowledge_path = sys.argv[3]
+    acquired_knowledge_path = sys.argv[4]
     batch_size = 100
     with open(sys.argv[2], 'r') as file:
         lines = file.readlines()
@@ -109,7 +113,8 @@ if __name__ == "__main__":
         strategy_path= "./prompt_templates/ptemplate_strategy.txt",
         query_plan_path= "./prompt_templates/ptemplate_query_plan.txt",
         strategy_history_path="./test/strategy_history.json",
-        knowledge_path = knowledge_path
+        background_knowledge_path = background_knowledge_path,
+        acquired_knowledge_path = acquired_knowledge_path
     )
     for doc_list in batched_list:
         planner.generate_query(doc_list, "")

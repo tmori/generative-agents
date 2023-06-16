@@ -7,9 +7,11 @@ import json
 import traceback
 
 class CriticalThinking:
-    def __init__(self, main_question: str, prompt_template_path: str):
+    def __init__(self, main_question: str, prompt_template_path: str, background_knowledge_path: str):
+        with open(background_knowledge_path, 'r') as file:
+            self.background_knowledge = file.read()
         prompt_template =  PromptTemplate(prompt_template_path)
-        self.query = prompt_template.get_prompt(MainQuestion=main_question)
+        self.query = prompt_template.get_prompt(MainQuestion=main_question, BackgroundKnowledges = self.background_knowledge)
 
     def create(self):
         print(self.query)
@@ -33,10 +35,11 @@ class CriticalThinking:
 
 if __name__ == "__main__":
     import sys
-    if len(sys.argv) != 2:
-        print("Usage: <MainQuestion>")
+    if len(sys.argv) != 3:
+        print("Usage: <MainQuestion> <BackgroundKnowledge>")
         sys.exit(1)
     main_question = sys.argv[1]
-    think = CriticalThinking(main_question, "./prompt_templates/ptemplate_critical_thinking.txt")
+    background_knowledge_path = sys.argv[2]
+    think = CriticalThinking(main_question, "./prompt_templates/ptemplate_critical_thinking.txt", background_knowledge_path)
     think.create()
     think.save_to_raw("test/result/critical_thinking.json")

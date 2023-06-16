@@ -31,3 +31,5 @@ Please output the results in the following data structure, in JSON format.
   ]
 }}
 
+The input information is as follows.
+BackgroundKnowledges: {BackgroundKnowledges}
