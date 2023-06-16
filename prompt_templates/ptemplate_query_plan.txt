@@ -14,6 +14,9 @@ Strategy, and known knowledge/concepts, in response to the Main Question.
     :
   ]
 }}
+And please Note these points when creating plans.
+- perform an investigation on one document for multiple purposes and perspectives.
+- conduct a cross-referenced investigation across multiple documents for a specific purpose and perspective.
 
 The input information is as follows.
 Input:

@@ -23,7 +23,7 @@ query="`cat ${query_dir}/query.txt`"
 
 ADD_REFLECTION="TRUE"
 export NEW_STARTEGY=
-for TRY_NO in `seq 1 2`
+for TRY_NO in `seq 1 5`
 do
     if [ ${ADD_REFLECTION} = "TRUE" ]
     then

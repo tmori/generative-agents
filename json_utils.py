@@ -19,6 +19,11 @@ def fix_quotes(line):
 
     return fixed_line
 
+def fix_backslashes(json_string):
+    # 不正なバックスラッシュを修正する
+    fixed_string = json_string.replace("\\", "\\\\")
+    return fixed_string
+
 def parse_one_entry(line: str, key: str):
     string_without_quotes = line.replace('"', '')
     entries = string_without_quotes.split(":")
@@ -50,6 +55,6 @@ def parse_plan(org_data: str):
         else:
             if "DetailedStrategy" in line:
                 line = parse_one_entry(line, "DetailedStrategy")
-            output_lines.append(fix_quotes(line))
+            output_lines.append(fix_quotes(fix_backslashes(line)))
 
     return "\n".join(output_lines)
