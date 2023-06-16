@@ -1,6 +1,6 @@
-この質問「{MainQuestion}」は、システムのユーザ操作、システムのトラブルシューティング、仕様理解に関するものです。
-この質問に回答する上で必要な知識／概念をリスト化し、その理由も示してください。
-結果は、以下の json 形式で出力してください。
+The question "{MainQuestion}" pertains to user operations, system troubleshooting, and understanding specifications.
+Please list the necessary knowledge/concepts required to answer this question and provide the reasons for each.
+The result should be outputted in the following JSON format.
 {{
   "Knowledges": [
     {{

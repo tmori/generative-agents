@@ -1,1 +1,1 @@
-与えられた質問に対して、新しい知識の探求をしながら、最善の回答を作成してください。
+Please create the best possible answer while exploring new knowledge in response to the given question.

@@ -1,6 +1,7 @@
 Please generate a JSON data structure in the following format, in JSON format, 
 to extract the necessary information for the answer from the Mission, 
 Strategy, and known knowledge/concepts, in response to the Main Question.
+Please keep the DetailedStrategy within 100 characters in a single line.
 
 {{
   "DetailedStrategy": "<DetailedStrategy>"
@@ -17,6 +18,7 @@ Strategy, and known knowledge/concepts, in response to the Main Question.
 And please Note these points when creating plans.
 - perform an investigation on one document for multiple purposes and perspectives.
 - conduct a cross-referenced investigation across multiple documents for a specific purpose and perspective.
+- If the answer cannot be obtained from one document, please investigate with the same purpose and perspective in another document.
 
 The input information is as follows.
 Input:

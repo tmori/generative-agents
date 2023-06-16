@@ -1,10 +1,11 @@
-前提情報:
- DocumentListは、調査可能なドキュメントのタイトルが列挙されています。
-過去の調査状況:
- PastStrategiesは、過去に調査したDetailedStrategyがリスト化されています。
-調査方法:
- MainQuestion に対して、回答をするには、前提とする知識や概念として考えられることは何かをリスト化し、
- その知識や概念を理解するには、DocumentList の中でどれを調査すべきか考えてください。
- 
- その上で、調査方法を DetailedStrategy　として、対象のドキュメント毎に、調査観点を決めて、
- Plan を作成してください。
+Background Information:
+ The DocumentList enumerates the titles of investigatable documents.
+Past Investigation Status:
+ PastStrategies lists the previously investigated DetailedStrategies.
+Investigation Approach:
+ To answer the MainQuestion, please list the knowledge and concepts that could be considered as prerequisites, and
+ consider which documents from the DocumentList should be investigated to understand those knowledge and concepts.
+
+Based on that, create a plan by treating DetailedStrategy as the investigation approach, 
+determining investigation perspectives for each relevant document, and forming a Plan.
+

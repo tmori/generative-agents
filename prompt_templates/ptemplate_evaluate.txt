@@ -1,7 +1,7 @@
 Main Question: {MainQuestion}
 Mission: {Mission}
 
-Main Question, Mission に対して、回答に必要な情報を抽出した結果は以下の通りです。
+The extracted information necessary to answer the Main Question and Mission is as follows:
 
 Input:
  PastStrategies: {PastStrategies}
@@ -10,10 +10,9 @@ Input:
  Reflection:
   {Reflection}
 
-ここから、MainQuestionに対する回答の作成を以下の書式でお願いします。
+Based on this, please provide the answer in Japanease to the Main Question in the following format:
 Result:
  Answer: <Answer>
  NewStrategy: "<Strategy>" or ""
-ただし、回答するには情報が不足する場合は、Answerには、Unknown とし、
-PastStrategies, DetailedStrategy にない新しい調査観点をNewStrategyに設定してください。
-NewStrategyがない場合は、<Strategy>には何も設定しないでください
+ However, if there is insufficient information to provide an answer, please set Answer as "Unknown" and include any new investigation perspectives not found in PastStrategies or DetailedStrategy in NewStrategy.
+ If there is no NewStrategy, please leave <Strategy> blank.

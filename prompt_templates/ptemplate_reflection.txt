@@ -1,15 +1,15 @@
-この質問「{MainQuestion}」は、システムのユーザ操作、システムのトラブルシューティング、仕様理解に関するものです。
-この質問に回答する上で必要な知識／概念をリスト化されたものが以下です。
+The question "{MainQuestion}" pertains to user operations, system troubleshooting, and understanding specifications.
+The necessary knowledge/concepts required to answer this question have been listed as follows:
 {KnowledgesNeeds}
-上記の概念／知識に関する情報を収集するために、既存のドキュメントに問い合わせした結果は以下の通りでした。
+To gather information related to the above concepts/knowledge, inquiries were made to existing documents, and the results are as follows:
 {PlanResult}
-この結果から、概念／知識の情報をアップデートしてください。
-KnownInfoには、理解した情報を埋めてください。
-UnknownInfoには、まだ理解しきれていない情報を埋めてください。
-DocumentIDs には、関連するDocumentIDを列挙してください。
-Relationsには、他の概念／知識との関係性があるものを列挙してください。またその理由も入れてください。
-また、ここで得られた情報から、新しい知識／概念を追加してください。
-結果は、以下のデータ構造で、json形式で出力ください。
+Based on these results, please update the information regarding the concepts/knowledge.
+Fill in the KnownInfo with the understood information.
+Fill in the UnknownInfo with the information that is not yet fully understood.
+Enumerate the relevant <DocumentID> under DocumentIDs.
+Enumerate any relationships with other concepts/knowledge under Relations, along with the reasons for the relationships.
+Additionally, please add any new knowledge/concepts derived from the obtained information.
+Please output the results in the following data structure, in JSON format.
 {{
   "Knowledges": [
     {{
