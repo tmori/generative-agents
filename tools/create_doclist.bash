@@ -7,7 +7,7 @@ function do_task()
     python3 generative-agents/document_db.py new tmp tmp/DB
 
     ## GET TITLE
-    TITLE=`python3 generative-agents/document_db.py question "この文書の概要を調査し 、適切なタイトルを英名で階層形式(最大５階層)で表現して：<level1>-<level2>-<level3>-..。levelには空白文字は入れないで。例 ：aaa-bbb-ccc-ddd" tmp/DB | tail -n 1`
+    TITLE=`python3 generative-agents/document_db.py question "この文書の概要を調査し 、適切なタイトルを英名で階層形式(最大５階層)で表現して：<level1>-<level2>-<level3>-..。levelには空白文字は入れないで。例 ：aaa-bbb-ccc-ddd" tmp/DB | tail -n 1 | sed  's/\//\-/g'`
 
     ## ADD TITLE ON DOCLIST
     echo "$TITLE" >> documents/document.list

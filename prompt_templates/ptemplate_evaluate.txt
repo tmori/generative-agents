@@ -10,7 +10,8 @@ Input:
  Reflection:
   {Reflection}
 
-Based on this, please provide the answer in Japanease to the Main Question in the following format:
+Based on the information provided, please answer the Main Question in Japanese and reference 
+the source document by citing its ID in the following format:
 Result:
  Answer: <Answer>
  NewStrategy: "<Strategy>" or ""
