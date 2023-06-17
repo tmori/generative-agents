@@ -1,23 +1,40 @@
-The question "{MainQuestion}" pertains to user operations, system troubleshooting, and understanding specifications.
-The necessary knowledge/concepts required to answer this question have been listed as follows:
+The question "{MainQuestion}" pertains to user operations, system troubleshooting, 
+and understanding specifications.
+The previous knowledge/concepts required to answer this question have been listed as follows:
 {KnowledgesNeeds}
-To gather information related to the above concepts/knowledge, inquiries were made to existing documents, and the results are as follows:
+
+And the background information is as follows:
+BackgroundKnowledges: {BackgroundKnowledges}
+
+To gather information related to the above concepts/knowledge, inquiries were made to existing documents, 
+and the results are as follows:
 {PlanResult}
-Based on these results, please update the information regarding the concepts/knowledge.
+
+Based on these input information, please add the information regarding the concepts/knowledge.
 Fill in the KnownInfo with the understood information.
+Fill in the Point with the importance of the KnownInfo by assigning a score between 0 and 100(higher values indicate a more appropriate answer).
 Fill in the UnknownInfo with the information that is not yet fully understood.
 Enumerate the relevant <DocumentID> under DocumentIDs.
-Enumerate any relationships with other concepts/knowledge under Relations, along with the reasons for the relationships.
+Enumerate any relationships with other concepts/knowledge under Relations, 
+along with the reasons for the relationships.
 Additionally, please add any new knowledge/concepts derived from the obtained information.
 Please output the results in the following data structure, in JSON format.
+
 {{
   "Knowledges": [
     {{
       "Term": "<Term>"
       "Reason": "<Reason>"
-      "KnownInfo": "<KnownInfo>"
-      "UnknownInfo": "<UnknownInfo>"
-      "DocumentIDs": [ "<DocumentID>", ... ]
+      "KnownInfos": [
+        {{
+          "KnownInfo": "<KnownInfo>",
+          "Point": "<Point>",
+          "DocumentIDs": [ "<DocumentID>", ... ]
+        }},
+        :
+        :
+      ],
+      "UnknownInfo": [ "<UnknownInfo>", ... ]
       "Relations": [
         {{
           "Term": "<Term>",
@@ -31,5 +48,3 @@ Please output the results in the following data structure, in JSON format.
   ]
 }}
 
-The input information is as follows.
-BackgroundKnowledges: {BackgroundKnowledges}

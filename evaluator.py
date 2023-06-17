@@ -47,13 +47,15 @@ class Evaluator:
     def evaluate(self, template_path, ref_json_path):
         with open(ref_json_path, 'r') as file:
             reflection = file.read()
+        with open("./test/result/plan_result.json", 'r') as file:
+            PlanExecutedResults = file.read()
 
         temp = PromptTemplate(template_path)
         prompt = temp.get_prompt(
             MainQuestion = self.main_question,
             Mission = self.mission,
             PastStrategies = [],
-            PlanExecutedResults = self.merged_data,
+            PlanExecutedResults = PlanExecutedResults,
             Reflection = reflection
         )
         try:
@@ -80,7 +82,8 @@ if __name__ == "__main__":
     memory_stream = MemoryStream()
     memory_stream.load_from_json(mem_json_path)
     evaluator = Evaluator(main_question, mission_path, plan, memory_stream)
-    evaluator.merge_data()
-    if len(sys.argv) == 5:
+    if len(sys.argv) == 4:
+        evaluator.merge_data()
+    elif len(sys.argv) == 5:
         ref_json_path = sys.argv[4]
         evaluator.evaluate("./prompt_templates/ptemplate_evaluate.txt", ref_json_path)

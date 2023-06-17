@@ -50,7 +50,16 @@ do
     echo "INFO: TACTICAL PLANNING"
     python3 tactical_plannig.py
     echo "INFO: MERGING RESULT"
-    python3 evaluator.py "$query" ./test/result/updated_plan.json ./test/result/memory.json
+    if [ -f "./test/result/plan_result.json" ]
+    then
+        mv ./test/result/plan_result.json ./test/result/prev_plan_result.json
+        python3 evaluator.py "$query" ./test/result/updated_plan.json ./test/result/memory.json
+        mv ./test/result/plan_result.json ./test/result/next_plan_result.json
+        cat ./test/result/prev_plan_result.json  > ./test/result/plan_result.json
+        cat ./test/result/next_plan_result.json >> ./test/result/plan_result.json
+    else
+        python3 evaluator.py "$query" ./test/result/updated_plan.json ./test/result/memory.json
+    fi
     if [ ${ADD_REFLECTION} = "TRUE" ]
     then
         echo "INFO: REFLECTING..."
