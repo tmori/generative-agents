@@ -54,9 +54,6 @@ Query examines the target document based on the inputs of TargetDocumentId, SubQ
 ### Reflection
 Reflection is the process of extracting the necessary knowledge/concepts to answer a question and defining the definitions and relationships of knowledge/concepts based on the results executed by the Planner.
 
-### History Selector
-The HistorySelector class allows selecting data from a MemoryStream based on a specified threshold. 
-
 ## Managed Data
 
 ### Plan
@@ -79,8 +76,6 @@ It is a collection of data sets, with each set consisting of the following infor
 - Reply
 - Point
 
-### History
-History is a subset of MemoryStream. It consists of selections that have high points.
 
 ### Knowledge/Concept
 The output data of Reflection consists of the following two components:
