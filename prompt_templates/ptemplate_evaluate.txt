@@ -14,6 +14,4 @@ Based on the information provided, please answer the Main Question in Japanese a
 the source document by citing its ID in the following format:
 Result:
  Answer: <Answer>
- NewStrategy: "<Strategy>" or ""
- However, if there is insufficient information to provide an answer, please set Answer as "Unknown" and include any new investigation perspectives not found in PastStrategies or DetailedStrategy in NewStrategy.
- If there is no NewStrategy, please leave <Strategy> blank.
+ However, if there is insufficient information to provide an answer, please set Answer as "Unknown".

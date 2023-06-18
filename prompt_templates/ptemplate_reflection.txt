@@ -17,7 +17,7 @@ Fill in the UnknownInfo with the information that is not yet fully understood.
 Enumerate the relevant <DocumentID> under DocumentIDs.
 Enumerate any relationships with other concepts/knowledge under Relations, 
 along with the reasons for the relationships.
-Add new Terms derived from the obtained information.
+Add new Terms derived from the obtained information based on the UnknownInfo.
 Please output the results in the following data structure, in JSON format.
 
 {{
