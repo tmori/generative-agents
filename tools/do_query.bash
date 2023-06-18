@@ -55,6 +55,9 @@ do
         mv ./test/result/plan_result.json ./test/result/prev_plan_result.json
         python3 evaluator.py "$query" ./test/result/updated_plan.json ./test/result/memory.json
         mv ./test/result/plan_result.json ./test/result/next_plan_result.json
+        #prev_plan=`cat ./test/result/prev_plan_result.json`
+        #next_plan=`cat ./test/result/next_plan_result.json`
+        #python3 question.py "Please merge 2 json data: ${prev_plan} ${next_plan}" | tee ./test/result/plan_result.json
         cat ./test/result/prev_plan_result.json  > ./test/result/plan_result.json
         cat ./test/result/next_plan_result.json >> ./test/result/plan_result.json
     else
@@ -73,12 +76,12 @@ do
             ./test/result/memory.json \
             ./test/result/reflection.json \
             | tee ./test/result/result.txt
-    grep "NewStrategy:" ./test/result/result.txt
-    if [ $? -eq 0 ]
-    then
-        export NEW_STARTEGY=`grep "NewStrategy:" ./test/result/result.txt | awk -F: '{print $2}'`
-        echo $NEW_STRATEGY
-    fi
+    #grep "NewStrategy:" ./test/result/result.txt
+    #if [ $? -eq 0 ]
+    #then
+    #    export NEW_STARTEGY=`grep "NewStrategy:" ./test/result/result.txt | awk -F: '{print $2}'`
+    #    echo $NEW_STRATEGY
+    #fi
 
     dir_name=q_${TRY_NO}
     if [ -d ${query_dir}/${dir_name} ]

@@ -25,6 +25,7 @@ def fix_backslashes(json_string):
     return fixed_string
 
 def parse_one_entry(line: str, key: str):
+    line = line.split(key)[1].strip()
     string_without_quotes = line.replace('"', '')
     entries = string_without_quotes.split(":")
     contents = []
