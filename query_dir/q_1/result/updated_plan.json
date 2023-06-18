@@ -1,0 +1,101 @@
+{
+    "DetailedStrategy": "  Investigate the causes from system operation, troubleshooting, and specifications perspective,",
+    "Plan": [
+        {
+            "PlanID": 1,
+            "DocumentID": "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility",
+            "Purpose": "Understand the setup process and compatibility issues",
+            "Perspectives": [
+                "System Operations",
+                "Troubleshooting",
+                "Specifications"
+            ],
+            "ResultID": 1,
+            "Status": "Done"
+        },
+        {
+            "PlanID": 2,
+            "DocumentID": "Unity-PythonAPI-RobotControl-hako_env-hako_robomodel_any-hako",
+            "Purpose": "Detect problems related to robot control",
+            "Perspectives": [
+                "System Operations",
+                "Troubleshooting",
+                "Specifications"
+            ],
+            "ResultID": 2,
+            "Status": "Done"
+        },
+        {
+            "PlanID": 3,
+            "DocumentID": "Python-Unity-SandboxRobot-CameraData-Retrieval",
+            "Purpose": "Learn about the data retrieval process",
+            "Perspectives": [
+                "System Operations",
+                "Troubleshooting",
+                "Specifications"
+            ],
+            "ResultID": 3,
+            "Status": "Done"
+        },
+        {
+            "PlanID": 4,
+            "DocumentID": "ChatGPT-API-Unity-SandboxRobot-Experiment-Rules",
+            "Purpose": "Understand the rules of the sandbox experiment",
+            "Perspectives": [
+                "System Operations",
+                "Troubleshooting",
+                "Specifications"
+            ],
+            "ResultID": -1,
+            "Status": "Done"
+        },
+        {
+            "PlanID": 5,
+            "DocumentID": "Unity-Python-Robotics-ReinforcementLearning-Implementation",
+            "Purpose": "Know how reinforcement learning is implemented",
+            "Perspectives": [
+                "System Operations",
+                "Troubleshooting",
+                "Specifications"
+            ],
+            "ResultID": 4,
+            "Status": "Done"
+        },
+        {
+            "PlanID": 6,
+            "DocumentID": "Programming-Unity-Python-DroneControl-HakoniwaEnvironment",
+            "Purpose": "Investigate issues related to programming and environment",
+            "Perspectives": [
+                "System Operations",
+                "Troubleshooting",
+                "Specifications"
+            ],
+            "ResultID": 5,
+            "Status": "Done"
+        },
+        {
+            "PlanID": 7,
+            "DocumentID": "MachineLearning-Simulation-Ubuntu-Unity-EnvironmentSetup",
+            "Purpose": "Understand the setup of the Machine Learning environment",
+            "Perspectives": [
+                "System Operations",
+                "Troubleshooting",
+                "Specifications"
+            ],
+            "ResultID": 6,
+            "Status": "Done"
+        },
+        {
+            "PlanID": 8,
+            "DocumentID": "ReinforcementLearning-RobotSimulation-MacUnityPython-SetupGuide-ExecutionProcedure",
+            "Purpose": "Learn about the execution procedure",
+            "Perspectives": [
+                "System Operations",
+                "Troubleshooting",
+                "Specifications"
+            ],
+            "ResultID": 7,
+            "Status": "Done"
+        }
+    ]
+}

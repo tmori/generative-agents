@@ -1,0 +1,74 @@
+{
+  "Knowledges": [
+    {
+      "Term": "Reinforcement Learning",
+      "Reason": "The user is trying to perform reinforcement learning with a robot. An understanding of what reinforcement learning involves would help to diagnose the problem.",
+      "KnownInfos": [
+        {
+          "KnownInfo": "Reinforcement learning is implemented using Unity, Python, and a sandbox environment. The robot is trained using a Q-table. The robot's motor is used to move it, with simplified operations for moving forward, turning right, and turning left, each with two speed levels.",
+          "Point": 85,
+          "DocumentIDs": [   "Unity-Python-Robotics-ReinforcementLearning-Implementation"   ]
+        }
+      ],
+      "UnknownInfo": [ "Details about how the Q-table is updated during the training process." ],
+      "Relations": [
+        {
+          "Term": "Robotics",
+          "RelationReason": "Reinforcement learning is used to train the robotic systems for improving their performance."
+        }
+      ]
+    },
+    {
+      "Term": "Windows System",
+      "Reason": "The user refers to a 'Windows version', suggesting that the system is running on a Windows machine. Knowing how Windows operates, its common issues, and how to troubleshoot them would be vital in this situation.",
+      "KnownInfos": [
+        {
+          "KnownInfo": "Unity Editor should not be blocked by the Windows Defender Firewall in order for the setup to work correctly.",
+          "Point": 85,
+          "DocumentIDs": [ "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility" ]
+        }
+      ],
+      "UnknownInfo": [ "Specific settings or configurations in Windows that might interfere with the communication between the Python script and Unity." ],
+      "Relations": []
+    },
+    {
+      "Term": "Simulator Software",
+      "Reason": "The user uses a sandbox on Windows to train a robot, which implies they are likely using some type of simulator. Knowledge about these softwares would be useful to find out potential issues.",
+      "KnownInfos": [
+        {
+          "KnownInfo": "The user is using appropriate simulator for reinforcement learning of a sandbox robot using Unity and Python.",
+          "Point": 85,
+          "DocumentIDs": [ "ReinforcementLearning-RobotSimulation-MacUnityPython-SetupGuide-ExecutionProcedure" ]
+        }
+      ],
+      "UnknownInfo": [ "Details about the specific type of simulator software the user is using." ],
+      "Relations": []
+    },
+    {
+      "Term": "Firewall",
+      "Reason": "Firewalls might affect how applications and services can communicate with each other. Being familiar with how to configure firewalls on Windows would be useful.",
+      "KnownInfos": [
+        {
+          "KnownInfo": "The Unity Editor must not be blocked by the Windows Defender Firewall in order for communication and operations to work properly.",
+          "Point": 85,
+          "DocumentIDs": [ "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility" ]
+        }
+      ],
+      "UnknownInfo": [ "If there are other firewall or security settings that could interfere with the simulation." ],
+      "Relations": []
+    },
+    {
+      "Term": "Robotics",
+      "Reason": "As the individual is attempting to get a robot to move, it would be important to have an understanding about robotic systems and how they interact with command signals sent from a program.",
+      "KnownInfos": [
+        {
+          "KnownInfo": "The robot's motor is used to move it, with simplified operations for moving forward, turning right, and turning left, each with two speed levels.",
+          "Point": 85,
+          "DocumentIDs": [ "Unity-Python-Robotics-ReinforcementLearning-Implementation" ]
+        }
+      ],
+      "UnknownInfo": [ "Details about the specific type of robotic system the user is using." ],
+      "Relations": []
+    }
+  ]
+}

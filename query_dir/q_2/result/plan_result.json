@@ -1,0 +1,158 @@
+{
+    "DetailedStrategy": "  Investigate the causes from system operation, troubleshooting, and specifications perspective,",
+    "Plan": [
+        {
+            "DocumentID": "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility",
+            "Purpose": "Understand the setup process and compatibility issues",
+            "Perspectives": [
+                "System Operations",
+                "Troubleshooting",
+                "Specifications"
+            ],
+            "ResultID": {
+                "Reply": "Answer: The setup process involves using Windows, Unity, and Python to enable reinforcement learning for sandbox robots. If a message appears indicating that the Unity version is different, there is no problem as Unity will convert it appropriately. If the Unity Editor is blocked in the Windows Defender Firewall, you need to allow it by displaying the properties. \n\nFrom a System Operations perspective, it's important to ensure that the Unity Editor is not blocked by the Windows Defender Firewall for the setup to work correctly. \n\nFrom a Troubleshooting perspective, if there are issues with different Unity versions, the system should be able to handle it by converting appropriately. \n\nFrom a Specifications perspective, the system requires Windows, Unity, and Python for the setup process. \n\nPoint: 85",
+                "Point": 85.0
+            }
+        },
+        {
+            "DocumentID": "Unity-PythonAPI-RobotControl-hako_env-hako_robomodel_any-hako",
+            "Purpose": "Detect problems related to robot control",
+            "Perspectives": [
+                "System Operations",
+                "Troubleshooting",
+                "Specifications"
+            ],
+            "ResultID": {
+                "Reply": "Answer: I'm sorry, but the provided context does not contain any specific information related to problems with robot control from the perspectives of System Operations, Troubleshooting, or Specifications.\n\nPoint: 0",
+                "Point": 0.0
+            }
+        },
+        {
+            "DocumentID": "Python-Unity-SandboxRobot-CameraData-Retrieval",
+            "Purpose": "Learn about the data retrieval process",
+            "Perspectives": [
+                "System Operations",
+                "Troubleshooting",
+                "Specifications"
+            ],
+            "ResultID": {
+                "Reply": "Answer: The data retrieval process mentioned in the context involves using Python to obtain camera data from a sandbox robot on Unity. The robot is equipped with a camera sensor that can capture 640x480 camera data. Once the 'Start' button is clicked, the robot starts operating and the camera data is saved on the local file system. This data can then be viewed on a web browser.\n\nFrom a System Operations perspective, the process seems straightforward and involves the use of Python and Unity, which are widely used in the field of software development and game design respectively.\n\nFrom a Troubleshooting perspective, the context does not provide any specific information. However, common issues in such a setup could involve errors in the Python code, issues with the Unity setup, or problems with the robot's camera sensor.\n\nFrom a Specifications perspective, the robot is capable of 360-degree obstacle detection and is equipped with a camera sensor that can capture 640x480 camera data. The data is saved locally and can be viewed on a web browser.\n\nPoint: 80",
+                "Point": 80.0
+            }
+        },
+        {
+            "DocumentID": "ChatGPT-API-Unity-SandboxRobot-Experiment-Rules",
+            "Purpose": "Understand the rules of the sandbox experiment",
+            "Perspectives": [
+                "System Operations",
+                "Troubleshooting",
+                "Specifications"
+            ],
+            "ResultID": {
+                "Reply": "No Reply",
+                "Point": 0.0
+            }
+        },
+        {
+            "DocumentID": "Unity-Python-Robotics-ReinforcementLearning-Implementation",
+            "Purpose": "Know how reinforcement learning is implemented",
+            "Perspectives": [
+                "System Operations",
+                "Troubleshooting",
+                "Specifications"
+            ],
+            "ResultID": {
+                "Reply": "Answer: Reinforcement learning is implemented using Unity, Python, and a sandbox environment. The robot is trained using a Q-table. The robot's motor is used to move it, with simplified operations for moving forward, turning right, and turning left, each with two speed levels. The ultrasonic sensor returns a value between 0 and 255, with a value of about 120 when the robot is on the line trace. The reward is calculated from the measurement results of the ultrasonic sensor. The state() function returns the observed state, and the num_states() function returns the number of observed states. The action() function executes the robot's motor operation, and the num_actions() function returns the number of actions. The implementation level architecture differs for Windows, Mac, and Linux. For troubleshooting, please refer to the manual for each OS.\n\nPoint: 85",
+                "Point": 85.0
+            }
+        },
+        {
+            "DocumentID": "Programming-Unity-Python-DroneControl-HakoniwaEnvironment",
+            "Purpose": "Investigate issues related to programming and environment",
+            "Perspectives": [
+                "System Operations",
+                "Troubleshooting",
+                "Specifications"
+            ],
+            "ResultID": {
+                "Reply": "Answer: The provided context is about a post on Qiita, a platform for programmers to share their knowledge. The post is about using Unity and Python to operate a self-made drone in a sandbox environment. The user can control the drone using the keyboard, with the space key for ascending and the A key for descending. However, the context does not provide any information about system operations, troubleshooting, or specifications related to this programming and environment. Therefore, it's not possible to provide an answer based on the given perspectives.\n\nPoint: 20",
+                "Point": 20.0
+            }
+        },
+        {
+            "DocumentID": "MachineLearning-Simulation-Ubuntu-Unity-EnvironmentSetup",
+            "Purpose": "Understand the setup of the Machine Learning environment",
+            "Perspectives": [
+                "System Operations",
+                "Troubleshooting",
+                "Specifications"
+            ],
+            "ResultID": {
+                "Reply": "Answer: The article discusses setting up a machine learning environment on Ubuntu using Unity and Python. It involves installing UnityHub and Blender. The specific commands for setting up UnityHub are provided. However, the article does not provide detailed information on system operations, troubleshooting, or specifications related to the setup.\n\nPoint: 40",
+                "Point": 40.0
+            }
+        },
+        {
+            "DocumentID": "ReinforcementLearning-RobotSimulation-MacUnityPython-SetupGuide-ExecutionProcedure",
+            "Purpose": "Learn about the execution procedure",
+            "Perspectives": [
+                "System Operations",
+                "Troubleshooting",
+                "Specifications"
+            ],
+            "ResultID": {
+                "Reply": "Answer: \n\nSystem Operations: \n1. The system is initiated and a certain screen appears.\n2. Next, select 'Assets/Scenes/Transport' in the 'Project View' at the bottom left of the screen.\n3. Double-click the scene called 'Shm_Configurator' at the bottom of the screen.\n4. In this state, execute 'Generate'.\n5. After the course is displayed, click the 'Play' button in the Unity editor.\n6. If successful, a robot will appear.\n7. Click the 'Start' button in this state.\n8. If successful, the robot will start moving.\n\nTroubleshooting: \nDuring reinforcement learning, if it becomes a termination state, a forced reset will be applied and learning will start from the beginning. As of the current point (2023/04/22), there are no particular issues.\n\nSpecifications: \nThe system is designed to enable reinforcement learning of a sandbox robot using Mac, Unity, and Python. The robot starts moving upon successful execution of the steps.\n\nPoint: 85",
+                "Point": 85.0
+            }
+        }
+    ]
+}{
+    "DetailedStrategy": "  Investigate the technical specifications, user instructions and potential issues related to the Windows system, reinforcement learning, firewall, simulator software, and robot operations,",
+    "Plan": [
+        {
+            "DocumentID": "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility",
+            "Purpose": "To understand the setup process and compatibility issues within Windows version of Unity Python detailed for reinforcement learning and Robot simulation",
+            "Perspectives": "System troubleshooting and User operation",
+            "ResultID": {
+                "Reply": "Answer: The setup process for reinforcement learning and robot simulation using Windows, Unity, and Python involves several steps. One potential issue that may arise is a message indicating a version difference in Unity. However, this is not a problem as Unity can convert it appropriately. \n\nWhen running the program, you may encounter issues with the Windows Defender Firewall blocking the Unity Editor. To resolve this, you need to check the incoming rules and if the Unity Editor is blocked, you need to allow it through the firewall settings. If the Unity Editor is not checked under \"Allowed apps and features\", it means it is blocked. You need to change the settings and check it to allow it through the Windows Defender Firewall.\n\nPoint: 90",
+                "Point": 90.0
+            }
+        },
+        {
+            "DocumentID": "Unity-Python-Robotics-ReinforcementLearning-Implementation",
+            "Purpose": "To understand the implementation process of reinforcement learning in robotics within a Python/Unity integration",
+            "Perspectives": "System troubleshooting and Understanding specifications",
+            "ResultID": {
+                "Reply": "Answer: The implementation process of reinforcement learning in robotics within a Python/Unity integration is described in the provided context. The robot model used is the same as the ET Robocon competition robot (HackEV). The robot is equipped with two sensors: an ultrasonic sensor used to measure the distance to the central cylinder, and a color sensor used for line tracing. The color sensor returns a continuous value between 0 and 100, with 0 being closer to white and 100 being black.\n\nThe robot is controlled using a motor, with simplified operations for moving forward, turning right, and turning left, each with two speed levels. The reinforcement learning is implemented using a Q-table, and a sample program for this is provided at the given GitHub link.\n\nFor system troubleshooting, understanding the role of each sensor and the motor operations is crucial. For understanding specifications, it's important to note the use of the Q-table for reinforcement learning and the specific model of the robot used.\n\nPoint: 90",
+                "Point": 90.0
+            }
+        },
+        {
+            "DocumentID": "ReinforcementLearning-RobotSimulation-MacUnityPython-SetupGuide-ExecutionProcedure",
+            "Purpose": "To understand the execution procedures of Robot simulation and reinforcement learning within Unity Python on MAC, for cross-reference purpose",
+            "Perspectives": "System troubleshooting",
+            "ResultID": {
+                "Reply": "Answer: The execution procedures for Robot simulation and reinforcement learning within Unity Python on MAC are outlined in the guide by kanetugu2018 on Qiita. The first step is to clone the AI branch of hakoniwa-base. The Python program for reinforcement learning is executed directly on the host, and the necessary tools can be installed following the instructions provided. The installation directory is directly under hakoniwa-base. Depending on whether you have an Intel or Arm Mac, different installation commands are used. During the installation, you will be asked for a password because various tools are placed in /usr/local/lib/hakoniwa and /usr/local/bin/hakoniwa. After this, you clone the following repository in the same directory hierarchy as hakoniwa-base. \n\nFor troubleshooting, ensure that you have correctly followed the installation steps and that your system meets the necessary requirements for running the simulation and learning programs. If issues persist, you may need to consult additional resources or seek expert advice.\n\nPoint: 85",
+                "Point": 85.0
+            }
+        },
+        {
+            "DocumentID": "Unity-PythonAPI-RobotControl-hako_env-hako_robomodel_any-hako",
+            "Purpose": "To understand the robotic controls in a Unity/Python environment and any specific configurations related to the issue",
+            "Perspectives": "Understanding specifications",
+            "ResultID": {
+                "Reply": "Answer: The Python API for controlling sandbox robots in Unity is divided into three modules: hako_env, hako_robomodel_any, and hako. This information is provided in a specification document written by kanetugu2018 on Qiita. The document explains how to use Python programs to control sandbox robots in Unity. For a more detailed explanation of the base architecture, you can refer to another article by the same author titled \"Unity + Python + Sandbox: Let's try to reinforce learning with robots!\".\n\nPoint: 85",
+                "Point": 85.0
+            }
+        },
+        {
+            "DocumentID": "Programming-Unity-Python-DroneControl-HakoniwaEnvironment",
+            "Purpose": "To understand the Unity-Python integration in an another scenario (drone control) for cross-reference",
+            "Perspectives": "Understanding specifications and System troubleshooting",
+            "ResultID": {
+                "Reply": "Answer: The Unity-Python integration is used in this scenario to control a self-made drone in a sandbox environment. The Python program is used to control the drone's attitude. However, it is noted that only horizontal direction control is currently implemented. The Python program can be found in the provided path: hakoniwa-unity-drone-model/hakoniwa-base/workspace/dev/ai/sample_drone.py.\n\nIn the Unity environment, the drone can be controlled by clicking on the green arrow (Y-axis) and moving it upwards. Additionally, in the hierarchy view, you need to click on the drone and bring up the inspector view, then check the box for EnableEx Ctrl. If this is not done, the drone cannot be controlled from Python.\n\nOnce these settings are done, you can start the drone by clicking the play button in Unity. The drone can then be controlled using the keyboard, with the space key for ascending and the A key for descending.\n\nPoint: 90",
+                "Point": 90.0
+            }
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+[
+    {
+        "ID": 1,
+        "TargetDocID": "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility",
+        "Question": "Please obtain information based on the following purposes and perspectives.\npurpose: To understand the setup process and compatibility issues within Windows version of Unity Python detailed for reinforcement learning and Robot simulation\nperspectives: System troubleshooting and User operation\n",
+        "Reply": "Answer: The setup process for reinforcement learning and robot simulation using Windows, Unity, and Python involves several steps. One potential issue that may arise is a message indicating a version difference in Unity. However, this is not a problem as Unity can convert it appropriately. \n\nWhen running the program, you may encounter issues with the Windows Defender Firewall blocking the Unity Editor. To resolve this, you need to check the incoming rules and if the Unity Editor is blocked, you need to allow it through the firewall settings. If the Unity Editor is not checked under \"Allowed apps and features\", it means it is blocked. You need to change the settings and check it to allow it through the Windows Defender Firewall.\n\nPoint: 90",
+        "Point": 90.0
+    },
+    {
+        "ID": 2,
+        "TargetDocID": "Unity-Python-Robotics-ReinforcementLearning-Implementation",
+        "Question": "Please obtain information based on the following purposes and perspectives.\npurpose: To understand the implementation process of reinforcement learning in robotics within a Python/Unity integration\nperspectives: System troubleshooting and Understanding specifications\n",
+        "Reply": "Answer: The implementation process of reinforcement learning in robotics within a Python/Unity integration is described in the provided context. The robot model used is the same as the ET Robocon competition robot (HackEV). The robot is equipped with two sensors: an ultrasonic sensor used to measure the distance to the central cylinder, and a color sensor used for line tracing. The color sensor returns a continuous value between 0 and 100, with 0 being closer to white and 100 being black.\n\nThe robot is controlled using a motor, with simplified operations for moving forward, turning right, and turning left, each with two speed levels. The reinforcement learning is implemented using a Q-table, and a sample program for this is provided at the given GitHub link.\n\nFor system troubleshooting, understanding the role of each sensor and the motor operations is crucial. For understanding specifications, it's important to note the use of the Q-table for reinforcement learning and the specific model of the robot used.\n\nPoint: 90",
+        "Point": 90.0
+    },
+    {
+        "ID": 3,
+        "TargetDocID": "ReinforcementLearning-RobotSimulation-MacUnityPython-SetupGuide-ExecutionProcedure",
+        "Question": "Please obtain information based on the following purposes and perspectives.\npurpose: To understand the execution procedures of Robot simulation and reinforcement learning within Unity Python on MAC, for cross-reference purpose\nperspectives: System troubleshooting\n",
+        "Reply": "Answer: The execution procedures for Robot simulation and reinforcement learning within Unity Python on MAC are outlined in the guide by kanetugu2018 on Qiita. The first step is to clone the AI branch of hakoniwa-base. The Python program for reinforcement learning is executed directly on the host, and the necessary tools can be installed following the instructions provided. The installation directory is directly under hakoniwa-base. Depending on whether you have an Intel or Arm Mac, different installation commands are used. During the installation, you will be asked for a password because various tools are placed in /usr/local/lib/hakoniwa and /usr/local/bin/hakoniwa. After this, you clone the following repository in the same directory hierarchy as hakoniwa-base. \n\nFor troubleshooting, ensure that you have correctly followed the installation steps and that your system meets the necessary requirements for running the simulation and learning programs. If issues persist, you may need to consult additional resources or seek expert advice.\n\nPoint: 85",
+        "Point": 85.0
+    },
+    {
+        "ID": 4,
+        "TargetDocID": "Unity-PythonAPI-RobotControl-hako_env-hako_robomodel_any-hako",
+        "Question": "Please obtain information based on the following purposes and perspectives.\npurpose: To understand the robotic controls in a Unity/Python environment and any specific configurations related to the issue\nperspectives: Understanding specifications\n",
+        "Reply": "Answer: The Python API for controlling sandbox robots in Unity is divided into three modules: hako_env, hako_robomodel_any, and hako. This information is provided in a specification document written by kanetugu2018 on Qiita. The document explains how to use Python programs to control sandbox robots in Unity. For a more detailed explanation of the base architecture, you can refer to another article by the same author titled \"Unity + Python + Sandbox: Let's try to reinforce learning with robots!\".\n\nPoint: 85",
+        "Point": 85.0
+    },
+    {
+        "ID": 5,
+        "TargetDocID": "Programming-Unity-Python-DroneControl-HakoniwaEnvironment",
+        "Question": "Please obtain information based on the following purposes and perspectives.\npurpose: To understand the Unity-Python integration in an another scenario (drone control) for cross-reference\nperspectives: Understanding specifications and System troubleshooting\n",
+        "Reply": "Answer: The Unity-Python integration is used in this scenario to control a self-made drone in a sandbox environment. The Python program is used to control the drone's attitude. However, it is noted that only horizontal direction control is currently implemented. The Python program can be found in the provided path: hakoniwa-unity-drone-model/hakoniwa-base/workspace/dev/ai/sample_drone.py.\n\nIn the Unity environment, the drone can be controlled by clicking on the green arrow (Y-axis) and moving it upwards. Additionally, in the hierarchy view, you need to click on the drone and bring up the inspector view, then check the box for EnableEx Ctrl. If this is not done, the drone cannot be controlled from Python.\n\nOnce these settings are done, you can start the drone by clicking the play button in Unity. The drone can then be controlled using the keyboard, with the space key for ascending and the A key for descending.\n\nPoint: 90",
+        "Point": 90.0
+    }
+]
