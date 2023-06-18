@@ -40,6 +40,7 @@ def evaluate(json_path: str):
 
     print("AveKnwNum:", ave_num, " MaxKnwNum:", max_num, " MinKnwNum:", min_num)
 
+
     docnums = []
     for term in json_terms:
         knowns = get_value(json_value, term, "KnownInfos")
@@ -54,10 +55,39 @@ def evaluate(json_path: str):
 
     print("AveDocNum:", ave_num, " MaxDocNum:", max_num, " MinDocNum:", min_num)
 
+    points = []
+    for term in json_terms:
+        knowns = get_value(json_value, term, "KnownInfos")
+        for known in knowns:
+            points.append(float(known["Point"]))
+
+    df = pd.DataFrame(points, columns=["Point"])
+    ave_num = df["Point"].mean()
+    max_num = df["Point"].max()
+    min_num = df["Point"].min()
+
+    print("AvePoint:", ave_num, " MaxPoint:", max_num, " MinPointm:", min_num)
+
+    known_lens = []
+    for term in json_terms:
+        knowns = get_value(json_value, term, "KnownInfos")
+        for known in knowns:
+            known_lens.append(len(known["KnownInfo"]))
+
+    df = pd.DataFrame(known_lens, columns=["KnownInfo"])
+    ave_num = df["KnownInfo"].mean()
+    max_num = df["KnownInfo"].max()
+    min_num = df["KnownInfo"].min()
+
+    print("AveknwLen:", ave_num, " MaxknwLen:", max_num, " MinknwLen:", min_num)
+
+
     relations = []
     for term in json_terms:
         term_relations = get_entry(json_value, term)
-        relations.append(len(term_relations))
+        if "Relations" in term_relations:
+            #print(term_relations["Relations"])
+            relations.append(len(term_relations["Relations"]))
 
     df = pd.DataFrame(relations, columns=["RelationNum"])
     ave_num = df["RelationNum"].mean()
@@ -65,6 +95,18 @@ def evaluate(json_path: str):
     min_num = df["RelationNum"].min()
     print("AveRelNum:", ave_num, " MaxRelNum:", max_num, " MinRelNum:", min_num)
 
+    unknowns = []
+    for term in json_terms:
+        terms = get_entry(json_value, term)
+        if "UnknownInfo" in terms:
+            #print(term_relations["Relations"])
+            unknowns.append(len(term_relations["UnknownInfo"]))
+
+    df = pd.DataFrame(unknowns, columns=["UnknownInfo"])
+    ave_num = df["UnknownInfo"].mean()
+    max_num = df["UnknownInfo"].max()
+    min_num = df["UnknownInfo"].min()
+    print("AveUnkwnNum:", ave_num, " MaxUnkwnNum:", max_num, " MinUnkwnNum:", min_num)
 
 
 if __name__ == "__main__":

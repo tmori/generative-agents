@@ -18,7 +18,7 @@ Enumerate the relevant <DocumentID> under DocumentIDs.
 Enumerate any relationships with other concepts/knowledge under Relations, 
 along with the reasons for the relationships.
 Add new Terms derived from the obtained information based on the UnknownInfo.
-Please output the results in the following data structure, in JSON format.
+Please add the results on the previous knowledge/concepts(should not delete previous one) in the following data structure, in JSON format.
 
 {{
   "Knowledges": [
@@ -27,9 +27,13 @@ Please output the results in the following data structure, in JSON format.
       "Reason": "<Reason>"
       "KnownInfos": [
         {{
-          "KnownInfo": "<KnownInfo>",
-          "Point": "<Point>",
-          "DocumentIDs": [ "<DocumentID>", ... ]
+          "KnownInfo": "<KnownInfo(previous one)>",
+          "Point": "<Point>(previous one)",
+          "DocumentIDs": [ "<DocumentID>(previous one)", ... ]
+        }},        {{
+          "KnownInfo": "<KnownInfo>(acquired one)",
+          "Point": "<Point>(acquired one)",
+          "DocumentIDs": [ "<DocumentID>(acquired one)", ... ]
         }},
         :
         :
