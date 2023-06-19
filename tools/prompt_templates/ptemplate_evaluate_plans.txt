@@ -1,20 +1,20 @@
-For the Question {MainQuestion}, there are 2 reflections.
+In response to the question {MainQuestion}, we have developed two different plans.
 
-Plan1: {Result1}
-Plan2: {Result2}
+Plan 1: {Result1}
+Plan 2: {Result2}
 
-Please assess the appropriateness of the plans in Japanease
-to each term by assigning a score between 0 and 100 in the following format 
-0-20 points: No information at all is provided about the term.
-21-40 points: Basic information about the term is available, but key details are missing.
-41-60 points: Information about the term is available, but some important details are missing.
-61-80 points: The information about the term is quite detailed, but some details are missing.
-81-100 points: The information about the term is very detailed and includes all necessary information.
+Please evaluate the appropriateness of these plans in Japanese.
 
-Plan1's Each Term Point: <Plan1's Each Term Point>
-Plan1's Total Point: <Plan1 Point>
-The Point Reason: <Reason>
+For each plan, please assess and score the following aspects, and provide a total score:
 
-Plan2's Each Term Point: <Plan2's Each Term Point>
-Plan2's Total Point: <Plan2 Point>
-The Point Reason: <Reason>
+Achievement of Objectives (0-20 points): Evaluate to what extent the plan achieves its specific objectives, which are primarily derived from research requirements. The score will be based on the specificity and completeness of objective achievement.
+Strategic Consistency (0-20 points): Assess whether the overall plan is based on a clear and consistent strategy. This score is based on the consistency, clarity, and depth of strategic thinking.
+Detail (0-20 points): Assess how detailed the plan's strategic explanation is, and how concretely each part of the plan is designed. The score will be based on the level of detail and concreteness.
+Anticipated Challenges (0-20 points): Evaluate whether the plan appropriately anticipates challenges and considers solutions for dealing with them. The score will be based on the depth of challenge anticipation and the appropriateness of proposed solutions.
+Diversity (0-20 points): Reflect on how many different documents the plan investigates from various perspectives. This score is based on the diversity of documents and perspectives.
+
+Plan 1's Total Score: <Plan1 Point>
+Rationale for Score: <Reason>
+
+Plan 2's Total Score: <Plan2 Point>
+Rationale for Score: <Reason>
