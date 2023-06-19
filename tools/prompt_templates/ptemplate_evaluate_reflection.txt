@@ -1,0 +1,20 @@
+For the Question {MainQuestion}, there are 2 reflections.
+
+Reflection1: {Result1}
+Reflection2: {Result2}
+
+Please assess the appropriateness of the reflections in Japanease
+to each term by assigning a score between 0 and 100 in the following format 
+0-20 points: No information at all is provided about the term.
+21-40 points: Basic information about the term is available, but key details are missing.
+41-60 points: Information about the term is available, but some important details are missing.
+61-80 points: The information about the term is quite detailed, but some details are missing.
+81-100 points: The information about the term is very detailed and includes all necessary information.
+
+Reflection1's Each Term Point: <Reflection1's Each Term Point>
+Reflection1's Total Point: <Reflection1 Point>
+The Point Reason: <Reason>
+
+Reflection2's Each Term Point: <Reflection2's Each Term Point>
+Reflection2's Total Point: <Reflection2 Point>
+The Point Reason: <Reason>

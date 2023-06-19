@@ -1,0 +1,18 @@
+For the Question {MainQuestion}, there are 2 answers.
+
+Answer1: {Result1}
+Answer2: {Result2}
+
+Please assess the appropriateness of the answer in Japanease
+to each questions by assigning a score between 0 and 100 in the following format 
+0-20 points: No information at all is provided about the question.
+21-40 points: Basic information about the question is available, but key details are missing.
+41-60 points: Information about the question is available, but some important details are missing.
+61-80 points: The information about the question is quite detailed, but some details are missing.
+81-100 points: The information about the question is very detailed and includes all necessary information.
+
+Answer1's Point: <Answer1 Point>
+The Point Reason: <Reason>
+
+Answer2's Point: <Answer2 Point>
+The Point Reason: <Reason>
