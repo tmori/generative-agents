@@ -1,0 +1,29 @@
+For the Question {MainQuestion}, there are 2 reflections.
+
+Reflection1: {Result1}
+Reflection2: {Result2}
+
+Please assess the appropriateness of the reflections in Japanese.
+Please quantify the points for each term in the reflections according to the following perspectives:
+
+Reason: High scores can be awarded if the reason is specific and clearly explains how the knowledge entry will be helpful in solving the problem. On the other hand, lower scores may be given if the reason is abstract or its importance is unclear.
+KnownInfos: Consider whether the known information is detailed enough and whether it is beneficial in accomplishing the task. Detailed and beneficial information scores high, while information that lacks detail or usefulness scores low.
+UnknownInfo: Evaluate whether the unknown information covers the elements needed to solve the problem. High scores can be given when the necessary elements are specifically pointed out, while lower scores may be given if the identification is vague or misses important elements.
+Relations: Evaluate how much each knowledge entry is related to others. High scores can be given when deep, specific relationships are established, while lower scores may be given if relationships are shallow or unclear.
+
+The above perspectives should be scored in the following scale:
+0-20 points: No information at all is provided about the term.
+21-40 points: Basic information about the term is available, but key details are missing.
+41-60 points: Information about the term is available, but some important details are missing.
+61-80 points: The information about the term is quite detailed, but some details are missing.
+81-100 points: The information about the term is very detailed and includes all necessary information.
+
+Please give each term a score and then calculate the total score for each reflection.
+
+Reflection1's Each Term Point: <Reflection1's Each Term Point>
+Reflection1's Total Point: <Sum of Reflection1's term points>
+The Reason for the Point: <Reason>
+
+Reflection2's Each Term Point: <Reflection2's Each Term Point>
+Reflection2's Total Point: <Sum of Reflection2's term points>
+The Reason for the Point: <Reason>
