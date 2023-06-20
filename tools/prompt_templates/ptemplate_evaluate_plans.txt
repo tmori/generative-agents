@@ -13,6 +13,8 @@ Detail (0-20 points): Assess how detailed the plan's strategic explanation is, a
 Anticipated Challenges (0-20 points): Evaluate whether the plan appropriately anticipates challenges and considers solutions for dealing with them. The score will be based on the depth of challenge anticipation and the appropriateness of proposed solutions.
 Diversity (0-20 points): Reflect on how many different documents the plan investigates from various perspectives. This score is based on the diversity of documents and perspectives.
 
+Let's think step by step.
+
 Plan 1's Total Score: <Plan1 Point>
 Rationale for Score: <Reason>
 

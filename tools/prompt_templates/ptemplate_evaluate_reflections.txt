@@ -19,6 +19,7 @@ The above perspectives should be scored in the following scale:
 81-100 points: The information about the term is very detailed and includes all necessary information.
 
 Please give each term a score and then calculate the total score for each reflection.
+Let's think step by step.
 
 Reflection1's Each Term Point: <Reflection1's Each Term Point>
 Reflection1's Total Point: <Sum of Reflection1's term points>

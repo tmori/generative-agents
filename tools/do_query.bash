@@ -23,6 +23,7 @@ background_file=$2
 query="`cat ${query_dir}/query.txt`"
 
 ADD_REFLECTION="TRUE"
+#ADD_REFLECTION="FALSE"
 export NEW_STARTEGY=
 for TRY_NO in `seq 1 2`
 do

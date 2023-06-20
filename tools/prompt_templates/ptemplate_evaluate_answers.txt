@@ -11,6 +11,8 @@ to each questions by assigning a score between 0 and 100 in the following format
 61-80 points: The information about the question is quite detailed, but some details are missing.
 81-100 points: The information about the question is very detailed and includes all necessary information.
 
+Let's think step by step.
+
 Answer1's Point: <Answer1 Point>
 The Point Reason: <Reason>
 
