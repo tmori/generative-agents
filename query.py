@@ -30,8 +30,9 @@ class Query:
             # Store the information in the MemoryStream
             return self._save(sub_question, reply["answer"], point)
         else:
+            point = -1.0
             print("ERROR: can not find point in reply:" + reply["answer"])
-            return -1
+            return self._save(sub_question, reply["answer"], point)
 
     def _save(self, sub_question: str, reply: str, point: int):
         # Store the information in the MemoryStream
