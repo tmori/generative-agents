@@ -48,17 +48,19 @@ class Reflection:
 
 if __name__ == "__main__":
     import sys
-    if len(sys.argv) != 4:
-        print("Usage: <MainQuestion> <DocumentList> <BackgroundKnowledge>")
+    if len(sys.argv) != 6:
+        print("Usage: <MainQuestion> <DocumentList> <PreviousKnowledge> <BackgroundKnowledge> <TemplatePath>")
         sys.exit(1)
     main_question = sys.argv[1]
     document_list_path = sys.argv[2]
-    background_knowledge_path = sys.argv[3]
+    previous_knowledge_path = sys.argv[3]
+    background_knowledge_path = sys.argv[4]
+    template_path = sys.argv[5]
     think = Reflection(
         main_question, 
-        "./test/result/critical_thinking.json",
+        previous_knowledge_path,
         "./test/result/plan_result.json",
-        "./prompt_templates/ptemplate_reflection.txt",
+        template_path,
         document_list_path,
         background_knowledge_path)
     think.create()

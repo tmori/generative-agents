@@ -4,8 +4,11 @@
 import sys
 
 # hyper parameters
-llm_name="gpt-4-0613"
-#llm_name="gpt-4"
+#llm_name="gpt-4-0613"
+llm_name="gpt-4"
+#llm_name="gpt-3.5-turbo"
+#llm_name="gpt-3.5-turbo-0613"
+#llm_name="gpt-3.5-turbo-16k"
 embedding_model='text-embedding-ada-002'
 page_chunk_size = 1024
 max_token_num = 4096

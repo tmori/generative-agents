@@ -35,7 +35,7 @@ do
             echo "INFO: CRITICAL THINKING"
             python3 critical_thinking.py  "$query" ${background_file}
             echo "INFO: PLANNING"
-            python3 planner.py "$query" ../documents/document.list ${background_file} test/result/critical_thinking.json
+            python3 planner.py "$query" ../documents/document.list ${background_file} test/result/critical_thinking.json 
         else
             echo "INFO: PLANNING"
             python3 planner.py "$query" ../documents/document.list ${background_file} test/result/reflection.json
@@ -66,7 +66,17 @@ do
     if [ ${ADD_REFLECTION} = "TRUE" ]
     then
         echo "INFO: REFLECTING..."
-        python3 reflection.py "$query" ../documents/document.list ${background_file}
+        if [ -f "./test/result/reflection.json" ]
+        then
+            python3 reflection.py "$query" ../documents/document.list "./test/result/reflection.json" ${background_file} "./prompt_templates/ptemplate_reflection.txt"
+        else
+            python3 reflection.py "$query" ../documents/document.list "./test/result/critical_thinking.json" ${background_file} "./prompt_templates/ptemplate_reflection.txt"
+        fi
+        cp ./test/result/reflection.json ./test/result/prev_reflection.json
+        python3 reflection.py "$query" ../documents/document.list "./test/result/reflection.json" ${background_file} "./prompt_templates/ptemplate_reflection_addterms.txt"
+        mv ./test/result/reflection.json ./test/result/next_reflection.json
+        cat ./test/result/prev_reflection.json >  ./test/result/reflection.json
+        cat ./test/result/next_reflection.json  >> ./test/result/reflection.json
     else
         echo "INFO: SKIP REFLECTION"
     fi

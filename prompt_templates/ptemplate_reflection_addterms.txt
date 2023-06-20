@@ -1,0 +1,22 @@
+The question "{MainQuestion}" pertains to user operations, system troubleshooting, 
+and understanding specifications.
+The previous knowledge/concepts required to answer this question have been listed as follows:
+{KnowledgesNeeds}
+
+Please add new <Term>s with <Reason> and <UnknownInfo> derived from the obtained information.
+Let's think step by step.
+
+{{
+  "Knowledges": [
+    {{
+      "Term": "<Term>",
+      "Reason": "<Reason>",
+      "KnownInfos": [],
+      "UnknownInfo": [ "<UnknownInfo>", ... ],
+      "Relations": []
+    }},
+    :
+    :
+  ]
+}}
+

@@ -30,3 +30,5 @@ Input:
  PastStrategies: {PastStrategies}
  BackgroundKnowledges: {BackgroundKnowledges}
  AcquiredKnowledges: {AcquiredKnowledges}
+
+Let's think step by step.

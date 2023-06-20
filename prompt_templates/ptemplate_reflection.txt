@@ -10,21 +10,18 @@ To gather information related to the above concepts/knowledge, inquiries were ma
 and the results are as follows:
 {PlanResult}
 
-Based on these input information, please add the information regarding the concepts/knowledge.
 Fill in the KnownInfo with the understood information.
 Fill in the Point with the importance of the KnownInfo by assigning a score between 0 and 100(higher values indicate a more appropriate answer).
 Fill in the UnknownInfo with the information that is not yet fully understood.
 Enumerate the relevant <DocumentID> under DocumentIDs.
-Enumerate any relationships with other concepts/knowledge under Relations, 
-along with the reasons for the relationships.
-Add new Terms derived from the obtained information based on the UnknownInfo.
-Please add the results on the previous knowledge/concepts(should not delete previous one) in the following data structure, in JSON format.
+Enumerate any relationships with other concepts/knowledge under Relations, along with the reasons for the relationships.
+Let's think step by step.
 
 {{
   "Knowledges": [
     {{
-      "Term": "<Term>"
-      "Reason": "<Reason>"
+      "Term": "<Term>",
+      "Reason": "<Reason>",
       "KnownInfos": [
         {{
           "KnownInfo": "<KnownInfo(previous one)>",
@@ -38,7 +35,7 @@ Please add the results on the previous knowledge/concepts(should not delete prev
         :
         :
       ],
-      "UnknownInfo": [ "<UnknownInfo>", ... ]
+      "UnknownInfo": [ "<UnknownInfo>", ... ],
       "Relations": [
         {{
           "Term": "<Term>",

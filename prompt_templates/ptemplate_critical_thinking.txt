@@ -8,10 +8,11 @@ Please list the necessary knowledge/concepts required to answer this question
 and provide the reasons for each.
 
 The result should be outputted in the following JSON format.
+Let's think step by step.
 {{
   "Knowledges": [
     {{
-      "Term": "<Term>"
+      "Term": "<Term>",
       "Reason": "<Reason>"
     }},
     :
