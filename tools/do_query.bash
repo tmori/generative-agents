@@ -18,6 +18,15 @@ then
 else
     mkdir test/result
 fi
+
+function get_docs()
+{
+    local query="${1}"
+    local json_file=${2}
+    TERMS=`bash tools/get_terms.bash test/result/${json_file}`
+    python3 db_manager.py ../documents/dbs ../documents/document.list "${query}, ${TERMS}" 10 | tee tmp.list
+}
+
 query_dir=$1
 background_file=$2
 query="`cat ${query_dir}/query.txt`"
@@ -35,11 +44,17 @@ do
             rm -rf test/*.json
             echo "INFO: CRITICAL THINKING"
             python3 critical_thinking.py  "$query" ${background_file}
+            echo "INFO: GETTING DOCUMENTS"
+            get_docs "${query}" critical_thinking.json
+            documents=`cat tmp.list`
             echo "INFO: PLANNING"
-            python3 planner.py "$query" ../documents/document.list ${background_file} test/result/critical_thinking.json 
+            python3 planner.py "$query\n: Please research focusing on the following document:\n ${documents} " ../documents/document.list ${background_file} test/result/critical_thinking.json 
         else
             echo "INFO: PLANNING"
-            python3 planner.py "$query" ../documents/document.list ${background_file} test/result/reflection.json
+            echo "INFO: GETTING DOCUMENTS"
+            get_docs "${query}" reflection.json
+            documents=`cat tmp.list`
+            python3 planner.py "$query\n: Please research focusing on the following document:\n ${documents}" ../documents/document.list ${background_file} test/result/reflection.json
         fi
     else
         echo "INFO: PLANNING"

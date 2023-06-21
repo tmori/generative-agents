@@ -47,4 +47,5 @@ if __name__ == "__main__":
     num=int(sys.argv[4])
 
     docs = get_similarity_search_results(doclist, db_dir, terms, num)
-    print(docs)
+    for entry in docs:
+        print(entry)
