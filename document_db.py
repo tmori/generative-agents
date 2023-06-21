@@ -15,6 +15,7 @@ max_token_num = 4096
 conversation_window_size = 3
 conversation_token_num = 1024
 conversation_history_type = "window" # token or window
+vector_db = None
 
 if __name__ == "__main__":
     if (len(sys.argv) == 1) or (len(sys.argv) > 4):
@@ -112,6 +113,7 @@ def create_db(doc_dir, db_dir, embedding_model, chunk_size):
 
 
 def load_db(db_dir, llm_name, embedding_model, token_num, history_type, num):
+    global vector_db
     print("INFO: Setting up LLM:" + db_dir)
     openai.api_key = os.getenv("OPENAI_API_KEY")
     llm = ChatOpenAI(
@@ -121,6 +123,7 @@ def load_db(db_dir, llm_name, embedding_model, token_num, history_type, num):
 
     embeddings = OpenAIEmbeddings(deployment=embedding_model)
     vectorstore = Chroma(persist_directory=db_dir, embedding_function=embeddings)
+    vector_db = vectorstore
     if (history_type == "window"):
         memory = ConversationBufferWindowMemory(k=num, memory_key="chat_history", return_messages=True)
     else:
@@ -159,6 +162,18 @@ def calc_similarity(str1, str2):
         print("An error occurred:", str(e))
         return None
 
+def similarity_search_with_score(db_dir: str, terms: str, top_k: int):
+    #print(f"db_dir={db_dir} terms={terms} embedding_model={embedding_model}")
+    embeddings = OpenAIEmbeddings(deployment=embedding_model)
+    vectorstore = Chroma(persist_directory=db_dir, embedding_function=embeddings)
+    vector_db = vectorstore
+    docs = vector_db.similarity_search_with_score(terms, top_k = top_k)
+    #print(str(docs))
+    #print(f"content: {docs[0][0].page_content}", f"score: {docs[0][1]}")
+    #print(f"content: {docs[1][0].page_content}", f"score: {docs[1][1]}")
+    return docs
+
+
 if __name__ == "__main__":
     if mode == "new":
         _ = create_db(doc_dir, db_dir, embedding_model, page_chunk_size)
@@ -178,3 +193,7 @@ if __name__ == "__main__":
             result = qa({"question": query})
             print("A: "+result["answer"])
 
+            #docs = vector_db.similarity_search_with_score(query, top_k = 1)
+            #print(str(docs))
+            #print(f"content: {docs[0][0].page_content}", f"score: {docs[0][1]}")
+            #print(f"content: {docs[1][0].page_content}", f"score: {docs[1][1]}")
