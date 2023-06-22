@@ -118,6 +118,10 @@ bash tools/query.bash "<Question content>"
 
 Please note that the response from OpenAPI is slow, so it may take a few minutes for the answer to appear. For difficult questions, it's worth the wait, but for simpler ones, it's better to ask questions to individual documents.
 
+## Note
+Please note that the answers to questions will be in Japanese. If you want the answer in English, please remove `in Japanease` from the prompt in the following file.
+
+https://github.com/tmori/generative-agents/blob/36a528b56c4fd64f01fc9cd2807268dc1431d73d/prompt_templates/ptemplate_evaluate.txt#L13
 
 # Demo
 
