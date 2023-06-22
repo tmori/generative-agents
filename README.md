@@ -128,7 +128,7 @@ https://github.com/tmori/generative-agents/blob/36a528b56c4fd64f01fc9cd2807268dc
 Let's ask a question about the sandbox right away.
 
 ```
-bash tools/query.bash "Windows版の箱庭上でロボットを強化学習させようとしていますが、シミュレーション開始してもロボットが動きません。手順、ファイアウォール、設定等、考えられる原因を教えてください"
+bash tools/query.bash "I'm trying to train a robot using reinforcement learning on the Windows version of Hakoniwa (a simulator for robotics), but the robot doesn't move even after starting the simulation. Can you please provide me with the possible causes, such as steps, firewall, settings, or any other considerations?"
 ```
 
 Question:
