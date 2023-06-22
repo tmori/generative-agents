@@ -108,6 +108,38 @@ INFO: Loading document=Windows＋Unity＋Pythonで箱庭ロボットを強化学
 INFO: Storing Vector DB:tmp/DB
 ```
 
+# To ask a question
+
+The way to ask questions to the document is as follows.
+
+```
+bash tools/query.bash "<Question content>"
+```
+
+Please note that the response from OpenAPI is slow, so it may take a few minutes for the answer to appear. For difficult questions, it's worth the wait, but for simpler ones, it's better to ask questions to individual documents.
+
+
+# Demo
+
+Let's ask a question about the sandbox right away.
+
+```
+bash tools/query.bash "Windows版の箱庭上でロボットを強化学習させようとしていますが、シミュレーション開始してもロボットが動きません。手順、ファイアウォール、設定等、考えられる原因を教えてください"
+```
+
+Question:
+> Windows版の箱庭上でロボットを強化学習させようとしていますが、シミュレーション開始してもロボットが動きません。手順、ファイアウォール、設定等、考えられる原因を教えてください
+
+Answer:
+> Windowsで強化学習とロボットのシミュレーションを行う場合には、いくつかの手順と要件を確認する必要があります。まずUnity、Pythonを正しく準備し、強化学習が可能な状態（Sandbox）を構築します。検証した結果では、Unityのバージョンが異なる場合でも問題ないことが示されています（Unityが適切に変換します）[ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility]。
+
+> なお、Windows Defender FirewallによってUnity Editorがブロックされれば、ロボットは動きません。これを解決するためには、Windows Defender Firewallの設定を変更して、Unity Editorの通信を許可するよう設定する必要があります[ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility]。
+また、シミュレーションの動作自体には、Q-tableを使用した強化学習とロボットのモータ操作（前進、右折、左折）が含まれます[Unity-Python-Robotics-ReinforcementLearning-Implementation]。
+
+> これを踏まえた上で、現状ではシミュレーションが開始してもロボットが動かない原因を特定するためには、まずは利用しているUnityとPythonのバージョン、そしてFirewallの設定やシミュレーションソフトウェアの設定を再確認することが必要と考えられます。さらに詳しい調査が必要な場合、ロボットの強化学習の具体的なプログラムを確認し、適切に設定・実行されているか確認することも考慮に入れられます。
+
+# Design information
+
 ## Tool chain for creating document TITLE and DB
 
 ![image](https://github.com/tmori/generative-agents/assets/164193/b0e200b6-a178-4d08-afb9-6d7d7c3088a1)
