@@ -234,10 +234,72 @@ It is a collection of data sets, with each set consisting of the following infor
 ### Knowledge/Concept
 The output data of Reflection consists of the following two components:
 
-- Knowledge (Needs)
-  - refers to the necessary knowledge/concepts required to answer the question.
-- Knowledge (Definition)
-  - represents the understanding of that knowledge/concept.
+#### Knowledge (Needs)
+refers to the necessary knowledge/concepts required to answer the question.
+
+```json
+{
+  "Knowledges": [
+    {
+      "Term": "<Term>",
+      "Reason": "<Reason>"
+    },
+    :
+  ]
+}
+```
+
+* Term
+  * a term which is necessary knowledge/concepts required to answer the question.
+* Reason
+  * the reason of picking up the Term for answering question.
+
+#### Knowledge (Definition)
+represents the understanding of that knowledge/concept.
+
+```json
+{
+  "Knowledges": [
+    {
+      "Term": "<Term>",
+      "Reason": "<Reason>"
+      "KnownInfos": [
+         {
+           "KnownInfo": <KnownInfo>,
+           "Point": <Point>,
+           "DocumentIDs": [ <DocumentID>, ... ]
+         },
+         :
+      ],
+      "UnknownInfo": [
+         <UnknownInfo>, ...
+      ],
+      "Relations": [
+         {
+            Term: "<Term>,
+            RelationReason: "<RelationReason>"
+         },
+         :
+      ]
+    },
+    :
+  ]
+}
+```
+* KnownInfos
+  * KnownInfo
+    * acuquired information after investigating the documents which are shown in <DocumentIDs>.
+  * Point
+    * importance of KnownInfo for answering the main question. The importance degree depends on GPT's subjectives.
+  * DocumentID
+    * see KnownInfo
+* UnknownInfo
+  * unknown infromation of the Term which shoud be investigated for answering question.
+* Relations
+  * Term
+    * the related Terms
+  * RelationReason
+    * the reason of having relationship with the Term
 
 ## refs
 * https://arxiv.org/abs/2304.03442
