@@ -1,6 +1,113 @@
 # generative-agents
 Experimenting with an agent that searches documents and asks questions repeatedly in response to the main question, automatically determining the optimal answer from the current documents or recognizing when there is no answer.
 
+# Assumed environment, etc
+
+* Operating environment
+  * Windows10/11 WSL2, Ubuntu, Mac
+* Install
+  * Python 3 can be used
+* OpenAI
+  * OpenAPI key can be used
+
+# What you can do
+
+* You can input multiple existing documents
+* You can ask questions about the documents you input
+* It speculates questions from various angles, reads the necessary documents, and provides answers
+
+## Types of supported documents
+
+LangChain has loaders that support various documents, but as of now, it can load the following documents.
+
+* PDF
+* CSV
+* PPTX
+* URL
+* JSON
+
+# Install
+
+Please install the following
+
+```
+pip3 install openai
+pip3 install chromadb 
+pip3 install tiktoken
+pip3 install pypdf
+pip3 install langchain
+pip3 install unstructured
+pip3 install tabulate
+```
+
+Please set the OpenAPI API key as an environment variable.
+
+```
+export OPENAI_API_KEY=<APIキー>
+```
+
+Clone the repository
+
+```
+git clone https://github.com/tmori/generative-agents.git
+```
+
+# Place the existing documents
+
+Please create a `documents` directory on the same directory level as `generative-agents`.
+
+```
+mkdir documents
+```
+
+```
+$ ls
+documents generative-agents
+```
+
+Then, create the following two directories under `documents`.
+
+```
+mkdir documents/docs
+mkdir documents/dbs
+```
+
+Please place the PDF files you want to load under `documents/docs`.
+Placement example: PDFs of my own Qiita article
+
+```
+ls documents/docs/
+'ChatGPTのAPI使って、Unity上の箱庭ロボットを動かしてみた！ - Qiita.pdf'
+'Mac＋Unity＋Pythonで箱庭ロボットを強化学習できるようにするための手順書 - Qiita.pdf'
+'Python使ってUnity上の箱庭ロボットのカメラデータを取得してみよう - Qiita.pdf'
+'Ubuntuでも箱庭で機械学習するやつを動かそう - Qiita.pdf'
+'Unity + Python + 箱庭でロボットを強化学習させてみよう！ - Qiita.pdf'
+'Unity 内の箱庭ロボットを動かすPython API仕様書 - Qiita.pdf'
+'Unity＋Python＋箱庭で自作ドローンを動かしてみる！ - Qiita.pdf'
+'Windows＋Unity＋Pythonで箱庭ロボットを強化学習できるようにするための手順書 - Qiita.pdf'
+```
+
+After completing the placement, please execute the following command.
+
+
+```
+bash generative-agents/tools/create_doclist.bash 
+```
+
+If successful, logs like this will be output.
+
+```
+DB_DIR =tmp/DB
+DOC_DIR=tmp
+INFO: Loading document=ChatGPTのAPI使って、Unity上の箱庭ロボットを動かしてみた！ - Qiita.pdf
+INFO: Storing Vector DB:tmp/DB
+:
+DB_DIR =tmp/DB
+DOC_DIR=tmp
+INFO: Loading document=Windows＋Unity＋Pythonで箱庭ロボットを強化学習できるようにするための手順書 - Qiita.pdf
+INFO: Storing Vector DB:tmp/DB
+```
+
 ## Tool chain for creating document TITLE and DB
 
 ![image](https://github.com/tmori/generative-agents/assets/164193/b0e200b6-a178-4d08-afb9-6d7d7c3088a1)
