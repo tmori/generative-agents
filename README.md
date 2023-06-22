@@ -282,7 +282,7 @@ represents the understanding of that knowledge/concept.
 ```
 * KnownInfos
   * KnownInfo
-    * acuquired information after investigating the documents which are shown in <DocumentIDs>.
+    * acuquired information after investigating the documents which are shown in `DocumentIDs`.
   * Point
     * importance of KnownInfo for answering the main question. The importance degree depends on GPT's subjectives.
   * DocumentID
