@@ -10,7 +10,7 @@ Input:
  Reflection:
   {Reflection}
 
-Based on the information provided, please answer the Main Question in Japanese and reference 
+Based on the information provided, please answer the Main Question and reference 
 the source document by citing its ID in the following format.
 Let's think step by step.
 

@@ -15,7 +15,7 @@ def get_similarity_search_with_scores(db_dir: str, doc_id: str, terms: str, top_
 def get_similarity_search_with_average_score(db_dir: str, doc_id: str, terms: str, top_k: int):
     doc_scores = similarity_search_with_score(db_dir + "/" + doc_id, terms, top_k)
     scores = [score[1] for score in doc_scores]
-    scores_series = pd.Series(scores)
+    scores_series = pd.Series(scores, dtype='float64')
     average_score = scores_series.mean()
     return average_score
 

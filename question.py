@@ -18,8 +18,8 @@ tools = []
 # OpenAI APIでモデルを指定して応答を取得する
 def get_response(question):
     response = openai.ChatCompletion.create(
-#        model="gpt-4-0613",
-        model="gpt-4",
+        model="gpt-4-0613",
+#        model="gpt-4",
 #        model="gpt-3.5-turbo",
 #        model="gpt-3.5-turbo-0613",
 #        model="gpt-3.5-turbo-16k",

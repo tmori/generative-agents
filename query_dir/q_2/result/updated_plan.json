@@ -1,44 +1,95 @@
 {
-    "DetailedStrategy": "  Investigate the technical specifications, user instructions and potential issues related to the Windows system, reinforcement learning, firewall, simulator software, and robot operations,",
+    "DetailedStrategy": "  Investigate the documents focusing on RL, Hakoniwa, Python, Unity, and Windows settings.,",
     "Plan": [
         {
             "PlanID": 1,
             "DocumentID": "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility",
-            "Purpose": "To understand the setup process and compatibility issues within Windows version of Unity Python detailed for reinforcement learning and Robot simulation",
-            "Perspectives": "System troubleshooting and User operation",
+            "Purpose": "Understanding Windows setting requirements and Unity compatibility issues",
+            "Perspectives": [
+                "System setup",
+                "Compatibility issues",
+                "Firewall settings"
+            ],
             "ResultID": 1,
             "Status": "Done"
         },
         {
             "PlanID": 2,
-            "DocumentID": "Unity-Python-Robotics-ReinforcementLearning-Implementation",
-            "Purpose": "To understand the implementation process of reinforcement learning in robotics within a Python/Unity integration",
-            "Perspectives": "System troubleshooting and Understanding specifications",
+            "DocumentID": "ReinforcementLearning-RobotSimulation-MacUnityPython-SetupGuide-ExecutionProcedure",
+            "Purpose": "Learn execution steps for RL in Unity, and check against Windows steps.",
+            "Perspectives": [
+                "Similarities and differences in setup",
+                "Error points"
+            ],
             "ResultID": 2,
             "Status": "Done"
         },
         {
             "PlanID": 3,
-            "DocumentID": "ReinforcementLearning-RobotSimulation-MacUnityPython-SetupGuide-ExecutionProcedure",
-            "Purpose": "To understand the execution procedures of Robot simulation and reinforcement learning within Unity Python on MAC, for cross-reference purpose",
-            "Perspectives": "System troubleshooting",
+            "DocumentID": "Unity-Python-Robotics-ReinforcementLearning-Implementation",
+            "Purpose": "Study specifics of the RL algorithm implementation",
+            "Perspectives": [
+                "Implementation steps",
+                "Common pitfalls",
+                "Error points"
+            ],
             "ResultID": 3,
             "Status": "Done"
         },
         {
             "PlanID": 4,
-            "DocumentID": "Unity-PythonAPI-RobotControl-hako_env-hako_robomodel_any-hako",
-            "Purpose": "To understand the robotic controls in a Unity/Python environment and any specific configurations related to the issue",
-            "Perspectives": "Understanding specifications",
+            "DocumentID": "MachineLearning-Simulation-Ubuntu-Unity-EnvironmentSetup",
+            "Purpose": "Analyse Ubuntu environment setup to compare with Windows version",
+            "Perspectives": [
+                "Potential issues due to OS",
+                "Changes required for Windows"
+            ],
             "ResultID": 4,
             "Status": "Done"
         },
         {
             "PlanID": 5,
-            "DocumentID": "Programming-Unity-Python-DroneControl-HakoniwaEnvironment",
-            "Purpose": "To understand the Unity-Python integration in an another scenario (drone control) for cross-reference",
-            "Perspectives": "Understanding specifications and System troubleshooting",
+            "DocumentID": "Python-Unity-SandboxRobot-CameraData-Retrieval",
+            "Purpose": "Decipher usage of Python for retrieving data",
+            "Perspectives": [
+                "Python scripting",
+                "Data retrieval issues"
+            ],
             "ResultID": 5,
+            "Status": "Done"
+        },
+        {
+            "PlanID": 6,
+            "DocumentID": "Programming-Unity-Python-DroneControl-HakoniwaEnvironment",
+            "Purpose": "Understand Python control within Hakoniwa",
+            "Perspectives": [
+                "Python scripting",
+                "Possible code-related issues"
+            ],
+            "ResultID": 6,
+            "Status": "Done"
+        },
+        {
+            "PlanID": 7,
+            "DocumentID": "Unity-PythonAPI-RobotControl-hako_env-hako_robomodel_any-hako",
+            "Purpose": "Learn Python API control and its effect on the robot model",
+            "Perspectives": [
+                "Python API usage",
+                "Robot control issues"
+            ],
+            "ResultID": 7,
+            "Status": "Done"
+        },
+        {
+            "PlanID": 8,
+            "DocumentID": "ChatGPT-API-Unity-SandboxRobot-Experiment-Rules",
+            "Purpose": "Explore the experiment rules for better understanding of the setup",
+            "Perspectives": [
+                "Setup guidelines",
+                "Requirements",
+                "Potential problem points"
+            ],
+            "ResultID": 8,
             "Status": "Done"
         }
     ]
