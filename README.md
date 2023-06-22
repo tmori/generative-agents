@@ -234,6 +234,9 @@ It is a collection of data sets, with each set consisting of the following infor
 ### Knowledge/Concept
 The output data of Reflection consists of the following two components:
 
+* Knowledge (Needs)
+* Knowledge (Definition)
+
 #### Knowledge (Needs)
 refers to the necessary knowledge/concepts required to answer the question.
 
@@ -252,6 +255,18 @@ refers to the necessary knowledge/concepts required to answer the question.
   * a term which is necessary knowledge/concepts required to answer the question.
 * Reason
   * the reason of picking up the Term for answering question.
+
+Example:
+```json
+    {
+      "Term": "Reinforcement Learning",
+      "Reason": "You should understand basics of reinforcement learning as this is the method being used to train the robot in question. It will help you understand how the system works and how to properly implement it."
+    },
+    {
+      "Term": "Hakoniwa Simulator",
+      "Reason": "This is the specific tool the user is trying to use. Knowledge of its working, settings and system requirements is necessary to solve the issue."
+    }
+```
 
 #### Knowledge (Definition)
 represents the understanding of that knowledge/concept.
@@ -294,6 +309,43 @@ represents the understanding of that knowledge/concept.
     * the related Terms
   * RelationReason
     * the reason of having relationship with the Term
+
+Example:
+
+```json
+    {
+      "Term": "Reinforcement Learning",
+      "Reason": "You should understand basics of reinforcement learning as this is the method being used to train the robot in question. It will help you understand how the system works and how to properly implement it.",
+      "KnownInfos": [
+        {
+          "KnownInfo": "The implementation of reinforcement learning involves using Unity, Python, and a sandbox environment to train a robot. The robot model used is the same as the ET Robocon competition robot, which is capable of carrying goods. The robot uses an ultrasonic sensor that returns values between 0 and 255. When the robot is on a line trace, the value is around 120. The reinforcement learning process involves several components: Reward, State, Action, Number of states and actions.",
+          "Point": "85",
+          "DocumentIDs": [ "Unity-Python-Robotics-ReinforcementLearning-Implementation" ]
+        }
+      ],
+      "UnknownInfo": [ "The specific reinforcement learning algorithm used and its configuration settings." ],
+      "Relations": []
+    },
+    {
+      "Term": "Hakoniwa Simulator",
+      "Reason": "This is the specific tool the user is trying to use. Knowledge of its working, settings and system requirements is necessary to solve the issue.",
+      "KnownInfos": [
+        {
+          "KnownInfo": "The Hakoniwa simulator environment is set up in Unity, and it also has settings such as drone movement and camera data retrieval that can be controlled using Python.",
+          "Point": "87.5",
+          "DocumentIDs": [ "Programming-Unity-Python-DroneControl-HakoniwaEnvironment", "Python-Unity-SandboxRobot-CameraData-Retrieval" ]
+        }
+      ],
+      "UnknownInfo": [ "How to troubleshoot issues with Hakoniwa on Windows." ],
+      "Relations": [
+        {
+          "Term": "Windows OS",
+          "RelationReason": "Hakoniwa runs on the Windows OS and understanding how these two interact can help troubleshoot the issue."
+        }
+      ]
+    },
+```
+
 
 ## refs
 * https://arxiv.org/abs/2304.03442
