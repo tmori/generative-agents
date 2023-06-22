@@ -143,6 +143,12 @@ Answer:
 
 > Please cross-verify each of these aspects to identify and resolve the issue.
 
+## Reflection Diagram
+
+I believe that this response largely relies on reflection. As shown in the diagram below, the knowledge (Term) necessary for the question is extracted, and the relationships between these Terms are recognized. Furthermore, these Terms are linked with the documents under investigation, and by examining various documents, it becomes clear that the answers are obtained.
+
+![image](https://github.com/tmori/generative-agents/assets/164193/314aa4a9-1bae-4025-8826-ce9aeba6fccc)
+
 
 # Design information
 
