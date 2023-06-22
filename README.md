@@ -244,7 +244,6 @@ refers to the necessary knowledge/concepts required to answer the question.
       "Term": "<Term>",
       "Reason": "<Reason>"
     },
-    :
   ]
 }
 ```
@@ -265,24 +264,19 @@ represents the understanding of that knowledge/concept.
       "Reason": "<Reason>"
       "KnownInfos": [
          {
-           "KnownInfo": <KnownInfo>,
-           "Point": <Point>,
-           "DocumentIDs": [ <DocumentID>, ... ]
+           "KnownInfo": "<KnownInfo>",
+           "Point": "<Point>",
+           "DocumentIDs": [ "<DocumentID>" ]
          },
-         :
       ],
-      "UnknownInfo": [
-         <UnknownInfo>, ...
-      ],
+      "UnknownInfo": [ "<UnknownInfo>" ],
       "Relations": [
          {
-            Term: "<Term>,
-            RelationReason: "<RelationReason>"
+            "Term": "<Term>",
+            "RelationReason": "<RelationReason>"
          },
-         :
       ]
     },
-    :
   ]
 }
 ```
