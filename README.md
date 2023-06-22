@@ -149,6 +149,9 @@ I believe that this response largely relies on reflection. As shown in the diagr
 
 ![image](https://github.com/tmori/generative-agents/assets/164193/314aa4a9-1bae-4025-8826-ce9aeba6fccc)
 
+The above diagram is base on following reflection data:
+
+https://github.com/tmori/generative-agents/blob/main/query_dir/q_2/result/reflection.json
 
 # Design information
 
