@@ -132,15 +132,16 @@ bash tools/query.bash "Windows版の箱庭上でロボットを強化学習さ�
 ```
 
 Question:
-> Windows版の箱庭上でロボットを強化学習させようとしていますが、シミュレーション開始してもロボットが動きません。手順、ファイアウォール、設定等、考えられる原因を教えてください
+> I'm trying to train a robot using reinforcement learning on the Windows version of Hakoniwa (a simulator for robotics), but the robot doesn't move even after starting the simulation. Can you please provide me with the possible causes, such as steps, firewall, settings, or any other considerations?
 
 Answer:
-> Windowsで強化学習とロボットのシミュレーションを行う場合には、いくつかの手順と要件を確認する必要があります。まずUnity、Pythonを正しく準備し、強化学習が可能な状態（Sandbox）を構築します。検証した結果では、Unityのバージョンが異なる場合でも問題ないことが示されています（Unityが適切に変換します）[ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility]。
+> Several reasons could cause your robot to not move in the Hakoniwa simulator.
+> 1. Firewall Settings: One of the important things to check, as mentioned in the document "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility", is to ensure that the Unity Editor is allowed through your Windows Defender Firewall. If the Unity Editor is blocked, you need to alter the settings and allow it. It won't function properly if it's not checked in the "Allowed apps and features" section.
+> 2. Unity Editor Settings: The Unity Editor settings must be correctly configured as per the guidelines provided in document "Programming-Unity-Python-DroneControl-HakoniwaEnvironment". It covers the step-by-step setup of the Hakoniwa simulator environment in Unity and Python. 
+> 3. Reinforcement Learning Algorithm Implementation: These issues could also emerge from incorrect implementation of your reinforcement learning algorithm as detailed in "Unity-Python-Robotics-ReinforcementLearning-Implementation". It explains how the interaction between the Unity simulator and Python scripts operates and how to devise a reward system, observe the state, execute the robot's motor operations, and handle the number of observed states and actions.
+> 4. Python Scripting and Module Usage: If there are errors in Python scripting or incorrect use of the Python API modules (hako_env, hako_robomodel_any, and hako modules) for controlling robots in Unity, as per the "Unity-PythonAPI-RobotControl-hako_env-hako_robomodel_any-hako" document, they might inhibit the robot's behavior in the simulation.
+> Please cross-verify each of these aspects to identify and resolve the issue.
 
-> なお、Windows Defender FirewallによってUnity Editorがブロックされれば、ロボットは動きません。これを解決するためには、Windows Defender Firewallの設定を変更して、Unity Editorの通信を許可するよう設定する必要があります[ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility]。
-また、シミュレーションの動作自体には、Q-tableを使用した強化学習とロボットのモータ操作（前進、右折、左折）が含まれます[Unity-Python-Robotics-ReinforcementLearning-Implementation]。
-
-> これを踏まえた上で、現状ではシミュレーションが開始してもロボットが動かない原因を特定するためには、まずは利用しているUnityとPythonのバージョン、そしてFirewallの設定やシミュレーションソフトウェアの設定を再確認することが必要と考えられます。さらに詳しい調査が必要な場合、ロボットの強化学習の具体的なプログラムを確認し、適切に設定・実行されているか確認することも考慮に入れられます。
 
 # Design information
 
