@@ -200,8 +200,41 @@ Answer:
 > 5. If you have made any custom modifications to the code or settings, try reverting to the original configuration to see if the issue persists.
 > If you still encounter issues, consider seeking help from the Hakoniwa community or the tutorial's author for more specific guidance.
 
+We evaluates theses answers with using OpenAI API.
+The Prompt is here:
 
+```
+For the Question {MainQuestion}, there are 2 answers.
 
+Answer1: {Result1}
+Answer2: {Result2}
+
+Please assess the appropriateness of the answer in Japanease
+to each questions by assigning a score between 0 and 100 in the following format 
+0-20 points: No information at all is provided about the question.
+21-40 points: Basic information about the question is available, but key details are missing.
+41-60 points: Information about the question is available, but some important details are missing.
+61-80 points: The information about the question is quite detailed, but some details are missing.
+81-100 points: The information about the question is very detailed and includes all necessary information.
+
+Let's think step by step.
+
+Answer1's Point: <Answer1 Point>
+The Point Reason: <Reason>
+
+Answer2's Point: <Answer2 Point>
+The Point Reason: <Reason>
+```
+
+Results:
+
+```
+PlanA's Point: 70
+The Point Reason: The answer provides a general idea on troubleshooting the issue with useful recommendations such as checking error logs, firewall settings, system requirements, etc. However, it lacks some specific detail on reinforcement learning algorithm implementation, Unity editor settings, and Python API module usage which were provided in the second answer.
+
+PlanC's Point: 95
+The Point Reason: This answer gives a comprehensively detailed response. It includes potential issues relating to firewall settings, Unity editor settings, reinforcement algorithm implementation, and Python scripting and modules, which are all important in the context of the question. It only falls short of giving a perfect score because troubleshooting guides or examples on how to correct these potential issues are not provided.
+```
 
 # Design information
 
