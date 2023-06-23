@@ -18,14 +18,14 @@ A discussion of the three proposals follows.
 - Cons:
     1. There is a limit on the number of tokens for the OpenAI API, which can impose an upper limit on the amount of data that can be sent, potentially leading to information leakage.
 
-#### Plan B: Querying each document individually
+## Plan B: Querying each document individually
 - Pros:
     1. Since the documents are divided into meaningful units, if the appropriate document can be identified for the question, the optimal answer can be expected.
 - Cons:
     1. Time cost of querying all documents.
     2. Difficulties in constructing answers based on information spanning multiple documents.
 
-#### Plan C: Extracting "knowledge/concepts" for answering, understanding and extracting that knowledge/concepts as reflection data, and combining it with planning data to generate answers
+## Plan C: Extracting "knowledge/concepts" for answering, understanding and extracting that knowledge/concepts as reflection data, and combining it with planning data to generate answers
 - Pros:
     1. It allows focusing on specific knowledge or concepts relevant to the context, enabling concentration on the necessary information while filtering out irrelevant information.
     2. Extracting knowledge or concepts is a good method for gathering information from multiple documents and achieving an integrated understanding, enabling a cross-document perspective.
