@@ -39,6 +39,8 @@ A discussion of the three proposals follows.
 
 * Operating environment
   * Windows10/11 WSL2, Ubuntu, Mac
+  * Google colaboratory
+    * [GenerativeAgentForDoq.ipynb](https://github.com/tmori/generative-agents/blob/main/GenerativeAgentForDoq.ipynb)
 * Install
   * Python 3 can be used
 * OpenAI
