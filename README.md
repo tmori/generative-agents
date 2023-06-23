@@ -14,9 +14,9 @@ A discussion of the three proposals follows.
 
 ## Plan A: Merging all documents and querying
 - Pros:
-    1. Since the documents are not divided, there is no risk of information leakage.
+    1. Since the documents are not divided, there is no risk of information loss.
 - Cons:
-    1. There is a limit on the number of tokens for the OpenAI API, which can impose an upper limit on the amount of data that can be sent, potentially leading to information leakage.
+    1. There is a limit on the number of tokens for the OpenAI API, which can impose an upper limit on the amount of data that can be sent, potentially leading to information loss.
 
 ## Plan B: Querying each document individually
 - Pros:
