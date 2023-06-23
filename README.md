@@ -189,16 +189,17 @@ https://github.com/tmori/generative-agents/blob/main/query_dir/q_2/result/reflec
 
 ## Comparison
 
-Let's compare it to plan A.
+Let's compare it to plan A using LangChain [custom agent](https://github.com/tmori/langchain_tutorial/blob/develop/agent_custom_jp.py).
 
 Answer:
-> I cannot provide specific causes without more information about your setup and any error messages you might be encountering. However, here are some general suggestions to troubleshoot the issue:
-> 1. Ensure that you have followed the instructions in the tutorial correctly, especially the steps related to setting up the environment and editing the reinforcement learning program files (ai_qtable.py and hako_robomodel_ev3.py).
-> 2. Check if there are any error messages in the console or log files that might indicate issues with the setup or the reinforcement learning algorithm.
-> 3. Make sure that your firewall or antivirus software is not blocking any necessary connections or processes related to the Hakoniwa simulator.
-> 4. Verify that your system meets the minimum requirements for running the Hakoniwa simulator and the reinforcement learning algorithm.
-> 5. If you have made any custom modifications to the code or settings, try reverting to the original configuration to see if the issue persists.
-> If you still encounter issues, consider seeking help from the Hakoniwa community or the tutorial's author for more specific guidance.
+> If your Hakoniwa reinforcement learning robot doesn't move, there could be a few reasons for this issue. Here are some steps you can take to troubleshoot the problem:
+> 1. Make sure you have properly installed and set up the required tools and environments. Follow the instructions provided in the Qiita article for Mac or Windows.
+> 2. Check if your Python reinforcement learning program is running correctly. Ensure that the Q-table is being updated and the robot is receiving appropriate actions based on the current state.
+> 3. Verify that the motor operations are correctly implemented in the Python program. The robot should have three basic operations: move forward (with two-speed levels), turn right (with two-speed levels), and turn left (with two-speed levels).
+> 4. Make sure the reward and observation functions are working as expected. The ultrasonic sensor should return values between 0 and 255, and the robot should receive a reward based on these values.
+> 5. If you have made any changes to the sample program, double-check your modifications to ensure they are not causing the issue.
+>
+> If you have followed these steps and the robot still doesn't move, there might be an issue with the specific implementation or a bug in the code. You can try reaching out to the Hakoniwa community for further assistance.
 
 We evaluates theses answers with using OpenAI API.
 The Prompt is here:
@@ -228,13 +229,13 @@ The Point Reason: <Reason>
 
 Results:
 
-> PlanA's Point: 70
-> 
-> The Point Reason: The answer provides a general idea on troubleshooting the issue with useful recommendations such as checking error logs, firewall settings, system requirements, etc. However, it lacks some specific detail on reinforcement learning algorithm implementation, Unity editor settings, and Python API module usage which were provided in the second answer.
+> Plan A's Point: 85
+>
+> The Point Reason: The answer provides a structured and detailed approach to troubleshoot the issue of the robot not moving in Hakoniwa simulation. It gives a list of steps with reasons that connect directly to the problem, but it does not mention considerations about the Firewall settings, unity editor settings, and details about the python modules.
 
-> PlanC's Point: 95
-> 
-> The Point Reason: This answer gives a comprehensively detailed response. It includes potential issues relating to firewall settings, Unity editor settings, reinforcement algorithm implementation, and Python scripting and modules, which are all important in the context of the question. It only falls short of giving a perfect score because troubleshooting guides or examples on how to correct these potential issues are not provided.
+> Plan C's Point: 100
+>
+> The Point Reason: This response thoroughly details multiple potential causes for the issue, including Firewall settings, Unity Editor settings, Reinforcement Learning Algorithm Implementation, and Python scripting. It refers to the necessary and detailed part of the Hakoniwa documentations, making it a comprehensive answer.
 
 # Design information
 
