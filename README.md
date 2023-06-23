@@ -279,7 +279,7 @@ Plan includes the following information in the order of investigation:
   * Status
     * status of investigation(None, Doing, Done)
 
-example:
+Example:
 
 ```json
 {
@@ -301,12 +301,42 @@ example:
 MemoryStream manages all memories related to the questions and answers during mission execution.
 It is a collection of data sets, with each set consisting of the following information:
 
-- ID
-- Target Document ID
-- Question
-- Reply
-- Point
+```json
+[
+    {
+        "ID": "<ID>",
+        "TargetDocID": "<TargetDocID>",
+        "Question": "<Question>",
+        "Reply": "<Reply>",
+        "Point": "<Point>"
+    }
+]
+```
 
+* ID
+  * memory id
+* TargetDocID
+  * target document
+* Question
+  * question for the target document
+* Reply
+  * answer for the question
+* Point
+  * importance of the answer. The importance degree depends on GPT's subjectives.
+
+Example:
+
+```json
+[
+    {
+        "ID": 1,
+        "TargetDocID": "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility",
+        "Question": "Please obtain information based on the following purposes and perspectives.\nLet's think step by step.\n\npurpose: Investigate steps and system requirements for the Windows version of simulator\nperspectives: Technical, Practical\n",
+        "Reply": "Answer: The steps and system requirements for setting up a sandbox robot simulator using Windows, Unity, and Python are outlined in the provided Qiita articles. \n\n1. Unity Editor should be allowed through the Windows Defender Firewall. If it's not checked in the \"Allowed apps and features\" section, it's blocked. You need to change the settings and check it.\n\n2. Check the incoming rules. If Unity Editor is grayed out, it's blocked. You need to display the properties and allow it.\n\n3. In the Unity Editor, select 'Assets/Scenes/Transport' in the 'Project View' at the bottom left of the screen. If the course is displayed as in the image, it's successful. \n\n4. Click the play button in the Unity Editor. If successful, a robot will appear as shown in the image.\n\nThe technical perspective involves setting up the firewall and Unity Editor settings. The practical perspective involves running the simulation and observing the robot's behavior.\n\nPoint: 85",
+        "Point": 85.0
+    },
+]
+```
 
 ### Knowledge/Concept
 The output data of Reflection consists of the following two components:
