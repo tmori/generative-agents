@@ -279,6 +279,24 @@ Plan includes the following information in the order of investigation:
   * Status
     * status of investigation(None, Doing, Done)
 
+example:
+
+```json
+{
+    "DetailedStrategy": "  Investigate possible causes like software steps, settings, firewall, and other factors,",
+    "Plan": [
+        {
+            "PlanID": 1,
+            "DocumentID": "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility",
+            "Purpose": "Investigate steps and system requirements for the Windows version of simulator",
+            "Perspectives": "Technical, Practical",
+            "ResultID": "",
+            "Status": "None"
+        },
+    ]
+}
+```
+
 ### MemoryStream
 MemoryStream manages all memories related to the questions and answers during mission execution.
 It is a collection of data sets, with each set consisting of the following information:
