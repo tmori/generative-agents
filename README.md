@@ -187,6 +187,22 @@ The above diagram is base on following reflection data:
 
 https://github.com/tmori/generative-agents/blob/main/query_dir/q_2/result/reflection.json
 
+## Comparison
+
+Let's compare it to plan A.
+
+Answer:
+> I cannot provide specific causes without more information about your setup and any error messages you might be encountering. However, here are some general suggestions to troubleshoot the issue:
+> 1. Ensure that you have followed the instructions in the tutorial correctly, especially the steps related to setting up the environment and editing the reinforcement learning program files (ai_qtable.py and hako_robomodel_ev3.py).
+> 2. Check if there are any error messages in the console or log files that might indicate issues with the setup or the reinforcement learning algorithm.
+> 3. Make sure that your firewall or antivirus software is not blocking any necessary connections or processes related to the Hakoniwa simulator.
+> 4. Verify that your system meets the minimum requirements for running the Hakoniwa simulator and the reinforcement learning algorithm.
+> 5. If you have made any custom modifications to the code or settings, try reverting to the original configuration to see if the issue persists.
+> If you still encounter issues, consider seeking help from the Hakoniwa community or the tutorial's author for more specific guidance.
+
+
+
+
 # Design information
 
 ## Tool chain for creating document TITLE and DB
