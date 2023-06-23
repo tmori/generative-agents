@@ -247,12 +247,37 @@ Reflection is the process of extracting the necessary knowledge/concepts to answ
 ### Plan
 Plan includes the following information in the order of investigation:
 
-- PlanID
-- Document ID to be investigated
-- Purpose of investigation for the target document ID
-- Perspectives of investigation for the target document ID
-- The set of investigation result IDs (MemoryStream IDs)
-- Status of investigation(None, Doing, Done)
+```json
+{
+  "DetailedStrategy": "<DetailedStrategy>",
+    "Plan": [
+      {
+        "PlanID": "<PlanID>",
+        "DocumentID": "<DocumentID>",
+        "Purpose": "<Purpose>",
+        "Perspectives": "<Perspectives>",
+        "ResultID": "<ResultID>"
+        "Status": "<Status>"
+      }
+    ]
+}
+```
+
+* DetailedStrategy
+  * a strategy for investigating multiple documents to answer the main question.
+* Plan
+  * PlanID
+    * plan id
+  * DocumentID
+    * target document to be investigated
+  * Purpose
+    * purpose of investigation for the target document ID
+  * Perspectives
+    * perspectives of investigation for the target document ID
+  * ResultID
+    * result ID(=MemoryStream ID)
+  * Status
+    * status of investigation(None, Doing, Done)
 
 ### MemoryStream
 MemoryStream manages all memories related to the questions and answers during mission execution.
