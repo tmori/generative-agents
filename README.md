@@ -228,13 +228,11 @@ The Point Reason: <Reason>
 
 Results:
 
-```
-PlanA's Point: 70
-The Point Reason: The answer provides a general idea on troubleshooting the issue with useful recommendations such as checking error logs, firewall settings, system requirements, etc. However, it lacks some specific detail on reinforcement learning algorithm implementation, Unity editor settings, and Python API module usage which were provided in the second answer.
+> PlanA's Point: 70
+> The Point Reason: The answer provides a general idea on troubleshooting the issue with useful recommendations such as checking error logs, firewall settings, system requirements, etc. However, it lacks some specific detail on reinforcement learning algorithm implementation, Unity editor settings, and Python API module usage which were provided in the second answer.
 
-PlanC's Point: 95
-The Point Reason: This answer gives a comprehensively detailed response. It includes potential issues relating to firewall settings, Unity editor settings, reinforcement algorithm implementation, and Python scripting and modules, which are all important in the context of the question. It only falls short of giving a perfect score because troubleshooting guides or examples on how to correct these potential issues are not provided.
-```
+> PlanC's Point: 95
+> The Point Reason: This answer gives a comprehensively detailed response. It includes potential issues relating to firewall settings, Unity editor settings, reinforcement algorithm implementation, and Python scripting and modules, which are all important in the context of the question. It only falls short of giving a perfect score because troubleshooting guides or examples on how to correct these potential issues are not provided.
 
 # Design information
 
