@@ -239,6 +239,15 @@ Results:
 >
 > The Point Reason: This response thoroughly details multiple potential causes for the issue, including Firewall settings, Unity Editor settings, Reinforcement Learning Algorithm Implementation, and Python scripting. It refers to the necessary and detailed part of the Hakoniwa documentations, making it a comprehensive answer.
 
+# Research Topics
+
+At present, there are several research topics that should be explored in generative-agents.
+
+- [ ] Even if there is only one document, it does not provide multiple perspectives/objectives.
+- [ ] What should be done if the plan/reflection becomes too extensive?
+- [ ] What should be done if the question content is not appropriate?
+- [ ] OpenAI API responses are slow.
+
 # Design information
 
 ## Tool chain for creating document TITLE and DB
