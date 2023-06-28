@@ -12,18 +12,16 @@ class DataModelStorage:
         if not os.path.exists(directory):
             os.makedirs(directory)
     
-    def save_data_model(self, data_model: DataModel, merge: bool  = True):
-        filename = f"{data_model.get_name()}.json"
+    def save_data_model(self, new_model: DataModel, merge: bool  = True):
+        filename = f"{new_model.get_name()}.json"
         filepath = os.path.join(self.directory, filename)
 
-        model = DataModel.load_json_file(filepath)
-        if merge and model is not None:
-            model.add_content(data_model.get_contents())
-        else:
-            model = data_model
+        old_model = DataModel.load_json_file(filepath)
+        if merge and old_model is not None:
+            new_model.merge(old_model)
 
         with open(filepath, "w", encoding="utf-8") as f:
-            json.dump(model.get_json_data(), f, indent=4, ensure_ascii=False)
+            json.dump(new_model.get_json_data(), f, indent=4, ensure_ascii=False)
     
     def load_data_model(self, name: str) -> DataModel:
         filename = f"{name}.json"
