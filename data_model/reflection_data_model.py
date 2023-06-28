@@ -39,7 +39,7 @@ class ReflectionDataModel:
         if old_contents.get("Relations") is not None:
             old_relations = []
             for old_data in old_contents.get("Relations"):
-                if all(old_data != entry for entry in self.relations):
+                if all(old_data.get("Term") != entry.get("Term") for entry in self.relations):
                     old_relations.append(old_data)
             
             self.relations += old_relations
