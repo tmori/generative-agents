@@ -34,6 +34,7 @@ class ReflectionDataPersistentor:
                 #print("DocumentIDs:", known_info.get("DocumentIDs"))
                 model.add_info(known_info.get("KnownInfo"), known_info.get("DocumentIDs"))
             model.add_relations(entry.get("Relations"))
+            model.update_unknown_info(entry.get("UnknownInfo"))
             self.models.append(model)
 
 if __name__ == "__main__":
