@@ -69,6 +69,7 @@ class ReflectionDataModel:
         if self.is_empty():
             return None
         data = {
+            "Term": self.term,
             "KnownInfos": self.known_infos,
             "UnknownInfo": self.unknown_infos,
             "Relations": self.relations

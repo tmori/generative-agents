@@ -15,6 +15,9 @@ class DataModelAccessor:
         self.data_model_storage = DataModelStorage(self.datamodel_path)
         self._load_file_cache()
 
+    def get_filelist(self):
+        return self.file_cache
+
     def _load_file_cache(self):
         self.file_cache = []
         for file_name in os.listdir(self.datamodel_path):
@@ -41,6 +44,12 @@ class DataModelAccessor:
             return self.data_model_storage.load_data_model(name)
         else:
             return None
+
+    def get_json_models(self, filelist: list):
+        models = []
+        for entry in filelist:
+            models.append(self.get_data_model(entry).get_json_data())
+        return models
 
 
 if __name__ == "__main__":
