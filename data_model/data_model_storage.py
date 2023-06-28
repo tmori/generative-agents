@@ -40,3 +40,4 @@ if __name__ == "__main__":
     storage = DataModelStorage(dir)
     model = DataModel(sys.argv[2], sys.argv[3])
     storage.save_data_model(model)
+    
