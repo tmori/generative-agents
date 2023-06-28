@@ -29,6 +29,13 @@ class DataModelAccessor:
         if name not in self.file_cache:
             self.file_cache.append(name)
 
+    def add_data_model(self, model: DataModel):
+        self.data_model_storage.save_data_model(model)
+
+        if model.get_name() not in self.file_cache:
+            self.file_cache.append(model.get_name())
+
+
     def get_data_model(self, name: str) -> DataModel:
         if name in self.file_cache:
             return self.data_model_storage.load_data_model(name)

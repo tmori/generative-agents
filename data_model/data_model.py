@@ -5,11 +5,9 @@ import os
 import json
 
 class DataModel:
-    def __init__(self, name: str, contents: str):
+    def __init__(self, name: str, contents):
         self._name = name
         if contents is not None:
-            if not isinstance(contents, str):
-                raise ValueError("contents must be a string")
             self._contents = [contents]
         else:
             self._contents = []

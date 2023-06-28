@@ -8,6 +8,7 @@ Please list the necessary knowledge/concepts required to answer this question
 and provide the reasons for each.
 
 The result should be outputted in the following JSON format.
+Term items must follow the Unix filename syntax. 
 Let's think step by step.
 {{
   "Knowledges": [

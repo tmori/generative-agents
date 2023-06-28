@@ -10,6 +10,7 @@ To gather information related to the above concepts/knowledge, inquiries were ma
 and the results are as follows:
 {PlanResult}
 
+Term items must follow the Unix filename syntax. 
 Fill in the KnownInfo with the understood information.
 Fill in the Point with the importance of the KnownInfo by assigning a score between 0 and 100(higher values indicate a more appropriate answer).
 Fill in the UnknownInfo with the information that is not yet fully understood.
