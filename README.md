@@ -74,6 +74,7 @@ pip3 install pypdf
 pip3 install langchain
 pip3 install unstructured
 pip3 install tabulate
+pip3 install scikit-learn
 ```
 
 Please set the OpenAPI API key as an environment variable.

@@ -44,6 +44,7 @@ do
             rm -rf test/*.json
             echo "INFO: CRITICAL THINKING"
             python3 critical_thinking.py  "$query" ${background_file}
+            python3 data_model/reflection_data_persistentor.py tmpdir ./test/result/critical_thinking.json
             echo "INFO: GETTING DOCUMENTS"
             get_docs "${query}" critical_thinking.json
             documents=`cat tmp.list`
@@ -88,6 +89,8 @@ do
         else
             python3 reflection.py "$query" ../documents/document.list "./test/result/critical_thinking.json" ${background_file} "./prompt_templates/ptemplate_reflection.txt"
         fi
+        python3 data_model/reflection_data_persistentor.py tmpdir ./test/result/reflection.json
+
         cp ./test/result/reflection.json ./test/result/prev_reflection.json
         python3 reflection.py "$query" ../documents/document.list "./test/result/reflection.json" ${background_file} "./prompt_templates/ptemplate_reflection_addterms.txt"
         mv ./test/result/reflection.json ./test/result/next_reflection.json
