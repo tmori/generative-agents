@@ -55,10 +55,11 @@ do
             then
                 python3 data_model/similarity_extractor.py "$query" reflections_data > ./test/result/background_knowledges.json
                 python3 critical_thinking.py  "$query" ./test/result/background_knowledges.json
+                python3 data_model/reflection_data_persistentor.py reflections_data ./test/result/critical_thinking.json
             else
                 python3 critical_thinking.py  "$query" ${background_file}
+                python3 data_model/reflection_data_persistentor.py reflections_data ./test/result/critical_thinking.json
             fi
-            python3 data_model/reflection_data_persistentor.py reflections_data ./test/result/critical_thinking.json
             echo "INFO: GETTING DOCUMENTS"
             get_docs "${query}" critical_thinking.json
             documents=`cat tmp.list`
