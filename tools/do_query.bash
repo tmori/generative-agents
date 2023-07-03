@@ -55,9 +55,19 @@ do
             then
                 python3 data_model/similarity_extractor.py "$query" reflections_data > ./test/result/background_knowledges.json
                 python3 critical_thinking.py  "$query" ./test/result/background_knowledges.json
+                python3 check_recover_json.py ./test/result/critical_thinking.json
+                if [ $? -ne 0 ]
+                then
+                    exit 1
+                fi
                 python3 data_model/reflection_data_persistentor.py reflections_data ./test/result/critical_thinking.json
             else
                 python3 critical_thinking.py  "$query" ${background_file}
+                python3 check_recover_json.py ./test/result/critical_thinking.json
+                if [ $? -ne 0 ]
+                then
+                    exit 1
+                fi
                 python3 data_model/reflection_data_persistentor.py reflections_data ./test/result/critical_thinking.json
             fi
             echo "INFO: GETTING DOCUMENTS"
@@ -65,12 +75,20 @@ do
             documents=`cat tmp.list`
             echo "INFO: PLANNING"
             python3 planner.py "$query\n: Please research focusing on the following document:\n ${documents} " ../documents/document.list ${background_file} test/result/critical_thinking.json 
+            if [ $? -ne 0 ]
+            then
+                exit 1
+            fi
         else
             echo "INFO: PLANNING"
             echo "INFO: GETTING DOCUMENTS"
             get_docs "${query}" reflection.json
             documents=`cat tmp.list`
             python3 planner.py "$query\n: Please research focusing on the following document:\n ${documents}" ../documents/document.list ${background_file} test/result/reflection.json
+            if [ $? -ne 0 ]
+            then
+                exit 1
+            fi
         fi
     else
         echo "INFO: PLANNING"
@@ -78,6 +96,10 @@ do
         rm -rf test/*.json
         touch test/result/reflection.json
         python3 planner.py "$query" ../documents/document.list ${background_file} test/result/reflection.json
+        if [ $? -ne 0 ]
+        then
+            exit 1
+        fi
     fi
     echo "INFO: TACTICAL PLANNING"
     python3 tactical_plannig.py
@@ -104,16 +126,23 @@ do
         else
             python3 reflection.py "$query" ../documents/document.list "./test/result/critical_thinking.json" ${background_file} "./prompt_templates/ptemplate_reflection.txt"
         fi
+        python3 check_recover_json.py ./test/result/reflection.json
+        if [ $? -ne 0 ]
+        then
+            exit 1
+        fi
         python3 data_model/reflection_data_persistentor.py reflections_data ./test/result/reflection.json
 
         echo "INFO: ADD REFLECTION TERMS..."
         #cp ./test/result/reflection.json ./test/result/prev_reflection.json
         python3 reflection.py "$query" ../documents/document.list "./test/result/reflection.json" ${background_file} "./prompt_templates/ptemplate_reflection_addterms.txt"
+        python3 check_recover_json.py ./test/result/reflection.json
+        if [ $? -ne 0 ]
+        then
+            exit 1
+        fi
         python3 data_model/reflection_data_persistentor.py reflections_data ./test/result/reflection.json
         
-        #mv ./test/result/reflection.json ./test/result/next_reflection.json
-        #cat ./test/result/prev_reflection.json >  ./test/result/reflection.json
-        #cat ./test/result/next_reflection.json  >> ./test/result/reflection.json
         echo "INFO: SIMLIRARITY EXTRACT FOR REFLECTION"
         python3 data_model/similarity_extractor.py "$query" reflections_data > ./test/result/reflection.json
     else
@@ -125,12 +154,6 @@ do
             ./test/result/memory.json \
             ./test/result/reflection.json \
             | tee ./test/result/result.txt
-    #grep "NewStrategy:" ./test/result/result.txt
-    #if [ $? -eq 0 ]
-    #then
-    #    export NEW_STARTEGY=`grep "NewStrategy:" ./test/result/result.txt | awk -F: '{print $2}'`
-    #    echo $NEW_STRATEGY
-    #fi
 
     dir_name=q_${TRY_NO}
     if [ -d ${query_dir}/${dir_name} ]

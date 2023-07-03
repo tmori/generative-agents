@@ -9,6 +9,7 @@ from plan import Plan
 import os
 import traceback
 import json_utils
+from check_recover_json import check_json_str, recover_json_str
 
 class Planner:
     def __init__(self, main_question, mission_path, strategy_path, query_plan_path, strategy_history_path, background_knowledge_path, acquired_knowledge_path):
@@ -62,7 +63,10 @@ class Planner:
             print(traceback_str + error_message)
             sys.exit(1)
 
-        self.reply_raw = json_utils.parse_plan(self.reply_raw)
+        #self.reply_raw = json_utils.parse_plan(self.reply_raw)
+        result, errorcode = check_json_str(self.reply_raw)
+        if result == False:
+            self.reply_raw = recover_json_str(errorcode, self.reply_raw)
         print(self.reply_raw)
 
         try:

@@ -59,3 +59,27 @@ def parse_plan(org_data: str):
             output_lines.append(fix_quotes(fix_backslashes(line)))
 
     return "\n".join(output_lines)
+
+
+def parse_json(org_data: str):
+    lines = org_data.split("\n")
+    output_lines = []
+    start_flag = False
+    nest_count = 0
+    for line in lines:
+        if start_flag == False:
+            if "{" in line:
+                start_flag = True
+                nest_count += 1
+                output_lines.append(fix_quotes(line))
+            else:
+                pass
+        else:
+            if "{" in line:
+                nest_count += 1
+            elif "}" in line:
+                nest_count -= 1
+            output_lines.append(line)
+            if (nest_count == 0):
+                break
+    return "\n".join(output_lines)
