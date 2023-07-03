@@ -1,6 +1,6 @@
 {
     "Strategies": [
-        "  Investigate possible causes like software steps, settings, firewall, and other factors,",
-        "  Investigate the documents focusing on RL, Hakoniwa, Python, Unity, and Windows settings.,"
+        "  Investigate documents related to simulator setup, Python env setup, reinforcement learning, and problematic steps to find the cause,",
+        "  Investigate simulator setup, robot's control, operating system, and Unity Editor's network settings.,"
     ]
 }

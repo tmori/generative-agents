@@ -1,67 +1,83 @@
 {
-    "DetailedStrategy": "  Investigate possible causes like software steps, settings, firewall, and other factors,",
+    "DetailedStrategy": "  Investigate documents related to simulator setup, Python env setup, reinforcement learning, and problematic steps to find the cause,",
     "Plan": [
         {
             "PlanID": 1,
             "DocumentID": "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility",
-            "Purpose": "Investigate steps and system requirements for the Windows version of simulator",
-            "Perspectives": "Technical, Practical",
+            "Purpose": "Investigate setup guide for Windows to identify any missed or mishandled steps",
+            "Perspectives": [
+                "Hakoniwa_Simulator",
+                "Operating_Systems",
+                "Python_Environment_Setup",
+                "System_Requirements"
+            ],
             "ResultID": "",
             "Status": "None"
         },
         {
             "PlanID": 2,
-            "DocumentID": "ReinforcementLearning-RobotSimulation-MacUnityPython-SetupGuide-ExecutionProcedure",
-            "Purpose": "Cross-reference with Mac version's execution procedure",
-            "Perspectives": "Technical, Practical",
+            "DocumentID": "Python-Unity-SandboxRobot-CameraData-Retrieval",
+            "Purpose": "Understand how to properly retrieve data from the robot to diagnose its immobility",
+            "Perspectives": [
+                "System_Requirements",
+                "Robotics"
+            ],
             "ResultID": "",
             "Status": "None"
         },
         {
             "PlanID": 3,
             "DocumentID": "Unity-Python-Robotics-ReinforcementLearning-Implementation",
-            "Purpose": "Understand implementation details of reinforcement learning",
-            "Perspectives": "Technical",
+            "Purpose": "Investigate reinforcement learning implementation to understand how it affects robot movements",
+            "Perspectives": [
+                "Reinforcement_Learning",
+                "Robotics"
+            ],
             "ResultID": "",
             "Status": "None"
         },
         {
             "PlanID": 4,
             "DocumentID": "MachineLearning-Simulation-Ubuntu-Unity-EnvironmentSetup",
-            "Purpose": "Cross-reference with Ubuntu environment setup",
-            "Perspectives": "Technical, Practical",
+            "Purpose": "Compare environment setup with Windows and Ubuntu to determine any potentially problematic steps",
+            "Perspectives": [
+                "Hakoniwa_Simulator",
+                "Operating_Systems",
+                "Python_Environment_Setup"
+            ],
             "ResultID": "",
             "Status": "None"
         },
         {
             "PlanID": 5,
             "DocumentID": "Programming-Unity-Python-DroneControl-HakoniwaEnvironment",
-            "Purpose": "Understand Hakoniwa simulator environment settings",
-            "Perspectives": "Technical",
+            "Purpose": "Understand more about drone control in Hakoniwa to check if the problem might come from the drone's control",
+            "Perspectives": [
+                "Hakoniwa_Simulator",
+                "Robotics"
+            ],
             "ResultID": "",
             "Status": "None"
         },
         {
             "PlanID": 6,
             "DocumentID": "Unity-PythonAPI-RobotControl-hako_env-hako_robomodel_any-hako",
-            "Purpose": "Investigate robot control settings and possible issues",
-            "Perspectives": "Technical",
+            "Purpose": "Investigate robot control in Hakoniwa to see if the problem comes from the interaction between robot and environment",
+            "Perspectives": [
+                "Hakoniwa_Simulator",
+                "Robotics"
+            ],
             "ResultID": "",
             "Status": "None"
         },
         {
             "PlanID": 7,
-            "DocumentID": "Python-Unity-SandboxRobot-CameraData-Retrieval",
-            "Purpose": "Understand data retrieval and processing which could affect simulation",
-            "Perspectives": "Technical",
-            "ResultID": "",
-            "Status": "None"
-        },
-        {
-            "PlanID": 8,
-            "DocumentID": "ChatGPT-API-Unity-SandboxRobot-Experiment-Rules",
-            "Purpose": "Investigate experiment rules and constraints, as well as user operations",
-            "Perspectives": "Technical, Practical",
+            "DocumentID": "ReinforcementLearning-RobotSimulation-MacUnityPython-SetupGuide-ExecutionProcedure",
+            "Purpose": "Cross-check Windows and Mac setup and execution process for potential differences that could cause issues",
+            "Perspectives": [
+                "Operating_Systems",
+                "Python_Environment_Setup"
+            ],
             "ResultID": "",
             "Status": "None"
         }

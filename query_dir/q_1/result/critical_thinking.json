@@ -1,28 +1,36 @@
 {
   "Knowledges": [
     {
-      "Term": "Reinforcement Learning",
-      "Reason": "You should understand basics of reinforcement learning as this is the method being used to train the robot in question. It will help you understand how the system works and how to properly implement it."
+      "Term": "Hakoniwa_Simulator",
+      "Reason": "Understanding the specifications of the Hakoniwa simulator, including the correct setup and settings, is important because the robot won't move if there are setup errors or if certain settings are not properly configured."
     },
     {
-      "Term": "Hakoniwa Simulator",
-      "Reason": "This is the specific tool the user is trying to use. Knowledge of its working, settings and system requirements is necessary to solve the issue."
+      "Term": "User_Interface",
+      "Reason": "Knowledge of the user interface, specifically the Unity Interface of the Hakoniwa simulator, is necessary since settings related to the EnableEx Ctrl checkbox might affect the robot's movement."
     },
     {
       "Term": "Robotics",
-      "Reason": "General understanding of robotics is necessary as it pertains to the user's question. It can give insights into potential issues both hardware and software related."
+      "Reason": "Understanding how the movements of robots can be controlled within the Hakoniwa environment is critical to troubleshoot issues related to the robot's inability to move."
     },
     {
-      "Term": "Windows OS",
-      "Reason": "Being familiar with the operating system the user is working on can help understand how it interacts with software and hardware of the system and might be affecting the operation of the simulator."
+      "Term": "Computer_Networking",
+      "Reason": "Knowledge of computer networking is important because firewall settings can impact the performance of Unity Editor and in turn, might affect the robot's movement in the simulation."
     },
     {
-      "Term": "Firewalls/Security Systems",
-      "Reason": "Understanding of how firewalls and system security can potentially interrupt or limit certain operations is important. They may be causing the simulator to not function properly."
+      "Term": "Operating_Systems",
+      "Reason": "Understanding the compatibility between the Hakoniwa simulator and the Windows operating system is important, as it impacts the operation of the simulator."
     },
     {
-      "Term": "Software Debugging",
-      "Reason": "Proficiency in diagnosing and addressing software faults is needed to identify the source of the problem and propose a solution."
+      "Term": "Reinforcement_Learning",
+      "Reason": "Knowledge of reinforcement learning is necessary as it is used to train robots within the Unity environment, which influences robot movements based on the calculated rewards."
+    },
+    {
+      "Term": "Python_Environment_Setup",
+      "Reason": "Understanding how to setup the Python environment is crucial for running the Hakoniwa simulator on Windows."
+    },
+    {
+      "Term": "System_Requirements",
+      "Reason": "Knowledge of the system requirements for running the Hakoniwa simulator on Windows is crucial to ensure that the user's computer can support the simulation."
     }
   ]
 }

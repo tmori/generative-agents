@@ -1,129 +1,127 @@
 {
-  "Knowledges": [
-    {
-      "Term": "Reinforcement Learning",
-      "Reason": "You should understand basics of reinforcement learning as this is the method being used to train the robot in question. It will help you understand how the system works and how to properly implement it.",
-      "KnownInfos": [
+    "knowledges": [
         {
-          "KnownInfo": "The implementation of reinforcement learning involves using Unity, Python, and a sandbox environment to train a robot. The robot model used is the same as the ET Robocon competition robot, which is capable of carrying goods. The robot uses an ultrasonic sensor that returns values between 0 and 255. When the robot is on a line trace, the value is around 120. The reinforcement learning process involves several components: Reward, State, Action, Number of states and actions.",
-          "Point": "85",
-          "DocumentIDs": [ "Unity-Python-Robotics-ReinforcementLearning-Implementation" ]
-        }
-      ],
-      "UnknownInfo": [ "The specific reinforcement learning algorithm used and its configuration settings." ],
-      "Relations": []
-    },
-    {
-      "Term": "Hakoniwa Simulator",
-      "Reason": "This is the specific tool the user is trying to use. Knowledge of its working, settings and system requirements is necessary to solve the issue.",
-      "KnownInfos": [
-        {
-          "KnownInfo": "The Hakoniwa simulator environment is set up in Unity, and it also has settings such as drone movement and camera data retrieval that can be controlled using Python.",
-          "Point": "87.5",
-          "DocumentIDs": [ "Programming-Unity-Python-DroneControl-HakoniwaEnvironment", "Python-Unity-SandboxRobot-CameraData-Retrieval" ]
-        }
-      ],
-      "UnknownInfo": [ "How to troubleshoot issues with Hakoniwa on Windows." ],
-      "Relations": [
-        {
-          "Term": "Windows OS",
-          "RelationReason": "Hakoniwa runs on the Windows OS and understanding how these two interact can help troubleshoot the issue."
-        }
-      ]
-    },
-    {
-      "Term": "Robotics",
-      "Reason": "General understanding of robotics is necessary as it pertains to the user's question. It can give insights into potential issues both hardware and software related.",
-      "KnownInfos": [
-        {
-          "KnownInfo": "In the context of using the Hakoniwa simulator, robots can be controlled using Python API including hako_env, hako_robomodel_any, and hako modules. Motor instructions for robot movement and rotation are important in this context.",
-          "Point": "52.5",
-          "DocumentIDs": [ "Unity-PythonAPI-RobotControl-hako_env-hako_robomodel_any-hako", "ChatGPT-API-Unity-SandboxRobot-Experiment-Rules"]
-        }
-      ],
-      "UnknownInfo": [ "How certain Python commands correlate with the robotic actions in the simulator." ],
-      "Relations": []
-    },
-    {
-      "Term": "Windows OS",
-      "Reason": "Being familiar with the operating system the user is working on can help understand how it interacts with software and hardware of the system and might be affecting the operation of the simulator.",
-      "KnownInfos": [
-        {
-          "KnownInfo": "Unity Editor should be allowed through the Windows Defender Firewall. If it's not checked in the \"Allowed apps and features\" section, it's blocked.",
-          "Point": "85",
-          "DocumentIDs": [ "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility" ]
-        }
-      ],
-      "UnknownInfo": [ "How the Windows OS might specifically affect the Hakoniwa simulator." ],
-      "Relations": [
-        {
-          "Term": "Firewalls/Security Systems",
-          "RelationReason": "Because the Windows environment needs certain permissions for Unity Editor to run properly, firewalls and security systems are important."
-        }
-      ]
-    },
-    {
-      "Term": "Firewalls/Security Systems",
-      "Reason": "Understanding of how firewalls and system security can potentially interrupt or limit certain operations is important. They may be causing the simulator to not function properly.",
-      "KnownInfos": [
-        {
-          "KnownInfo": "Unity Editor should be allowed through the Windows Defender Firewall. If it's not checked in the \"Allowed apps and features\" section, it's blocked. You need to change the settings and check it.",
-          "Point": "85",
-          "DocumentIDs": [ "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility" ]
-        }
-      ],
-      "UnknownInfo": [ "Whether a firewall could cause the robot to not move in the simulation." ],
-      "Relations": []
-    },
-    {
-      "Term": "Software Debugging",
-      "Reason": "Proficiency in diagnosing and addressing software faults is needed to identify the source of the problem and propose a solution.",
-      "KnownInfos": [],
-      "UnknownInfo": [ "Specific debugging steps for this particular simulation setup." ],
-      "Relations": []
-    }
-  ]
-}{
-  "Knowledges": [
-    {
-      "Term": "Unity",
-      "Reason": "Unity is the gaming engine being used in conjunction with the Hakoniwa simulator to run the robotics simulation. Understanding the usage, limitations, and error debugging of Unity can help in identifying issues related to the simulation's execution.",
-      "KnownInfos": [],
-      "UnknownInfo": [ "Specific requirements and settings in Unity for running the Hakoniwa simulator.", "Unity's interaction with the scripting and learning algorithms to animate the robot model." ],
-      "Relations": [
-        {
-          "Term": "Reinforcement Learning",
-          "RelationReason": "Understanding the integration of Unity with the reinforcement learning algorithm is crucial to analyze the reason for no movement in the robot."
+            "name": "Hakoniwa_Simulator",
+            "contents": {
+                "Term": "Hakoniwa_Simulator",
+                "KnownInfos": [
+                    {
+                        "KnownInfo": "The Hakoniwa simulator requires the user to clone the AI branch of 'hakoniwa-base'. The simulation environment is created using Unity, and the Unity Editor needs to be allowed through the Windows Defender Firewall.",
+                        "DocumentIDs": [
+                            "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility"
+                        ]
+                    },
+                    {
+                        "KnownInfo": "The 'EnableEx Ctrl' option needs to be checked in the inspector view of the robot in the hierarchy view, otherwise, the robot cannot be controlled.",
+                        "DocumentIDs": [
+                            "Programming-Unity-Python-DroneControl-HakoniwaEnvironment"
+                        ]
+                    },
+                    {
+                        "KnownInfo": "Hakoniwa is a robot simulator suitable for training machine learning. However, it seems that it cannot function properly if required settings are not met. For instance, the Python interface to control robot needs to be enabled for proper functioning. If this box is unchecked, robot movements may be blocked.",
+                        "DocumentIDs": [
+                            "Programming-Unity-Python-DroneControl-HakoniwaEnvironment"
+                        ]
+                    },
+                    {
+                        "KnownInfo": "To set up the Hakoniwa simulator, you first need to clone the AI branch of the hakoniwa-base from GitHub. The cloning should be done in a directory under /mnt/c, not in a directory within WSL2. After cloning, you need to install the Python execution environment.",
+                        "DocumentIDs": [
+                            "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility"
+                        ]
+                    }
+                ],
+                "UnknownInfo": [
+                    "Detail information about the 'EnableEx Ctrl' option and its impact on the robot's behaviour."
+                ],
+                "Relations": [
+                    {
+                        "Term": "Robotics",
+                        "RelationReason": "Understanding the settings and setup of Hakonia simulator is directly related to control of the robotics"
+                    },
+                    {
+                        "Term": "Operating_Systems",
+                        "RelationReason": "Hakoniwa Simulator operates on a computer's operating system, and thus any compatibility issues with the OS could affect the simulator's performance."
+                    }
+                ]
+            }
         },
         {
-          "Term": "Hakoniwa Simulator",
-          "RelationReason": "The simulator runs within Unity and having a detailed understanding of this interrelation can assist in problem diagnosis."
+            "name": "Operating_Systems",
+            "contents": {
+                "Term": "Operating_Systems",
+                "KnownInfos": [
+                    {
+                        "KnownInfo": "The setup guide mentions the use of WSL2, which needs to be installed before starting. Network tools such as route and ifconfig commands need to be installed via terminal. A system reboot may be necessary after setting environment variables.",
+                        "DocumentIDs": [
+                            "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility"
+                        ]
+                    },
+                    {
+                        "KnownInfo": "Unity Editor should be allowed in the Windows Defender Firewall settings for it to operate properly. Also, Unity is capable of handling conversion between different versions.",
+                        "DocumentIDs": [
+                            "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility"
+                        ]
+                    }
+                ],
+                "UnknownInfo": [
+                    "Specific network settings for WSL2 to successfully simulate Hakoniwa on Windows."
+                ],
+                "Relations": [
+                    {
+                        "Term": "Computer_Networking",
+                        "RelationReason": "Because the network setting in the operating system could affect the operation of the Hakoniwa simulator."
+                    }
+                ]
+            }
+        },
+        {
+            "name": "User_Interface",
+            "contents": {
+                "Term": "User_Interface",
+                "KnownInfos": [
+                    {
+                        "KnownInfo": "In the Unity Interface of Hakoniwa, certain settings should be enabled for robot movement. For instance, in the Inspector view, checkbox for EnableEx Ctrl should be checked.",
+                        "DocumentIDs": [
+                            "Programming-Unity-Python-DroneControl-HakoniwaEnvironment"
+                        ]
+                    }
+                ],
+                "UnknownInfo": [],
+                "Relations": []
+            }
+        },
+        {
+            "name": "Unity",
+            "contents": {
+                "Term": "Unity",
+                "KnownInfos": [],
+                "UnknownInfo": [
+                    "Specific Unity configuration that corresponds to the Hakoniwa simulator",
+                    "Potential conflicts of Unity with the reinforcement learning process"
+                ],
+                "Relations": [
+                    {
+                        "Term": "Hakoniwa_Simulator",
+                        "RelationReason": "Hakoniwa Simulator uses Unity for running the environment for robotic simulation."
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Computer_Networking",
+            "contents": {
+                "Term": "Computer_Networking",
+                "KnownInfos": [
+                    {
+                        "KnownInfo": "Unity Editor needs to be allowed in the Windows Defender Firewall settings to operate properly. If not, it might be the reason for the issue.",
+                        "DocumentIDs": [
+                            "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility"
+                        ]
+                    }
+                ],
+                "UnknownInfo": [],
+                "Relations": []
+            }
         }
-      ]
-    },
-    {
-      "Term": "Python Scripting and Modules",
-      "Reason": "Python programming and its various modules are used to implement the RL algorithm and communicate with the Unity simulation. Any error in the scripting or module usage could lead to incorrect or no response from the robot.",
-      "KnownInfos": [],
-      "UnknownInfo": [ "The python script used for reinforcement learning.", "Any Python package dependencies for using Hakoniwa and Unity.", "The specific Python modules and their configurations used in this case." ],
-      "Relations": [
-        {
-          "Term": "Reinforcement Learning",
-          "RelationReason": "Identification of any potential scripting errors or issues in implementation of reinforcement learning."
-        },
-        {
-          "Term": "Hakoniwa Simulator",
-          "RelationReason": "Understanding the Python scripts that interact with Hakoniwa can highlight where the issue lies in terms of sending and receiving instructions."
-        },
-        {
-          "Term": "Robotics",
-          "RelationReason": "Correlating Python commands to actual movements in the robot will help identify if the no-movement issue is due to a problem with the commands."
-        },
-        {
-          "Term": "Software Debugging",
-          "RelationReason": "Ability to debug the Python code can lead to discovering potential issues causing the problem." 
-        }
-      ]
-    }
-  ]
+    ]
 }

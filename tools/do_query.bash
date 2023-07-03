@@ -19,6 +19,13 @@ else
     mkdir test/result
 fi
 
+if [ -d reflections_data ]
+then
+    :
+else
+    mkdir reflections_data
+fi
+
 function get_docs()
 {
     local query="${1}"
@@ -43,8 +50,15 @@ do
             rm -rf test/result/*
             rm -rf test/*.json
             echo "INFO: CRITICAL THINKING"
-            python3 critical_thinking.py  "$query" ${background_file}
-            python3 data_model/reflection_data_persistentor.py tmpdir ./test/result/critical_thinking.json
+            echo "INFO: SIMLIRARITY EXTRACT FOR BACKGROUND KNOWLEDGES"
+            if [ -d reflections_data/data_model ]
+            then
+                python3 data_model/similarity_extractor.py "$query" reflections_data > ./test/result/background_knowledges.json
+                python3 critical_thinking.py  "$query" ./test/result/background_knowledges.json
+            else
+                python3 critical_thinking.py  "$query" ${background_file}
+            fi
+            python3 data_model/reflection_data_persistentor.py reflections_data ./test/result/critical_thinking.json
             echo "INFO: GETTING DOCUMENTS"
             get_docs "${query}" critical_thinking.json
             documents=`cat tmp.list`
@@ -89,13 +103,18 @@ do
         else
             python3 reflection.py "$query" ../documents/document.list "./test/result/critical_thinking.json" ${background_file} "./prompt_templates/ptemplate_reflection.txt"
         fi
-        python3 data_model/reflection_data_persistentor.py tmpdir ./test/result/reflection.json
+        python3 data_model/reflection_data_persistentor.py reflections_data ./test/result/reflection.json
 
-        cp ./test/result/reflection.json ./test/result/prev_reflection.json
+        echo "INFO: ADD REFLECTION TERMS..."
+        #cp ./test/result/reflection.json ./test/result/prev_reflection.json
         python3 reflection.py "$query" ../documents/document.list "./test/result/reflection.json" ${background_file} "./prompt_templates/ptemplate_reflection_addterms.txt"
-        mv ./test/result/reflection.json ./test/result/next_reflection.json
-        cat ./test/result/prev_reflection.json >  ./test/result/reflection.json
-        cat ./test/result/next_reflection.json  >> ./test/result/reflection.json
+        python3 data_model/reflection_data_persistentor.py reflections_data ./test/result/reflection.json
+        
+        #mv ./test/result/reflection.json ./test/result/next_reflection.json
+        #cat ./test/result/prev_reflection.json >  ./test/result/reflection.json
+        #cat ./test/result/next_reflection.json  >> ./test/result/reflection.json
+        echo "INFO: SIMLIRARITY EXTRACT FOR REFLECTION"
+        python3 data_model/similarity_extractor.py "$query" reflections_data > ./test/result/reflection.json
     else
         echo "INFO: SKIP REFLECTION"
     fi

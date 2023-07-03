@@ -1,72 +1,25 @@
 {
-    "DetailedStrategy": "  Investigate the documents focusing on RL, Hakoniwa, Python, Unity, and Windows settings.,",
+    "DetailedStrategy": "  Investigate simulator setup, robot's control, operating system, and Unity Editor's network settings.,",
     "Plan": [
         {
             "DocumentID": "ReinforcementLearning-RobotSimulation-WindowsUnityPython-SetupGuide-UnityVersionCompatibility",
-            "Purpose": "Understanding Windows setting requirements and Unity compatibility issues",
-            "Perspectives": [
-                "System setup",
-                "Compatibility issues",
-                "Firewall settings"
-            ]
-        },
-        {
-            "DocumentID": "ReinforcementLearning-RobotSimulation-MacUnityPython-SetupGuide-ExecutionProcedure",
-            "Purpose": "Learn execution steps for RL in Unity, and check against Windows steps.",
-            "Perspectives": [
-                "Similarities and differences in setup",
-                "Error points"
-            ]
-        },
-        {
-            "DocumentID": "Unity-Python-Robotics-ReinforcementLearning-Implementation",
-            "Purpose": "Study specifics of the RL algorithm implementation",
-            "Perspectives": [
-                "Implementation steps",
-                "Common pitfalls",
-                "Error points"
-            ]
-        },
-        {
-            "DocumentID": "MachineLearning-Simulation-Ubuntu-Unity-EnvironmentSetup",
-            "Purpose": "Analyse Ubuntu environment setup to compare with Windows version",
-            "Perspectives": [
-                "Potential issues due to OS",
-                "Changes required for Windows"
-            ]
-        },
-        {
-            "DocumentID": "Python-Unity-SandboxRobot-CameraData-Retrieval",
-            "Purpose": "Decipher usage of Python for retrieving data",
-            "Perspectives": [
-                "Python scripting",
-                "Data retrieval issues"
-            ]
+            "Purpose": "To understand the setup of the Hakoniwa simulator and specific network settings for WSL2 on Windows.",
+            "Perspectives": "Hakoniwa_Simulator, Operating_Systems"
         },
         {
             "DocumentID": "Programming-Unity-Python-DroneControl-HakoniwaEnvironment",
-            "Purpose": "Understand Python control within Hakoniwa",
-            "Perspectives": [
-                "Python scripting",
-                "Possible code-related issues"
-            ]
+            "Purpose": "To understand the control settings of the Hakoniwa Simulator, specifically 'EnableEx Ctrl' option.",
+            "Perspectives": "User_Interface, Hakoniwa_Simulator"
         },
         {
-            "DocumentID": "Unity-PythonAPI-RobotControl-hako_env-hako_robomodel_any-hako",
-            "Purpose": "Learn Python API control and its effect on the robot model",
-            "Perspectives": [
-                "Python API usage",
-                "Robot control issues"
-            ]
+            "DocumentID": "Unity-Python-Robotics-ReinforcementLearning-Implementation",
+            "Purpose": "To understand how Unity interfaces with reinforcement learning for robotic control.",
+            "Perspectives": "Unity"
         },
         {
-            "DocumentID": "ChatGPT-API-Unity-SandboxRobot-Experiment-Rules",
-            "Purpose": "Explore the experiment rules for better understanding of the setup",
-            "Perspectives": [
-                "Setup guidelines",
-                "Requirements",
-                "Potential problem points"
-            ]
+            "DocumentID": "MachineLearning-Simulation-Ubuntu-Unity-EnvironmentSetup",
+            "Purpose": "To understand network settings and compatibility issues that might affect the Hakoniwa Simulator.",
+            "Perspectives": "Operating_Systems, Hakoniwa_Simulator"
         }
     ]
 }

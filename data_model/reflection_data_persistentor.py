@@ -30,7 +30,7 @@ class ReflectionDataPersistentor:
         self.models = []
         for entry in json_data.get("Knowledges"):
             #print("Term:", entry.get("Term"))
-            model = ReflectionDataModel(entry.get("Term"))
+            model = ReflectionDataModel(entry.get("Term").replace(" ", "_"))
             if entry.get("KnownInfos") is not None:
                 for known_info in entry.get("KnownInfos"):
                     #print("KnownInfo:", known_info.get("KnownInfo"))
