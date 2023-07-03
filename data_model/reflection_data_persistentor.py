@@ -26,6 +26,8 @@ class ReflectionDataPersistentor:
             error_message = f"ERROR: {str(e)}"
             print(traceback_str + error_message)
             return
+        if json_data.get("Knowledges") is None:
+            return
         
         self.models = []
         for entry in json_data.get("Knowledges"):
