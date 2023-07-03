@@ -15,6 +15,9 @@ class DataModelAccessor:
         self.data_model_storage = DataModelStorage(self.datamodel_path)
         self._load_file_cache()
 
+    def get_data_model_filepath(self, name: str):
+        return os.path.join(self.datamodel_path, name + ".json")
+
     def get_filelist(self):
         return self.file_cache
 
@@ -24,6 +27,11 @@ class DataModelAccessor:
             if file_name.endswith(".json"):
                 name = file_name[:-5]  # .json 拡張子を除去
                 self.file_cache.append(name)
+
+    def remove_models(self, model_names: list):
+        for model_name in model_names:
+            self.data_model_storage.remove_data_model(model_name)
+        self._load_file_cache()
 
     def add_data_model(self, name: str, contents: str):
         data_model = DataModel(name, contents)
@@ -51,6 +59,11 @@ class DataModelAccessor:
             models.append(self.get_data_model(entry).get_json_data())
         return models
 
+    def get_data_models(self, filelist: list):
+        models = []
+        for entry in filelist:
+            models.append(self.get_data_model(entry))
+        return models
 
 if __name__ == "__main__":
     import sys

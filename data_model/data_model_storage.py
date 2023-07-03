@@ -28,6 +28,10 @@ class DataModelStorage:
         filepath = os.path.join(self.directory, filename)
         return DataModel.load_json_file(filepath)
     
+    def remove_data_model(self, name: str):
+        filename = f"{name}.json"
+        filepath = os.path.join(self.directory, filename)
+        os.remove(filepath)
 
 if __name__ == "__main__":
     import sys

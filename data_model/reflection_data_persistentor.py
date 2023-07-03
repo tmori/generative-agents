@@ -14,7 +14,6 @@ class ReflectionDataPersistentor:
     def save_reflection_data(self):
         for model in self.models:
             data_model = model.get_model()
-            data_model.set_concrete_model(model)
             self.accessor.add_data_model(data_model)
 
     def load_reflection_data(self, reflection_data_path: str):
@@ -32,16 +31,8 @@ class ReflectionDataPersistentor:
         self.models = []
         for entry in json_data.get("Knowledges"):
             #print("Term:", entry.get("Term"))
-            model = ReflectionDataModel(entry.get("Term").replace(" ", "_"))
-            if entry.get("KnownInfos") is not None:
-                for known_info in entry.get("KnownInfos"):
-                    #print("KnownInfo:", known_info.get("KnownInfo"))
-                    #print("DocumentIDs:", known_info.get("DocumentIDs"))
-                    model.add_info(known_info.get("KnownInfo"), known_info.get("DocumentIDs"))
-            if entry.get("Relations") is not None:
-                model.add_relations(entry.get("Relations"))
-            if entry.get("UnknownInfo") is not None:
-                model.update_unknown_info(entry.get("UnknownInfo"))
+            model = ReflectionDataModel.create_from_entry(
+                        entry.get("Term").replace(" ", "_"), entry)
             self.models.append(model)
 
 if __name__ == "__main__":

@@ -45,6 +45,8 @@ class ReflectionDataModel:
             self.relations += old_relations
 
     def add_info(self, known_info: str, document_ids: list):
+        if len(known_info) == 0:
+            return
         data = {
             "KnownInfo": known_info,
             "DocumentIDs": document_ids
@@ -76,6 +78,35 @@ class ReflectionDataModel:
         }
         return data
 
+    def is_empty_content(self):
+        if len(self.known_infos) == 0:
+            return True
+        else:
+            return False
+
     def get_model(self) -> DataModel:
-        return DataModel(self.get_term(), self.get_contents())
+        data_model = DataModel(self.get_term(), self.get_contents())
+        data_model.set_concrete_model(self)
+        return data_model
+
+    @staticmethod
+    def create_from_entry(name: str, entry: dict):
+        model = ReflectionDataModel(name)
+        if entry.get("KnownInfos") is not None:
+            for known_info in entry.get("KnownInfos"):
+                model.add_info(known_info.get("KnownInfo"), known_info.get("DocumentIDs"))
+            if entry.get("Relations") is not None:
+                model.add_relations(entry.get("Relations"))
+            if entry.get("UnknownInfo") is not None:
+                model.update_unknown_info(entry.get("UnknownInfo"))
+        return model
     
+    @staticmethod
+    def load_json_file(filepath: str):
+        data_model = DataModel.load_json_file(filepath)
+        if data_model == None:
+            return None
+        model = ReflectionDataModel.create_from_entry(
+                    data_model.get_name(), 
+                    data_model.get_contents())
+        return model

@@ -31,7 +31,11 @@ class DataModel:
             "name": self._name,
             "contents": self._contents
         }
-
+    def is_empty_content(self):
+        if self._contents == None:
+            return True
+        return self._concrete_model.is_empty_content()
+    
     @staticmethod
     def load_json_file(filepath: str):
         if os.path.exists(filepath):
