@@ -53,6 +53,9 @@ do
             echo "INFO: SIMLIRARITY EXTRACT FOR BACKGROUND KNOWLEDGES"
             if [ -d reflections_data/data_model ]
             then
+                echo "INFO: CLEANING EXISTING MODELS"
+                python3 data_model/reflection_data_cleaner.py reflections_data
+
                 python3 data_model/similarity_extractor.py "$query" reflections_data > ./test/result/background_knowledges.json
                 python3 critical_thinking.py  "$query" ./test/result/background_knowledges.json
                 python3 check_recover_json.py ./test/result/critical_thinking.json
