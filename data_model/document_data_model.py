@@ -11,6 +11,9 @@ class DocumentDataModel:
         self.title = title
         self.results = []
 
+    def get_title(self):
+        return self.title
+    
     def is_empty(self):
         if len(self.results) == 0:
             return True
@@ -21,7 +24,13 @@ class DocumentDataModel:
         old_contents = old_model.get_contents()
         if old_contents is None:
             return
-        self.results += old_contents
+    
+        exist_contents = []
+        for old_data in old_contents:
+            if all(old_data.get("Answer") != entry.get("Answer") for entry in self.results):
+                exist_contents.append(old_data)
+
+        self.results += exist_contents
 
     def add_info(self, purpose: str, perspectives: str, answer: str, point: float):
         if point < 60.0:
@@ -49,7 +58,7 @@ class DocumentDataModel:
 
 
     @staticmethod
-    def create_from_plan(name: str, plans: dict):
+    def create_from_plans(name: str, plans: dict):
         model = DocumentDataModel(name)
         if plans is not None and plans.get("Plan") is not None:
             for plan in plans.get("Plan"):
@@ -65,7 +74,7 @@ class DocumentDataModel:
     def load_plan_json_file(name: str, filepath: str):
         with open(filepath, "r") as file:
             plan_data = json.load(file)
-            model = DocumentDataModel.create_from_plan(name, plan_data)
+            model = DocumentDataModel.create_from_plans(name, plan_data)
             return model
 
     @staticmethod
@@ -99,4 +108,7 @@ if __name__ == "__main__":
     print("name=", name)
     print("filepath=", filepath)
     model = DocumentDataModel.load_plan_json_file(name, filepath)
-    print(model.get_contents())
+
+    with open("./doc.json", "w", encoding="utf-8") as f:
+        json.dump(model.get_model().get_json_data(), f, indent=4, ensure_ascii=False)
+
