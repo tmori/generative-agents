@@ -56,7 +56,7 @@ if __name__ == "__main__":
     dir = sys.argv[2]
 
     accessor = DataModelAccessor(dir)
-    extractor = SimilarityExtractor(accessor, 1024)
+    extractor = SimilarityExtractor(accessor, 2048)
 
     filelist = extractor.get_filelist(query)
     data = extractor.extract("inputs", filelist)
