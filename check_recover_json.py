@@ -47,13 +47,20 @@ if __name__ == "__main__":
         print("Usage: <filepath>")
         sys.exit(1)
     filepath = sys.argv[1]
-    result, errcode = check_json(filepath)
-    if result == False:
-        result, json_data = recover_json(errcode, filepath)
-        if result == True:
-            with open(filepath, "w") as file:
-                file.write(json_data)
-            sys.exit(0)
+    count = 1
+    while True:
+        result, errcode = check_json(filepath)
+        if result == False and count <= 3:
+            result, json_data = recover_json(errcode, filepath)
+            if result == True:
+                with open(filepath, "w") as file:
+                    file.write(json_data)
+                print("INFO: RECOVERED JSON DATA")
+                sys.exit(0)
+            else:
+                count += 1        
         else:
-            print("ERROR: can not recover json file", filepath)
-            sys.exit(1)
+            print("OK")
+            sys.exit(0)
+        print("ERROR: can not recover json file", filepath)
+        sys.exit(1)

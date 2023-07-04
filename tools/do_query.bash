@@ -47,7 +47,7 @@ query="`cat ${query_dir}/query.txt`"
 
 DOCUMENT_TOKENS=2048
 REFLECTION_TOKENS=2048
-
+USE_BACKGROUND="FALSE"
 ADD_REFLECTION="TRUE"
 #ADD_REFLECTION="FALSE"
 export NEW_STARTEGY=
@@ -61,7 +61,7 @@ do
             rm -rf test/*.json
             echo "INFO: CRITICAL THINKING"
             echo "INFO: SIMLIRARITY EXTRACT FOR BACKGROUND KNOWLEDGES"
-            if [ -d reflections_data/data_model ]
+            if [ ${USE_BACKGROUND} = "TRUE" -a -d reflections_data/data_model ]
             then
                 echo "INFO: CLEANING EXISTING MODELS"
                 python3 data_model/reflection_data_cleaner.py reflections_data
