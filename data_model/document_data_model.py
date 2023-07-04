@@ -47,7 +47,11 @@ class DocumentDataModel:
         if self.is_empty():
             return None
         return self.results
-
+    def get_conents_num(self):
+        if self.is_empty():
+            return 0
+        return len(self.results)
+    
     def is_empty_content(self):
         return self.is_empty()
 
