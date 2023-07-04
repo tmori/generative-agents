@@ -77,7 +77,11 @@ class ReflectionDataModel:
             "Relations": self.relations
         }
         return data
-
+    def get_known_infos(self):
+        if self.known_infos == None:
+            return []
+        return self.known_infos
+    
     def is_empty_content(self):
         if len(self.known_infos) == 0:
             return True

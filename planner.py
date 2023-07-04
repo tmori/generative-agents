@@ -64,10 +64,21 @@ class Planner:
             sys.exit(1)
 
         #self.reply_raw = json_utils.parse_plan(self.reply_raw)
-        result, errorcode = check_json_str(self.reply_raw)
-        if result == False:
-            self.reply_raw = recover_json_str(errorcode, self.reply_raw)
-        print(self.reply_raw)
+        count = 1
+        while True:
+            result, errorcode = check_json_str(self.reply_raw)
+            if result == False and count < 3:
+                print("ERROR: RECOVER JSON PROCESS of PLAN RETRY_COUNT=", count)
+                self.reply_raw = recover_json_str(errorcode, self.reply_raw)
+                count += 1
+            else:
+                if result == True:
+                    print(self.reply_raw)
+                    print("INFO: PLAN JSON DATA IS OK")
+                else:
+                    print(self.reply_raw)
+                    print("ERROR: SORRY CAN NOT RECOVER JSON DATA..")
+                break
 
         try:
             self.reply_json = json.loads(self.reply_raw)

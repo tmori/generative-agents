@@ -80,8 +80,8 @@ class DocumentDataModel:
     @staticmethod
     def create_from_entry(name: str, entry: dict):
         model = DocumentDataModel(name)
-        if entry is not None and entry.get("results") is not None:
-            for result in entry.get("results"):
+        if entry is not None:
+            for result in entry:
                 model.add_info( result.get("Purpose"), 
                                 result.get("Perspectives"), 
                                 result.get("Answer"),

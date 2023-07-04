@@ -45,6 +45,9 @@ query_dir=$1
 background_file=$2
 query="`cat ${query_dir}/query.txt`"
 
+DOCUMENT_TOKENS=2048
+REFLECTION_TOKENS=2048
+
 ADD_REFLECTION="TRUE"
 #ADD_REFLECTION="FALSE"
 export NEW_STARTEGY=
@@ -63,7 +66,7 @@ do
                 echo "INFO: CLEANING EXISTING MODELS"
                 python3 data_model/reflection_data_cleaner.py reflections_data
 
-                python3 data_model/similarity_extractor.py "$query" reflections_data > ./test/result/background_knowledges.json
+                python3 data_model/reflection_similarity_extractor.py "$query" reflections_data ${REFLECTION_TOKENS} > ./test/result/background_knowledges.json
                 python3 critical_thinking.py  "$query" ./test/result/background_knowledges.json
                 python3 check_recover_json.py ./test/result/critical_thinking.json
                 if [ $? -ne 0 ]
@@ -129,7 +132,7 @@ do
     echo "INFO: saving results"
     python3 data_model/document_data_persistentor.py ./documents_data ./test/result/plan_result.json
     echo "INFO: SIMILARITY EXTRACTOR FOR DOCUMENTS"
-    python3 data_model/similarity_extractor.py "$query" ./documents_data | tee ./test/result/plan_result.json
+    python3 data_model/document_similarity_extractor.py "$query" ./documents_data ${DOCUMENT_TOKENS} | tee ./test/result/plan_result.json
 
     if [ ${ADD_REFLECTION} = "TRUE" ]
     then
@@ -158,7 +161,7 @@ do
         python3 data_model/reflection_data_persistentor.py reflections_data ./test/result/reflection.json
         
         echo "INFO: SIMLIRARITY EXTRACT FOR REFLECTION"
-        python3 data_model/similarity_extractor.py "$query" reflections_data > ./test/result/reflection.json
+        python3 data_model/reflection_similarity_extractor.py "$query" reflections_data ${REFLECTION_TOKENS} > ./test/result/reflection.json
     else
         echo "INFO: SKIP REFLECTION"
     fi
