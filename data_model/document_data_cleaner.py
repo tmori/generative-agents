@@ -6,7 +6,7 @@ import json
 import traceback
 from data_model_accessor import DataModelAccessor
 from document_data_model import DocumentDataModel
-from document_contents_similarity_merge import merge_and_save_known_infos_json
+from document_contents_similarity_merge import merge_and_save_answers_json
 
 class DocumentDataCleaner:
     def __init__(self, accessor: DataModelAccessor):
@@ -27,7 +27,7 @@ class DocumentDataCleaner:
         for name in self.accessor.get_filelist():
             print("INFO: name=", name)
             filepath = self.accessor.get_data_model_filepath(name)
-            ret = merge_and_save_known_infos_json(filepath)
+            ret = merge_and_save_answers_json(filepath)
             if ret == False:
                 print("INFO: skip merge...error")
                 #sys.exit(1)

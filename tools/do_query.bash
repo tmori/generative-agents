@@ -65,6 +65,7 @@ do
             then
                 echo "INFO: CLEANING EXISTING MODELS"
                 python3 data_model/reflection_data_cleaner.py reflections_data
+                python3 data_model/document_data_cleaner.py documents_data
 
                 python3 data_model/reflection_similarity_extractor.py "$query" reflections_data ${REFLECTION_TOKENS} > ./test/result/background_knowledges.json
                 python3 critical_thinking.py  "$query" ./test/result/background_knowledges.json
