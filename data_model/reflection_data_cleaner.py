@@ -6,6 +6,7 @@ import json
 import traceback
 from data_model_accessor import DataModelAccessor
 from reflection_data_model import ReflectionDataModel
+from reflection_contents_similarity_merge import merge_and_save_known_infos_json
 
 class ReflectionDataCleaner:
     def __init__(self, accessor: DataModelAccessor):
@@ -22,6 +23,15 @@ class ReflectionDataCleaner:
                 clean_names.append(name)
         self.accessor.remove_models(clean_names)
 
+    def merge_same_data_models(self):
+        for name in self.accessor.get_filelist():
+            print("INFO: name=", name)
+            filepath = self.accessor.get_data_model_filepath(name)
+            ret = merge_and_save_known_infos_json(filepath)
+            if ret == False:
+                print("INFO: skip merge...error")
+                #sys.exit(1)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -32,4 +42,6 @@ if __name__ == "__main__":
 
     cleaner = ReflectionDataCleaner(accessor)
     cleaner.clean_empty_data_models()
+    print("INFO: MERGING REFLECTIONS")
+    cleaner.merge_same_data_models()
     

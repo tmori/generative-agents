@@ -1,4 +1,5 @@
 #!/bin/bash
+export PYTHONPATH=${PYTHONPATH}:`pwd`
 
 if [ $# -ne 2 ]
 then
