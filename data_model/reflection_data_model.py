@@ -92,7 +92,7 @@ class ReflectionDataModel:
     @staticmethod
     def create_from_entry(name: str, entry: dict):
         model = ReflectionDataModel(name)
-        if entry.get("KnownInfos") is not None:
+        if entry is not None and entry.get("KnownInfos") is not None:
             for known_info in entry.get("KnownInfos"):
                 model.add_info(known_info.get("KnownInfo"), known_info.get("DocumentIDs"))
             if entry.get("Relations") is not None:
