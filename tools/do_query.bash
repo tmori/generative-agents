@@ -26,6 +26,12 @@ then
 else
     mkdir reflections_data
 fi
+if [ -d documents_data ]
+then
+    :
+else
+    mkdir documents_data
+fi
 
 function get_docs()
 {
@@ -110,17 +116,21 @@ do
     echo "INFO: MERGING RESULT"
     if [ -f "./test/result/plan_result.json" ]
     then
-        mv ./test/result/plan_result.json ./test/result/prev_plan_result.json
+        #mv ./test/result/plan_result.json ./test/result/prev_plan_result.json
         python3 evaluator.py "$query" ./test/result/updated_plan.json ./test/result/memory.json
-        mv ./test/result/plan_result.json ./test/result/next_plan_result.json
-        #prev_plan=`cat ./test/result/prev_plan_result.json`
-        #next_plan=`cat ./test/result/next_plan_result.json`
-        #python3 question.py "Please merge 2 json data: ${prev_plan} ${next_plan}" | tee ./test/result/plan_result.json
-        cat ./test/result/prev_plan_result.json  > ./test/result/plan_result.json
-        cat ./test/result/next_plan_result.json >> ./test/result/plan_result.json
+        #mv ./test/result/plan_result.json ./test/result/next_plan_result.json
+
+        #cat ./test/result/prev_plan_result.json  > ./test/result/plan_result.json
+        #cat ./test/result/next_plan_result.json >> ./test/result/plan_result.json
     else
         python3 evaluator.py "$query" ./test/result/updated_plan.json ./test/result/memory.json
     fi
+
+    echo "INFO: saving results"
+    python3 data_model/document_data_persistentor.py ./documents_data ./test/result/plan_result.json
+    echo "INFO: SIMILARITY EXTRACTOR FOR DOCUMENTS"
+    python3 data_model/similarity_extractor.py "$query" ./documents_data | tee ./test/result/plan_result.json
+
     if [ ${ADD_REFLECTION} = "TRUE" ]
     then
         echo "INFO: REFLECTING..."

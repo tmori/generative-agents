@@ -59,6 +59,6 @@ if __name__ == "__main__":
     extractor = SimilarityExtractor(accessor, 1024)
 
     filelist = extractor.get_filelist(query)
-    data = extractor.extract("knowledges", filelist)
+    data = extractor.extract("inputs", filelist)
     data_str = json.dumps(data, indent=4, ensure_ascii=False)
     print(data_str)
