@@ -50,7 +50,7 @@ if __name__ == "__main__":
     count = 1
     while True:
         result, errcode = check_json(filepath)
-        if result == False and count <= 3:
+        if result == False and count <= 5:
             result, json_data = recover_json(errcode, filepath)
             if result == True:
                 with open(filepath, "w") as file:
@@ -58,6 +58,7 @@ if __name__ == "__main__":
                 print("INFO: RECOVERED JSON DATA")
                 sys.exit(0)
             else:
+                print("ERROR: RCOVERING JSON DATA: RETRY_COUNT=", count)
                 count += 1        
         else:
             print("OK")
