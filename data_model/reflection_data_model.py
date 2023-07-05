@@ -51,7 +51,7 @@ class ReflectionDataModel:
         if document_ids is None or len(document_ids) == 0:
             #unreliable info
             return
-        if point < 60.0:
+        if not isinstance(point, float) or float(point) < 60.0:
             #unreliable info
             return
         data = {

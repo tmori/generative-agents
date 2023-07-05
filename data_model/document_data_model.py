@@ -33,7 +33,7 @@ class DocumentDataModel:
         self.results += exist_contents
 
     def add_info(self, purpose: str, perspectives: str, answer: str, point: float):
-        if point < 60.0:
+        if not isinstance(point, float) or float(point) < 60.0:
             return
         data = {
             "Purpose": purpose,
