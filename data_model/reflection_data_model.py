@@ -30,7 +30,8 @@ class ReflectionDataModel:
                 if all(old_data.get("KnownInfo") != entry.get("KnownInfo") for entry in self.known_infos):
                     old_known_info = {
                         "KnownInfo": old_data.get("KnownInfo"),
-                        "DocumentIDs": old_data.get("DocumentIDs")
+                        "DocumentIDs": old_data.get("DocumentIDs"),
+                        "Point": old_data.get("Point")
                     }
                     old_known_infos.append(old_known_info)
             self.known_infos += old_known_infos
@@ -44,12 +45,19 @@ class ReflectionDataModel:
             
             self.relations += old_relations
 
-    def add_info(self, known_info: str, document_ids: list):
+    def add_info(self, known_info: str, document_ids: list, point: float):
         if len(known_info) == 0:
+            return
+        if document_ids is None or len(document_ids) == 0:
+            #unreliable info
+            return
+        if point < 60.0:
+            #unreliable info
             return
         data = {
             "KnownInfo": known_info,
-            "DocumentIDs": document_ids
+            "DocumentIDs": document_ids,
+            "Point": point
         }
         if all(data.get("KnownInfo") != entry.get("KnownInfo") for entry in self.known_infos):
             self.known_infos.append(data)
@@ -98,11 +106,13 @@ class ReflectionDataModel:
         model = ReflectionDataModel(name)
         if entry is not None and entry.get("KnownInfos") is not None:
             for known_info in entry.get("KnownInfos"):
-                model.add_info(known_info.get("KnownInfo"), known_info.get("DocumentIDs"))
+                model.add_info(known_info.get("KnownInfo"), known_info.get("DocumentIDs"), known_info.get("Point"))
             if entry.get("Relations") is not None:
                 model.add_relations(entry.get("Relations"))
             if entry.get("UnknownInfo") is not None:
                 model.update_unknown_info(entry.get("UnknownInfo"))
+            if entry.get("Point") is not None:
+                model.point = entry.get("Point")
         return model
     
     @staticmethod
