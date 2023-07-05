@@ -46,12 +46,16 @@ class ReflectionDataModel:
             self.relations += old_relations
 
     def add_info(self, known_info: str, document_ids: list, point: float):
+        #print("known_info:", known_info)
         if len(known_info) == 0:
+            #print("skip1")
             return
         if document_ids is None or len(document_ids) == 0:
             #unreliable info
+            #print("skip2")
             return
-        if not isinstance(point, float) or float(point) < 60.0:
+        if point is not None and float(point) < 60.0:
+            #print("skip3:", type(point))
             #unreliable info
             return
         data = {
@@ -106,6 +110,9 @@ class ReflectionDataModel:
         model = ReflectionDataModel(name)
         if entry is not None and entry.get("KnownInfos") is not None:
             for known_info in entry.get("KnownInfos"):
+                #print("KnownInfo:", str(known_info.get("KnownInfo")))
+                #print("DocumentIDs:", str(known_info.get("DocumentIDs")))
+                #print("Point:", str(known_info.get("Point")))
                 model.add_info(known_info.get("KnownInfo"), known_info.get("DocumentIDs"), known_info.get("Point"))
             if entry.get("Relations") is not None:
                 model.add_relations(entry.get("Relations"))
@@ -117,9 +124,13 @@ class ReflectionDataModel:
     
     @staticmethod
     def load_json_file(filepath: str):
+        #print("filepath:", filepath)
         data_model = DataModel.load_json_file(filepath)
         if data_model == None:
+            #print("data_model == None")
             return None
+        #print("name:", data_model.get_name())
+        #print("get_contents:", data_model.get_contents())
         model = ReflectionDataModel.create_from_entry(
                     data_model.get_name(), 
                     data_model.get_contents())

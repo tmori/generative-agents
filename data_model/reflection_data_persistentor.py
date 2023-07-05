@@ -18,6 +18,7 @@ class ReflectionDataPersistentor:
 
     def load_reflection_data(self, reflection_data_path: str):
         try:
+            #print("filepath=", reflection_data_path)
             with open(reflection_data_path, "r") as file:
                 json_data = json.load(file)
         except json.JSONDecodeError as e:
@@ -25,6 +26,7 @@ class ReflectionDataPersistentor:
             error_message = f"ERROR: {str(e)}"
             print(traceback_str + error_message)
             return
+        #print("json_data:", json.dumps(json_data))
         if json_data.get("Knowledges") is None:
             return
         

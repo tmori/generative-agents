@@ -132,6 +132,7 @@ do
     fi
 
     echo "INFO: saving results"
+    cp ./test/result/plan_result.json ./test/result/plan_result_org.json
     python3 data_model/document_data_persistentor.py ./documents_data ./test/result/plan_result.json
     echo "INFO: SIMILARITY EXTRACTOR FOR DOCUMENTS"
     python3 data_model/document_similarity_extractor.py "$query" ./documents_data ${DOCUMENT_TOKENS} | tee ./test/result/plan_result.json
@@ -145,6 +146,7 @@ do
         else
             python3 reflection.py "$query" ../documents/document.list "./test/result/critical_thinking.json" ${background_file} "./prompt_templates/ptemplate_reflection.txt"
         fi
+        cp ./test/result/reflection.json ./test/result/reflection_org.json
         python3 check_recover_json.py ./test/result/reflection.json
         if [ $? -ne 0 ]
         then

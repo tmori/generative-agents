@@ -24,6 +24,8 @@ class ReflectionSimilarityExtractor:
     def _calc_scores(self, query: str):
         self.scores = []
         for model in self.models:
+            #print("entry_name:", model.get_term())
+            #print(" known_infos:", model.get_known_infos_num())
             for entry in model.get_known_infos():
                 #print("info:", entry)
                 data = model.get_term() + ":" + json.dumps(entry)
@@ -44,6 +46,7 @@ class ReflectionSimilarityExtractor:
         for entry in self.scores:
             if token_sum + entry["tokens"] > self.maxtoken_num:
                 break
+            #print("data:", entry["term"])
             if terms.get(entry["term"]) is None:
                 terms[entry["term"]] = []
             terms[entry["term"]].append(entry["info"])
