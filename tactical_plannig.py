@@ -43,10 +43,11 @@ if __name__ == "__main__":
     from memory_stream import MemoryStream
     from params import get_param
     param_prompt_template_path = get_param("prompt_templates_path")
+    param_documents_path = get_param("documents_path")
 
     plan = Plan()
     plan.load_from_json("./test/result/plan.json")
-    db_dir = "../documents/dbs"
+    db_dir = param_documents_path + "/dbs"
     tactical_planning = TacticalPlanning(plan, db_dir)
     memory_stream = MemoryStream()
 

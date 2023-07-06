@@ -22,14 +22,12 @@ fi
 DOC_DATA_PATH=`python3 params.py "documents_data_path"`
 if [ ! -d ${DOC_DATA_PATH} ]
 then
-    echo "ERROR: can not found path: ${DOC_DATA_PATH}"
-    exit 1
+    mkdir ${DOC_DATA_PATH}
 fi
 REF_DATA_PATH=`python3 params.py "reflections_data_path"`
 if [ ! -d ${REF_DATA_PATH} ]
 then
-    echo "ERROR: can not found path: ${REF_DATA_PATH}"
-    exit 1
+    mkdir ${REF_DATA_PATH}
 fi
 
 if [ -d test ]
@@ -45,25 +43,12 @@ else
     mkdir test/result
 fi
 
-if [ -d reflections_data ]
-then
-    :
-else
-    mkdir reflections_data
-fi
-if [ -d documents_data ]
-then
-    :
-else
-    mkdir documents_data
-fi
-
 function get_docs()
 {
     local query="${1}"
     local json_file=${2}
     TERMS=`bash tools/get_terms.bash test/result/${json_file}`
-    python3 db_manager.py ../documents/dbs ../documents/document.list "${query}, ${TERMS}" 10 | tee tmp.list
+    python3 db_manager.py ${DOCUMENT_PATH}/dbs ${DOCUMENT_PATH}/document.list "${query}, ${TERMS}" 10 | tee tmp.list
 }
 
 query_dir=$1
@@ -87,20 +72,20 @@ do
             rm -rf test/*.json
             echo "INFO: CRITICAL THINKING"
             echo "INFO: SIMLIRARITY EXTRACT FOR BACKGROUND KNOWLEDGES"
-            if [ ${USE_BACKGROUND} = "TRUE" -a -d reflections_data/data_model ]
+            if [ ${USE_BACKGROUND} = "TRUE" -a -d ${REF_DATA_PATH}/data_model ]
             then
                 echo "INFO: CLEANING EXISTING MODELS"
-                python3 data_model/reflection_data_cleaner.py reflections_data
-                python3 data_model/document_data_cleaner.py documents_data
+                python3 data_model/reflection_data_cleaner.py ${REF_DATA_PATH}
+                python3 data_model/document_data_cleaner.py ${DOC_DATA_PATH}
 
-                python3 data_model/reflection_similarity_extractor.py "$query" reflections_data ${REFLECTION_TOKENS} > ./test/result/background_knowledges.json
+                python3 data_model/reflection_similarity_extractor.py "$query" ${REF_DATA_PATH} ${REFLECTION_TOKENS} > ./test/result/background_knowledges.json
                 python3 critical_thinking.py  "$query" ./test/result/background_knowledges.json
                 python3 check_recover_json.py ./test/result/critical_thinking.json
                 if [ $? -ne 0 ]
                 then
                     exit 1
                 fi
-                python3 data_model/reflection_data_persistentor.py reflections_data ./test/result/critical_thinking.json
+                python3 data_model/reflection_data_persistentor.py ${REF_DATA_PATH} ./test/result/critical_thinking.json
             else
                 python3 critical_thinking.py  "$query" ${background_file}
                 python3 check_recover_json.py ./test/result/critical_thinking.json
@@ -108,13 +93,13 @@ do
                 then
                     exit 1
                 fi
-                python3 data_model/reflection_data_persistentor.py reflections_data ./test/result/critical_thinking.json
+                python3 data_model/reflection_data_persistentor.py ${REF_DATA_PATH} ./test/result/critical_thinking.json
             fi
             echo "INFO: GETTING DOCUMENTS"
             get_docs "${query}" critical_thinking.json
             documents=`cat tmp.list`
             echo "INFO: PLANNING"
-            python3 planner.py "$query\n: Please research focusing on the following document:\n ${documents} " ../documents/document.list ${background_file} test/result/critical_thinking.json 
+            python3 planner.py "$query\n: Please research focusing on the following document:\n ${documents} " ${DOCUMENT_PATH}/document.list ${background_file} test/result/critical_thinking.json 
             if [ $? -ne 0 ]
             then
                 exit 1
@@ -124,7 +109,7 @@ do
             echo "INFO: GETTING DOCUMENTS"
             get_docs "${query}" reflection.json
             documents=`cat tmp.list`
-            python3 planner.py "$query\n: Please research focusing on the following document:\n ${documents}" ../documents/document.list ${background_file} test/result/reflection.json
+            python3 planner.py "$query\n: Please research focusing on the following document:\n ${documents}" ${DOCUMENT_PATH}/document.list ${background_file} test/result/reflection.json
             if [ $? -ne 0 ]
             then
                 exit 1
@@ -135,7 +120,7 @@ do
         rm -rf test/result/*
         rm -rf test/*.json
         touch test/result/reflection.json
-        python3 planner.py "$query" ../documents/document.list ${background_file} test/result/reflection.json
+        python3 planner.py "$query" ${DOCUMENT_PATH}/document.list ${background_file} test/result/reflection.json
         if [ $? -ne 0 ]
         then
             exit 1
@@ -158,18 +143,18 @@ do
 
     echo "INFO: saving results"
     cp ./test/result/plan_result.json ./test/result/plan_result_org.json
-    python3 data_model/document_data_persistentor.py ./documents_data ./test/result/plan_result.json
+    python3 data_model/document_data_persistentor.py ${DOC_DATA_PATH} ./test/result/plan_result.json
     echo "INFO: SIMILARITY EXTRACTOR FOR DOCUMENTS"
-    python3 data_model/document_similarity_extractor.py "$query" ./documents_data ${DOCUMENT_TOKENS} | tee ./test/result/plan_result.json
+    python3 data_model/document_similarity_extractor.py "$query" ${DOC_DATA_PATH} ${DOCUMENT_TOKENS} | tee ./test/result/plan_result.json
 
     if [ ${ADD_REFLECTION} = "TRUE" ]
     then
         echo "INFO: REFLECTING..."
         if [ -f "./test/result/reflection.json" ]
         then
-            python3 reflection.py "$query" ../documents/document.list "./test/result/reflection.json" ${background_file} "${PRMT_TMP_PATH}/ptemplate_reflection.txt"
+            python3 reflection.py "$query" ${DOCUMENT_PATH}/document.list "./test/result/reflection.json" ${background_file} "${PRMT_TMP_PATH}/ptemplate_reflection.txt"
         else
-            python3 reflection.py "$query" ../documents/document.list "./test/result/critical_thinking.json" ${background_file} "${PRMT_TMP_PATH}/ptemplate_reflection.txt"
+            python3 reflection.py "$query" ${DOCUMENT_PATH}/document.list "./test/result/critical_thinking.json" ${background_file} "${PRMT_TMP_PATH}/ptemplate_reflection.txt"
         fi
         cp ./test/result/reflection.json ./test/result/reflection_org.json
         python3 check_recover_json.py ./test/result/reflection.json
@@ -177,20 +162,20 @@ do
         then
             exit 1
         fi
-        python3 data_model/reflection_data_persistentor.py reflections_data ./test/result/reflection.json
+        python3 data_model/reflection_data_persistentor.py ${REF_DATA_PATH} ./test/result/reflection.json
 
         echo "INFO: ADD REFLECTION TERMS..."
         #cp ./test/result/reflection.json ./test/result/prev_reflection.json
-        python3 reflection.py "$query" ../documents/document.list "./test/result/reflection.json" ${background_file} "${PRMT_TMP_PATH}/ptemplate_reflection_addterms.txt"
+        python3 reflection.py "$query" ${DOCUMENT_PATH}/document.list "./test/result/reflection.json" ${background_file} "${PRMT_TMP_PATH}/ptemplate_reflection_addterms.txt"
         python3 check_recover_json.py ./test/result/reflection.json
         if [ $? -ne 0 ]
         then
             exit 1
         fi
-        python3 data_model/reflection_data_persistentor.py reflections_data ./test/result/reflection.json
+        python3 data_model/reflection_data_persistentor.py ${REF_DATA_PATH} ./test/result/reflection.json
         
         echo "INFO: SIMLIRARITY EXTRACT FOR REFLECTION"
-        python3 data_model/reflection_similarity_extractor.py "$query" reflections_data ${REFLECTION_TOKENS} > ./test/result/reflection.json
+        python3 data_model/reflection_similarity_extractor.py "$query" ${REF_DATA_PATH} ${REFLECTION_TOKENS} > ./test/result/reflection.json
     else
         echo "INFO: SKIP REFLECTION"
     fi
