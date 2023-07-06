@@ -111,6 +111,8 @@ class Planner:
 
 if __name__ == "__main__":
     import sys
+    from params import get_param
+    prompt_template_path = get_param("prompt_templates_path")
     if len(sys.argv) != 5:
         print("Usage: <MainQuestion> <doc_list.txt> <background_knowledge_path> <acquired_knowledge_path>")
         sys.exit(1)
@@ -124,9 +126,9 @@ if __name__ == "__main__":
         batched_list = [total_list[i:i+batch_size] for i in range(0, len(total_list), batch_size)]
     planner = Planner(
         main_question = main_question,
-        mission_path= "./prompt_templates/ptemplate_mission.txt",
-        strategy_path= "./prompt_templates/ptemplate_strategy.txt",
-        query_plan_path= "./prompt_templates/ptemplate_query_plan.txt",
+        mission_path= prompt_template_path + "/ptemplate_mission.txt",
+        strategy_path= prompt_template_path + "/ptemplate_strategy.txt",
+        query_plan_path= prompt_template_path + "/ptemplate_query_plan.txt",
         strategy_history_path="./test/strategy_history.json",
         background_knowledge_path = background_knowledge_path,
         acquired_knowledge_path = acquired_knowledge_path

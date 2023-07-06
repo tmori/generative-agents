@@ -35,11 +35,14 @@ class CriticalThinking:
 
 if __name__ == "__main__":
     import sys
+    from params import get_param
+    prompt_template_path = get_param("prompt_templates_path")
+
     if len(sys.argv) != 3:
         print("Usage: <MainQuestion> <BackgroundKnowledge>")
         sys.exit(1)
     main_question = sys.argv[1]
     background_knowledge_path = sys.argv[2]
-    think = CriticalThinking(main_question, "./prompt_templates/ptemplate_critical_thinking.txt", background_knowledge_path)
+    think = CriticalThinking(main_question, prompt_template_path + "/ptemplate_critical_thinking.txt", background_knowledge_path)
     think.create()
     think.save_to_raw("test/result/critical_thinking.json")

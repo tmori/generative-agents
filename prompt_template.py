@@ -15,7 +15,10 @@ class PromptTemplate:
         return self.template.format(**kwargs)
 
 if __name__ == "__main__":
-    pt = PromptTemplate("./prompt_templates/ptemplate_query.txt")
+    from params import get_param
+    prompt_template_path = get_param("prompt_templates_path")
+
+    pt = PromptTemplate(prompt_template_path + "/ptemplate_query.txt")
     while True:
         target_doc_id = input("TargetDocID> ")
         question = input("question> ")

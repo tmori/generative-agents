@@ -7,6 +7,31 @@ then
     exit 1
 fi
 
+PRMT_TMP_PATH=`python3 params.py "prompt_templates_path"`
+if [ ! -d ${PRMT_TMP_PATH} ]
+then
+    echo "ERROR: can not found path: ${PRMT_TMP_PATH}"
+    exit 1
+fi
+DOCUMENT_PATH=`python3 params.py "documents_path"`
+if [ ! -d ${DOCUMENT_PATH} ]
+then
+    echo "ERROR: can not found path: ${DOCUMENT_PATH}"
+    exit 1
+fi
+DOC_DATA_PATH=`python3 params.py "documents_data_path"`
+if [ ! -d ${DOC_DATA_PATH} ]
+then
+    echo "ERROR: can not found path: ${DOC_DATA_PATH}"
+    exit 1
+fi
+REF_DATA_PATH=`python3 params.py "reflections_data_path"`
+if [ ! -d ${REF_DATA_PATH} ]
+then
+    echo "ERROR: can not found path: ${REF_DATA_PATH}"
+    exit 1
+fi
+
 if [ -d test ]
 then
     :
@@ -47,8 +72,8 @@ query="`cat ${query_dir}/query.txt`"
 
 DOCUMENT_TOKENS=2048
 REFLECTION_TOKENS=2048
-USE_BACKGROUND="FALSE"
-#USE_BACKGROUND="TRUE"
+#USE_BACKGROUND="FALSE"
+USE_BACKGROUND="TRUE"
 ADD_REFLECTION="TRUE"
 #ADD_REFLECTION="FALSE"
 export NEW_STARTEGY=
@@ -142,9 +167,9 @@ do
         echo "INFO: REFLECTING..."
         if [ -f "./test/result/reflection.json" ]
         then
-            python3 reflection.py "$query" ../documents/document.list "./test/result/reflection.json" ${background_file} "./prompt_templates/ptemplate_reflection.txt"
+            python3 reflection.py "$query" ../documents/document.list "./test/result/reflection.json" ${background_file} "${PRMT_TMP_PATH}/ptemplate_reflection.txt"
         else
-            python3 reflection.py "$query" ../documents/document.list "./test/result/critical_thinking.json" ${background_file} "./prompt_templates/ptemplate_reflection.txt"
+            python3 reflection.py "$query" ../documents/document.list "./test/result/critical_thinking.json" ${background_file} "${PRMT_TMP_PATH}/ptemplate_reflection.txt"
         fi
         cp ./test/result/reflection.json ./test/result/reflection_org.json
         python3 check_recover_json.py ./test/result/reflection.json
@@ -156,7 +181,7 @@ do
 
         echo "INFO: ADD REFLECTION TERMS..."
         #cp ./test/result/reflection.json ./test/result/prev_reflection.json
-        python3 reflection.py "$query" ../documents/document.list "./test/result/reflection.json" ${background_file} "./prompt_templates/ptemplate_reflection_addterms.txt"
+        python3 reflection.py "$query" ../documents/document.list "./test/result/reflection.json" ${background_file} "${PRMT_TMP_PATH}/ptemplate_reflection_addterms.txt"
         python3 check_recover_json.py ./test/result/reflection.json
         if [ $? -ne 0 ]
         then

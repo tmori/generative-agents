@@ -46,11 +46,14 @@ class Query:
 if __name__ == "__main__":
     import sys
     from db_manager import get_qa
+    from params import get_param
+    param_prompt_template_path = get_param("prompt_templates_path")
+    
     db_dir = ".."
     doc_id = "DB"
     qa = get_qa(db_dir, doc_id)
     memory_stream = MemoryStream()
-    prompt_template_path = "./prompt_templates/ptemplate_query.txt"
+    prompt_template_path = param_prompt_template_path + "/ptemplate_query.txt"
     query = Query("1", "Athrillとは何ですか？", memory_stream, qa)
     while True:
         question = input("question> ")

@@ -1,0 +1,6 @@
+{
+    "prompt_templates_path": "./prompt_templates",
+    "documents_path": "../documents",
+    "documents_data_path": "./documents_data",
+    "reflections_data_path": "./reflections_data"
+}

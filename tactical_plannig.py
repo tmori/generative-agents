@@ -41,6 +41,9 @@ class TacticalPlanning:
 if __name__ == "__main__":
     from query import Query
     from memory_stream import MemoryStream
+    from params import get_param
+    param_prompt_template_path = get_param("prompt_templates_path")
+
     plan = Plan()
     plan.load_from_json("./test/result/plan.json")
     db_dir = "../documents/dbs"
@@ -48,7 +51,7 @@ if __name__ == "__main__":
     memory_stream = MemoryStream()
 
     while True:
-        ret = tactical_planning.generate_question("./prompt_templates/ptemplate_subq_detail.txt")
+        ret = tactical_planning.generate_question(param_prompt_template_path + "/ptemplate_subq_detail.txt")
         if ret == None:
             print("END")
             break
@@ -56,7 +59,7 @@ if __name__ == "__main__":
         doc_id = ret[1]
         question = ret[2]
         qa = get_qa(db_dir, doc_id)
-        prompt_template_path = "./prompt_templates/ptemplate_query.txt"
+        prompt_template_path = param_prompt_template_path + "/ptemplate_query.txt"
         query = Query(doc_id, question, memory_stream, qa)
         memory_id = query.run(prompt_template_path, question)
         if memory_id < 0:
