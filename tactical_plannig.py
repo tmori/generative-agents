@@ -4,6 +4,8 @@
 from plan import Plan
 from prompt_template import PromptTemplate
 from db_manager import get_qa
+from question import TextQa
+import sys
 
 class TacticalPlanning:
     def __init__(self, plan: Plan, db_dir: str):
@@ -39,6 +41,14 @@ class TacticalPlanning:
         return query
 
 if __name__ == "__main__":
+    if __name__ == "__main__":
+        if len(sys.argv) != 1 and len(sys.argv) != 2:
+            print("USAGE: " + sys.argv[0] + " [text]")
+            sys.exit(1)
+    query_mode = "db_query"
+    if len(sys.argv) == 2:
+        mode = "text_query"
+
     from query import Query
     from memory_stream import MemoryStream
     from params import get_param
@@ -59,7 +69,11 @@ if __name__ == "__main__":
         plan_id = ret[0]
         doc_id = ret[1]
         question = ret[2]
-        qa = get_qa(db_dir, doc_id)
+        if query_mode == "db_query":
+            qa = get_qa(db_dir, doc_id)
+        else:
+            qa = TextQa.get_qa(db_dir, doc_id)
+
         prompt_template_path = param_prompt_template_path + "/ptemplate_query.txt"
         query = Query(doc_id, question, memory_stream, qa)
         memory_id = query.run(prompt_template_path, question)

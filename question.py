@@ -29,6 +29,24 @@ def get_response(question):
     )
     return response["choices"][0]["message"]["content"]
 
+class TextQa:
+    def __init__(self, doc_dir: str, doc_id: str):
+        self.doc_dir = doc_dir
+        self.doc_id = doc_id
+        self.filepath = os.path.join(self.doc_dir, self.doc_id)
+
+    def qa(self, question):
+        with open(self.filepath, "r") as file:
+            text_data = file.read()
+            prompt = f"Input Question: {question}\nInput Text Data: {text_data}\n"
+            return get_response(prompt)
+
+    @staticmethod
+    def get_qa(doc_dir: str, doc_id: str):
+        text_qa = TextQa(doc_dir, doc_id)
+        func_ptr = text_qa.qa
+        return func_ptr
+
 if __name__ == "__main__":
     import sys
     if (len(sys.argv) == 1):

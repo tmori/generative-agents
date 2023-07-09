@@ -76,16 +76,17 @@ if __name__ == "__main__":
         print("Usage: <MainQuestion> <plan> <memory> [<reflection>]")
         sys.exit(1)
     main_question = sys.argv[1]
-    plan_json_path = sys.argv[2]
-    mem_json_path = sys.argv[3]
-    plan = Plan()
-    plan.load_from_json(plan_json_path)
     mission_path= prompt_template_path + "/ptemplate_mission.txt"
-    memory_stream = MemoryStream()
-    memory_stream.load_from_json(mem_json_path)
-    evaluator = Evaluator(main_question, mission_path, plan, memory_stream)
     if len(sys.argv) == 4:
+        plan_json_path = sys.argv[2]
+        mem_json_path = sys.argv[3]
+        plan = Plan()
+        plan.load_from_json(plan_json_path)
+        memory_stream = MemoryStream()
+        memory_stream.load_from_json(mem_json_path)
+        evaluator = Evaluator(main_question, mission_path, plan, memory_stream)
         evaluator.merge_data()
     elif len(sys.argv) == 5:
         ref_json_path = sys.argv[4]
+        evaluator = Evaluator(main_question, mission_path, None, None)
         evaluator.evaluate(prompt_template_path + "/ptemplate_evaluate.txt", ref_json_path)
