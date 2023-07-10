@@ -1,0 +1,22 @@
+"{MainQuestion}":
+
+To applaud the member, the previous knowledge required from the member is listed as follows:
+{KnowledgesNeeds}
+
+Using the <Reason> and <UnknownInfo> derived from the obtained information, please add a new <Term>.
+Let's think step by step.
+
+{{
+  "Knowledges": [
+    {{
+      "Term": "<Term>",
+      "Reason": "<Reason>",
+      "KnownInfos": [],
+      "UnknownInfo": [ "<UnknownInfo>", ... ],
+      "Relations": []
+    }},
+    :
+    :
+  ]
+}}
+

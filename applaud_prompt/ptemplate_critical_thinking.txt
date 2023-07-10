@@ -1,0 +1,19 @@
+For this MainQuestion:"{MainQuestion}":
+
+Please extract the knowledge, concepts, and related members that are prerequisites for this MainQuestion, and also provide reasons for the extracted information.
+
+The result should be outputted in the following JSON format.
+Term items must follow the Unix filename syntax.
+
+Let's think step by step.
+{{
+  "Knowledges": [
+    {{
+      "Term": "<Term>",
+      "Reason": "<Reason>"
+    }},
+    :
+    :
+  ]
+}}
+

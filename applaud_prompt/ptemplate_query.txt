@@ -1,0 +1,5 @@
+Question: {sub_question}
+Also, assess the appropriateness of the answer to the question by assigning a score between 0 and 100 in the following format (higher values indicate a more appropriate answer).
+Point: <Point>
+
+Let's think step by step.

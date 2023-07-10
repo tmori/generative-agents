@@ -1,0 +1,20 @@
+Main Question: {MainQuestion}
+Mission: {Mission}
+
+The extracted information necessary to answer the Main Question and Mission is as follows:
+
+Input:
+ PastStrategies: {PastStrategies}
+ PlanExecutedResults:
+  {PlanExecutedResults}
+ Reflection:
+  {Reflection}
+
+Based on the information provided, please answer the Main Question in Japanease and reference 
+the source document by citing its ID in the following format.
+Let's think step by step.
+
+Result:
+ Answer: <Answer>
+ However, if there is insufficient information to provide an answer, please set Answer as "Unknown".
+ 

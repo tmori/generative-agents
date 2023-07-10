@@ -1,0 +1,53 @@
+MainQuestion:"{MainQuestion}":
+
+For this MainQuestion, please extract the prerequisite knowledge and concepts, and related members, etc.
+
+The previous knowledge of the member required to applaud has been listed as follows:
+{KnowledgesNeeds}
+
+And the background information is as follows:
+BackgroundKnowledges: {BackgroundKnowledges}
+
+To gather information related to the above knowledges, inquiries were made to existing documents, and the results are as follows:
+{PlanResult}
+
+<Term> items must follow the Unix filename syntax.
+Show the importance of KnownInfo by assigning a score between 0 and 100 to Point (higher values indicate a more appropriate answer).
+Fill in the UnknownInfo with the information that is not yet fully understood.
+Enumerate the relevant <DocumentID> in DocumentIDs.
+Enumerate any relationships with other knowledge or members under Relations, along with the reasons for the relationships.
+
+Let's think step by step.
+
+{{
+  "Knowledges": [
+    {{
+      "Term": "<Term>",
+      "Reason": "<Reason>",
+      "KnownInfos": [
+        {{
+          "KnownInfo": "<KnownInfo(previous one)>",
+          "Point": "<Point>(previous one)",
+          "DocumentIDs": [ "<DocumentID>(previous one)", ... ]
+        }},        {{
+          "KnownInfo": "<KnownInfo>(acquired one)",
+          "Point": "<Point>(acquired one)",
+          "DocumentIDs": [ "<DocumentID>(acquired one)", ... ]
+        }},
+        :
+        :
+      ],
+      "UnknownInfo": [ "<UnknownInfo>", ... ],
+      "Relations": [
+        {{
+          "Term": "<Term>",
+          "RelationReason": "<RelationReason>",
+        }},
+        :
+      ]
+    }},
+    :
+    :
+  ]
+}}
+

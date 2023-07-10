@@ -1,0 +1,8 @@
+Background Information:
+The DocumentList enumerates the titles of investigatable documents.
+Past Investigation Status:
+PastStrategies lists the previously investigated DetailedStrategies.
+Investigation Approach:
+For the member's praise in response to the MainQuestion, please list the prerequisite knowledge and related members, and consider which documents from the DocumentList should be investigated to understand that knowledge and members.
+
+Based on that, create a plan by treating DetailedStrategy as the investigation approach, determining investigation perspectives for each relevant document, and forming a Plan.

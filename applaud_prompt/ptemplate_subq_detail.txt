@@ -1,0 +1,5 @@
+Please obtain information based on the following purposes and perspectives.
+Let's think step by step.
+
+purpose: {purpose}
+perspectives: {perspectives}

@@ -1,0 +1,36 @@
+Please generate JSON data in the following format.
+This data will be used to extract the information necessary to answer the main question from the mission, strategy, and known knowledge.
+
+Please keep <DetailedStrategy> within 100 characters in one line.
+
+{{
+  "DetailedStrategy": "<DetailedStrategy>"
+  "Plan": [
+    {{
+      "DocumentID": "<DocumentID>"
+      "Purpose": "<Purpose>"
+      "Perspectives": "<Perspectives>"
+    }},
+    :
+    :
+  ]
+}}
+
+以下は、計画を作成する際に注意すべきポイントです。
+
+・複数の目的や視点で1つのドキュメントに対して調査を行います。
+・特定の目的や視点で複数のドキュメントを相互参照して調査を行います。
+・1つのドキュメントから回答が得られない場合は、同じ目的や視点で別のドキュメントで調査を行います。
+・これらのポイントを考慮しながら計画を作成してください。
+
+Regenerate respon
+The input information is as follows.
+Input:
+ Main Question: 開発チームメンバのプロフィールです。"{MainQuestion}"
+ Mission: {Mission}
+ Strategy: {Strategy}
+ Document List: {DocumentList}
+ PastStrategies: {PastStrategies}
+ AcquiredKnowledges: {AcquiredKnowledges}
+
+Let's think step by step.
