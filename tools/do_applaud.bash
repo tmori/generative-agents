@@ -43,12 +43,12 @@ else
     mkdir test/result
 fi
 
-profile_path=$1
+query_dir=$1
 background_file="noidea.txt"
-query="`cat ${profile_path}`"
+query="`cat ${query_dir}/query.txt`"
 
-DOCUMENT_TOKENS=2048
-REFLECTION_TOKENS=2048
+DOCUMENT_TOKENS=3096
+REFLECTION_TOKENS=3096
 #USE_BACKGROUND="FALSE"
 USE_BACKGROUND="TRUE"
 ADD_REFLECTION="TRUE"
@@ -165,5 +165,13 @@ do
             ./test/result/memory.json \
             ./test/result/reflection.json \
             | tee ./test/result/result.txt
+    dir_name=q_${TRY_NO}
+    if [ -d ${query_dir}/${dir_name} ]
+    then
+        :
+    else
+        mkdir ${query_dir}/${dir_name}
+    fi
+    cp -rp test/* ${query_dir}/${dir_name}/
 
 done
