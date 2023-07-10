@@ -34,12 +34,16 @@ class TextQa:
         self.doc_dir = doc_dir
         self.doc_id = doc_id
         self.filepath = os.path.join(self.doc_dir, self.doc_id)
-
+    def get_answer(self, prompt: str):
+        res = get_response(prompt)
+        return {
+            "answer": res
+        }
     def qa(self, question):
         with open(self.filepath, "r") as file:
             text_data = file.read()
             prompt = f"Input Question: {question}\nInput Text Data: {text_data}\n"
-            return get_response(prompt)
+            return self.get_answer(prompt)
 
     @staticmethod
     def get_qa(doc_dir: str, doc_id: str):

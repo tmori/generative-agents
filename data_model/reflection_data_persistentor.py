@@ -34,7 +34,7 @@ class ReflectionDataPersistentor:
         for entry in json_data.get("Knowledges"):
             #print("Term:", entry.get("Term"))
             model = ReflectionDataModel.create_from_entry(
-                        entry.get("Term").replace(" ", "_"), entry)
+                        entry.get("Term").replace(" ", "_").replace("/", "_"), entry)
             self.models.append(model)
 
 if __name__ == "__main__":

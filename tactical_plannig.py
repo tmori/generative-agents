@@ -41,13 +41,12 @@ class TacticalPlanning:
         return query
 
 if __name__ == "__main__":
-    if __name__ == "__main__":
-        if len(sys.argv) != 1 and len(sys.argv) != 2:
-            print("USAGE: " + sys.argv[0] + " [text]")
-            sys.exit(1)
+    if len(sys.argv) != 1 and len(sys.argv) != 2:
+        print("USAGE: " + sys.argv[0] + " [text]")
+        sys.exit(1)
     query_mode = "db_query"
     if len(sys.argv) == 2:
-        mode = "text_query"
+        query_mode = "text_query"
 
     from query import Query
     from memory_stream import MemoryStream
@@ -73,6 +72,7 @@ if __name__ == "__main__":
             qa = get_qa(db_dir, doc_id)
         else:
             qa = TextQa.get_qa(db_dir, doc_id)
+        print("query_mode=", query_mode)
 
         prompt_template_path = param_prompt_template_path + "/ptemplate_query.txt"
         query = Query(doc_id, question, memory_stream, qa)

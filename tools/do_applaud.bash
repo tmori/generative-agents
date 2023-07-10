@@ -3,7 +3,7 @@ export PYTHONPATH=${PYTHONPATH}:`pwd`
 
 if [ $# -ne 1 ]
 then
-    echo "Usage: $0 <query_dir>"
+    echo "Usage: $0 <profile>"
     exit 1
 fi
 
@@ -43,9 +43,9 @@ else
     mkdir test/result
 fi
 
-query_dir=$1
+profile_path=$1
 background_file="noidea.txt"
-query="`cat ${query_dir}/query.txt`"
+query="`cat ${profile_path}`"
 
 DOCUMENT_TOKENS=2048
 REFLECTION_TOKENS=2048
@@ -166,12 +166,4 @@ do
             ./test/result/reflection.json \
             | tee ./test/result/result.txt
 
-    dir_name=q_${TRY_NO}
-    if [ -d ${query_dir}/${dir_name} ]
-    then
-        :
-    else
-        mkdir ${query_dir}/${dir_name}
-    fi
-    cp -rp test/* ${query_dir}/${dir_name}/
 done

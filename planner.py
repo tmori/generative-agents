@@ -68,6 +68,7 @@ class Planner:
         while True:
             result, errorcode = check_json_str(self.reply_raw)
             if result == False and count <= 5:
+                print(self.reply_raw)
                 print("ERROR: RECOVER JSON PROCESS of PLAN RETRY_COUNT=", count)
                 self.reply_raw = recover_json_str(errorcode, self.reply_raw)
                 count += 1
