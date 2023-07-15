@@ -54,6 +54,7 @@ function get_docs()
 query_dir=$1
 background_file=$2
 query="`cat ${query_dir}/query.txt`"
+cp param_templates/document_params.json params.json
 
 DOCUMENT_TOKENS=2048
 REFLECTION_TOKENS=2048

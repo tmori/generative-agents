@@ -43,9 +43,10 @@ else
     mkdir test/result
 fi
 
-name="$1"
+name="$1"applaud_params.json
 query_dir=./applaud_data/query_dir
 background_file="noidea.txt"
+cp param_templates/applaud_params.json params.json
 query="$(cat ${query_dir}/query.txt | sed -e "s/<NAME>/${name}/g")"
 
 DOCUMENT_TOKENS=3096
