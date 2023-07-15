@@ -1,0 +1,23 @@
+{
+    "DetailedStrategy": "Investigate conversation logs in the documents; Understand unnoticed traits, appreciating_words, and avoid common knowledge",
+    "Plan": [
+        {
+            "DocumentID": "chap01",
+            "Purpose": "To understand conversation style and find personal traits",
+            "Perspectives": "Focus on kanetugu2018's unique phrases and reactions",
+            "ResultID": {
+                "Reply": "kanetugu2018's writing style is very much conversational and it seems that he is aware of how to engage his readers by using relatable content and experiences. His writing reflects how passionate he was about the project. There are several unique phrases and reactions that were noted.\n\n1. \"#きっかけ\" and \"#必死で調べました\" - He utilizes hashtags within the content to emphasize certain points or sections.\n\n2. His numerous uses of personal pronouns, such as \"僕\" and \"私\", instead of professional language, give his writing a very colloquial feel.\n\n3. The use of asterisks, quotation marks, special characters to convey emotion and emphasis, such as \"※組込み系の開発で実機レス開発環境がないと同じようなトラブルに見舞われると思われますので\" and \"『いっちょやってみるか！』.\n\n4. Usage of English phrases in the middle, like \"CPU emulator\" and \"athrill\".\n\n5. The use of onomatopoeic expressions like \"わくわく\" to describe his excitement.\n\nFurthermore, he writes about his thought process and details that he had to consider during the project, openly sharing his struggles, which adds a genuine touch to his content. It seems like he likes to tell a narrative when explaining technical concepts or processes.\n\nPoint: 93",
+                "Point": 93.0
+            }
+        },
+        {
+            "DocumentID": "chap02",
+            "Purpose": "To find unnoticed traits and effective appreciating words",
+            "Perspectives": "Identify overlooked traits and related conversations",
+            "ResultID": {
+                "Reply": "The author of this text created Arm version microcontroller simulator by self. The microcontroller simulator is designed to work on different CPU architectures and it can be executed on Linux and Windows /docker. The microcontroller simulator he developed is called \"Athrill\". The simulator is designed to run on different CPUs and can be executed on both Linux and Windows/Docker. The author has a motivation to popularize the simulator. In addition, he has settled on several major goals such as developing an environment that could run on Mac/Linux/Windows and efficiently develop by instruction description in DSL from ARM version of athrill and so on. He has implemented about 80 instructions out of around 400 ARM instructions. \n\nPoint: 90\nThis text is focused on the process of the creation and development of ARM version microcontroller simulator which can help overlook unnoticed traits.",
+                "Point": -1.0
+            }
+        }
+    ]
+}

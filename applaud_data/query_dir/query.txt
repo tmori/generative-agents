@@ -1,12 +1,13 @@
-Looking at the conversation logs, there are lovely traits 
-that can be found in Mr./Ms. <NAME> that many people might not notice.
+この会話ログから、<NAME> さんの良い個性について、
+具体的な行動や会話内容を引用して、<NAME> さんが感動するような
+誉め言葉を検討してください。
 
-In developing a compliment that would touch Mr./Ms. <NAME>, 
-the following points should be considered:
+その際、以下の点を考慮してください。
 
-Generic compliments such as 'you're wonderful' without any context wouldn't evoke much emotion.
-Complimenting something that everyone knows, or that the person themselves knows, won't bring much joy.
-It's important to highlight aspects that nobody, not even the person themselves, have noticed.
-Please start with the following sentence:
+・なにもなしで、素晴らしいとか言われても感動しません。
+・誰でも知っていること、その人が知っていることを褒められてもうれしくないです。
+・誰も気づいていない、その人も気づいていない、そこを褒めることが大切です。
 
-'From the conversation logs, looking at Mr./Ms. <NAME>'s personality, some unnoticed yet wonderful traits can be identified.
+また、出だしは、以下の文言で始めてください。
+
+「会話のログから、<NAME> さんの個性を見てみると、多くの方が気付かないような素敵な特徴が見つけられます。」

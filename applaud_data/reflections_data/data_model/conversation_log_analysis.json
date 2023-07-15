@@ -1,0 +1,24 @@
+{
+    "name": "conversation_log_analysis",
+    "contents": {
+        "Term": "conversation_log_analysis",
+        "KnownInfos": [
+            {
+                "KnownInfo": "Analysing conversation logs involves looking for unique phrases and reactions, tracking the usage of specific types of words (like personal pronouns, special characters and foreign phrases), and identifying open and genuine communication.",
+                "DocumentIDs": [
+                    "chap01"
+                ],
+                "Point": 90
+            }
+        ],
+        "UnknownInfo": [
+            "More information on the specific techniques or guidelines that can aid the analysis of conversation logs can be beneficial."
+        ],
+        "Relations": [
+            {
+                "Term": "kanetugu2018_personality",
+                "RelationReason": "This analysis is used for understanding kanetugu2018's personality."
+            }
+        ]
+    }
+}

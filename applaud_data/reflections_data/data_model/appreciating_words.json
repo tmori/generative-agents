@@ -1,0 +1,17 @@
+{
+    "name": "appreciating_words",
+    "contents": {
+        "Term": "appreciating_words",
+        "KnownInfos": [],
+        "UnknownInfo": [
+            "Specific examples of powerful and touching appreciating words, consistent with the traits observed in kanetugu2018's personality.",
+            "An understanding of what type of appreciation kanetugu2018 would most value based on his personality."
+        ],
+        "Relations": [
+            {
+                "Term": "unnoticed_traits",
+                "RelationReason": "The appreciation should be based on unnoticed traits."
+            }
+        ]
+    }
+}

@@ -6,6 +6,7 @@ then
     echo "Usage: $0 <name>"
     exit 1
 fi
+cp param_templates/applaud_params.json params.json
 
 PRMT_TMP_PATH=`python3 params.py "prompt_templates_path"`
 if [ ! -d ${PRMT_TMP_PATH} ]
@@ -43,10 +44,9 @@ else
     mkdir test/result
 fi
 
-name="$1"applaud_params.json
+name="$1"
 query_dir=./applaud_data/query_dir
 background_file="noidea.txt"
-cp param_templates/applaud_params.json params.json
 query="$(cat ${query_dir}/query.txt | sed -e "s/<NAME>/${name}/g")"
 
 DOCUMENT_TOKENS=3096

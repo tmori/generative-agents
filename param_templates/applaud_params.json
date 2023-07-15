@@ -1,5 +1,5 @@
 {
-    "prompt_templates_path": "./applaud_data/prompt_templates",
+    "prompt_templates_path": "./applaud_prompt",
     "documents_path": "./applaud_data/documents",
     "documents_data_path": "./applaud_data/documents_data",
     "reflections_data_path": "./applaud_data/reflections_data"

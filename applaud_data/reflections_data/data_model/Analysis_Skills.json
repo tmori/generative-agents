@@ -1,0 +1,24 @@
+{
+    "name": "Analysis_Skills",
+    "contents": {
+        "Term": "Analysis_Skills",
+        "KnownInfos": [
+            {
+                "KnownInfo": "Analysing conversation logs involves looking for unique phrases and reactions, tracking the usage of specific types of words (like personal pronouns, special characters and foreign phrases), and identifying open and genuine communication.",
+                "DocumentIDs": [
+                    "chap01"
+                ],
+                "Point": 90
+            }
+        ],
+        "UnknownInfo": [
+            "More specific techniques or methods to analyse kanetugu2018's conversations might be required to derive nuanced characteristics"
+        ],
+        "Relations": [
+            {
+                "Term": "Members",
+                "RelationReason": "The analysis skills are being applied to the writings and work of the member kanetugu2018."
+            }
+        ]
+    }
+}

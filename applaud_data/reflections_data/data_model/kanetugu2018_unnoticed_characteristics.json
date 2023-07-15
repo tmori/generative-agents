@@ -1,0 +1,20 @@
+{
+    "name": "kanetugu2018_unnoticed_characteristics",
+    "contents": {
+        "Term": "kanetugu2018_unnoticed_characteristics",
+        "KnownInfos": [],
+        "UnknownInfo": [
+            "Specific instances in the conversation logs that display unique characteristics or actions that have been overlooked. What unique word choices or phrases does he use? Are there hidden messages or meanings in his use of certain characters or English phrases? Does he display any unique reactions or emotions that have been unnoticed?"
+        ],
+        "Relations": [
+            {
+                "Term": "kanetugu2018_personality",
+                "RelationReason": "Understanding kanetugu2018's unnoticed characteristics can provide deeper insights into his personality."
+            },
+            {
+                "Term": "conversation_log_analysis",
+                "RelationReason": "Conversation log analysis can reveal kanetugu2018's unnoticed characteristics."
+            }
+        ]
+    }
+}

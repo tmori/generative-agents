@@ -1,0 +1,22 @@
+{
+    "Knowledges": {
+        "kanetugu2018_personality": [
+            {
+                "KnownInfo": "kanetugu2018's writing style is conversational and engaging. He uses unique phrases and reactions, emphasizing some points with hashtags. He often uses personal pronouns instead of professional phrases, adding a colloquial touch to his writings. He also uses specific special characters and English phrases to convey strong emotions. Another key aspect of his personality is his openness about his struggles and his ability to recount narratives.",
+                "DocumentIDs": [
+                    "chap01"
+                ],
+                "Point": 87
+            }
+        ],
+        "conversation_log_analysis": [
+            {
+                "KnownInfo": "Analysing conversation logs involves looking for unique phrases and reactions, tracking the usage of specific types of words (like personal pronouns, special characters and foreign phrases), and identifying open and genuine communication.",
+                "DocumentIDs": [
+                    "chap01"
+                ],
+                "Point": 90
+            }
+        ]
+    }
+}

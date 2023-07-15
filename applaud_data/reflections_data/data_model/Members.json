@@ -1,0 +1,26 @@
+{
+    "name": "Members",
+    "contents": {
+        "Term": "Members",
+        "KnownInfos": [
+            {
+                "KnownInfo": "kanetugu2018's writing style is conversational and engaging. He uses unique phrases and reactions, emphasizing some points with hashtags. He often uses personal pronouns instead of professional phrases, adding a colloquial touch to his writings. He also uses specific special characters and English phrases to convey strong emotions. Another key aspect of his personality is his openness about his struggles and his ability to recount narratives.",
+                "DocumentIDs": [
+                    "chap01"
+                ],
+                "Point": 87
+            },
+            {
+                "KnownInfo": "kanetugu2018 was motivated by need and challenge when he took on a project to create a CPU emulator called 'athrill'. This demonstrates his resourcefulness, determination and problem-solving capabilities.",
+                "DocumentIDs": [
+                    "chap01"
+                ],
+                "Point": 90
+            }
+        ],
+        "UnknownInfo": [
+            "Not mentioned explicitly, but kanetugu2018 might have other unseen traits that reflect through his work or writings. Further exploration of his works and conversations would be required."
+        ],
+        "Relations": []
+    }
+}

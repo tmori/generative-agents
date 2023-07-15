@@ -1,0 +1,16 @@
+[
+    {
+        "ID": 1,
+        "TargetDocID": "chap01",
+        "Question": "Please obtain information based on the following purposes and perspectives.\nLet's think step by step.\n\npurpose: Understand the individuality of kanetugu2018\nperspectives: To understand kanetugu2018's contribution to the project and his unique characteristics by analyzing conversational style, use of language, and personal anecdotes\n",
+        "Reply": "kanetugu2018's individuality is evident throughout the text. The use of personal anecdotes lends a sense of authenticity. We learn that kanetugu2018 was motivated by need and challenge when he took on a project to create a CPU emulator called 'athrill'. When facing a potentially debugging nightmare for a project involving TOPPERS OS and V850, kanetugu2018 demonstrated resourcefulness and determination by putting efforts into creating a working emulator, saving on cost and time in the process.\n\nHis conversational style is engaging, peppered with expressions of emotion, creating a story-like narrative. The use of humor and casual language (\"わくわく\" meaning 'exciting') reflects a down-to-earth and approachable personality, while professionally, his passion for problem-solving and innovation is clear. \n\nkanetugu2018's contribution to the project was significant, leading to the successful creation of 'athrill', along with the knowledge that a similar approach could be replicated should a similar situation arise. This adds meaningful value to the project, potentially saving cost and development time. This anecdote illustrates kanetugu2018's ability to adapt, innovate, and solve problems effectively under pressure, highlighting his individuality.\n\nPoint: 90",
+        "Point": 90.0
+    },
+    {
+        "ID": 2,
+        "TargetDocID": "chap02",
+        "Question": "Please obtain information based on the following purposes and perspectives.\nLet's think step by step.\n\npurpose: Find unique and unnoticed traits of Kanetugu2018\nperspectives: Scrutinizing narrative recounts, usage of specific phrases and emotional expressions\n",
+        "Reply": "Kanetugu2018's article reveals his commitment to making significant contributions to specific technical communities, evidenced by the development of an ARM-based microcontroller simulator. He critically reflects on his past work, acknowledging its flaws and working on them for improvements, such as moving from the virtually unknown V850 to the commonly used ARM. His 'unnoticed' trait would be his tireless work on these technical improvements, despite them being used by a very niche audience. \n\nHe meticulously recounts his journey, using specific phrases such as 'athrill　は，CPUアーキに依存しない共通コードとCPU依存するコードを分離しています.' His expressions show a strong emotional engagement with his work and a sense of duty towards his niche community, seen in phrases like, '地道にコツコツやっていればいつか実現できるはずですよ'.\n\nPoint: 85",
+        "Point": 85.0
+    }
+]

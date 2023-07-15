@@ -1,0 +1,21 @@
+{
+    "DetailedStrategy": "Investigate conversation logs in the documents; Understand unnoticed traits, appreciating_words, and avoid common knowledge",
+    "Plan": [
+        {
+            "PlanID": 1,
+            "DocumentID": "chap01",
+            "Purpose": "To understand conversation style and find personal traits",
+            "Perspectives": "Focus on kanetugu2018's unique phrases and reactions",
+            "ResultID": "",
+            "Status": "None"
+        },
+        {
+            "PlanID": 2,
+            "DocumentID": "chap02",
+            "Purpose": "To find unnoticed traits and effective appreciating words",
+            "Perspectives": "Identify overlooked traits and related conversations",
+            "ResultID": "",
+            "Status": "None"
+        }
+    ]
+}

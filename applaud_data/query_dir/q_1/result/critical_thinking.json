@@ -1,0 +1,24 @@
+{
+  "Knowledges": [
+    {
+      "Term": "kanetugu2018_personality",
+      "Reason": "To write appreciating words for kanetugu2018, it's required to understand his personality traits by analysing his conversation logs."
+    },
+    {
+      "Term": "conversation_log_analysis",
+      "Reason": "The source of information for understanding kanetugu2018's personality is his conversation logs, therefore, the skill to analyze these logs is prerequisite."
+    },
+    {
+      "Term": "appreciating_words",
+      "Reason": "The objective of this task is to find the proper appreciating words for kanetugu2018 that can emotionally touch him."
+    },
+    {
+      "Term": "unnoticed_traits",
+      "Reason": "The appreciation is supposed to be based on unnoticed traits of kanetugu2018, so understanding what kind of traits are generally overlooked is required."
+    },
+    {
+      "Term": "commont_knowledge",
+      "Reason": "As the appreciation should neither be about common knowledge nor something that kanetugu2018 is already aware of, understanding these aspects is important to avoid them."
+    }
+  ]
+}

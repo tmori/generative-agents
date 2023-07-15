@@ -1,0 +1,21 @@
+{
+    "DetailedStrategy": "Investigate the profiles of development team members; Specifically focusing on unique characteristics and achievements.",
+    "Plan": [
+        {
+            "PlanID": 1,
+            "DocumentID": "chap01",
+            "Purpose": "Understand the individuality of kanetugu2018",
+            "Perspectives": "To understand kanetugu2018's contribution to the project and his unique characteristics by analyzing conversational style, use of language, and personal anecdotes",
+            "ResultID": "",
+            "Status": "None"
+        },
+        {
+            "PlanID": 2,
+            "DocumentID": "chap02",
+            "Purpose": "Find unique and unnoticed traits of Kanetugu2018",
+            "Perspectives": "Scrutinizing narrative recounts, usage of specific phrases and emotional expressions",
+            "ResultID": "",
+            "Status": "None"
+        }
+    ]
+}
