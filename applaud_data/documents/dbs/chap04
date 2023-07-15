@@ -1,0 +1,88 @@
+ソフトウェア原則[1] - OCP(Open-Close Principle)
+sell
+C
+,
+C++
+,
+オブジェクト指向
+この記事は、2003年にメルマガ「週間オブジェクト倶楽部」に書いていた記事を若干編集・修正してQiitaに転載するものです。
+
+元記事：ソフトウェア原則[1] - OCP(Open-Close Principle)
+ソフトウェア原則[1] - OCP(Open-Close Principle)
+週刊オブジェクト倶楽部 2003-01号の書評『オブジェクト指向入門』の中で、
+
+OCP"Open-Close Principle"として、
+
+「ソフトウェアモジュールは、変更に対して閉じており、拡張に対して開いているべき」
+
+を紹介しました。第1回目は、このOCP からです。次のC言語コードを見てどう思いますか？
+
+shape.h
+typedef struct { int x, y; } Point;
+typedef struct { Point p1, p2; } Line;
+typedef enum { LINE, POINT } Kind;
+typedef union { Point* point; Line* line; } ShapeUnion;
+
+typedef struct {
+  Kind kind;
+  ShapeUnion of;
+} Shape;
+draw.c
+#include "shape.h"
+void draw(Shape* shape) {
+  switch(shape->kind) {
+  case LINE:
+  /* draw line (shape->of->line.p1  ---- shape->of->line.p2) */
+  break;
+  case POINT:
+  /*  draw point (shape->of->point)*/
+  break;
+  }
+}
+これは、私が15年前に書いたコードです。なかなかイケてるでしょ？
+
+(編集注: 現在から26年前になってしまった。。。特に、union を of で参照しているのが気に入っていました)
+
+でも、Kindとして新たにCIRCLEを追加したとき、このdraw関数を修正し、 case CIRCLEを追加しなければならいのです。
+
+では、どうするの？C++では、
+
+shape.h
+class Shape {
+  public:
+    virtual void draw() = 0;
+};
+point.cc
+#include "shape.h"
+class Point : public Shape {
+    int x, y;
+public:
+    void draw() { /* draw point (x,y) */   }
+};
+line.cc
+#include "shape.h"
+class Line : public Shape {
+    Point p1, p2;
+public:
+    void draw() { /* draw line p1-p2 */ }
+};
+と書くことができます。このようにすると、Circleの追加は、「既存のプログラムを全く変更せずに」(再コンパイルさえも！)できるのです。これが、 CloseしているプログラムをOpenにするというオブジェクト指向プログラミング の1つの真骨頂なのです。
+
+修正の論理を、追加の論理に変換している
+といえます。
+
+ちなみに、オブジェクト指向プログラミングでは、構造化プログラミングで gotoが悪だったように、switch分岐は悪と言われています。 (2箇所以上同じ分岐がある場合)。
+
+後日談（編集注：11年前の後日談です）。
+
+現在では、『リファクタリング』という再設計技術が注目されるようになり、 コード1をコード2に再設計することを、Replace Conditional With Polymorphism (多態による条件分岐の置き換え)と呼んでいます。また、switch文が必ずしも 悪という訳ではなく、同じパターンのswitchが繰り返されることが悪だ、と いう解釈になっています。(Once and Only Onceの原則)
+
+（編集時追加）参考：
+
+「Bertrand Meyer「オブジェクト指向入門」めも」(@satton_maroyakaさん)
+「オブジェクト指向の法則集」(石井勝さん)
+「開放閉鎖原則と expression problem」(@magicant さん)
+
+share
+
+

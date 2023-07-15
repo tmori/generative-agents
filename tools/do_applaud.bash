@@ -3,7 +3,7 @@ export PYTHONPATH=${PYTHONPATH}:`pwd`
 
 if [ $# -ne 1 ]
 then
-    echo "Usage: $0 <profile>"
+    echo "Usage: $0 <name>"
     exit 1
 fi
 
@@ -43,9 +43,10 @@ else
     mkdir test/result
 fi
 
-query_dir=$1
+name="$1"
+query_dir=./applaud_data/query_dir
 background_file="noidea.txt"
-query="`cat ${query_dir}/query.txt`"
+query="$(cat ${query_dir}/query.txt | sed -e "s/<NAME>/${name}/g")"
 
 DOCUMENT_TOKENS=3096
 REFLECTION_TOKENS=3096
