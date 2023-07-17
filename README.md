@@ -75,6 +75,8 @@ pip3 install langchain
 pip3 install unstructured
 pip3 install tabulate
 pip3 install scikit-learn
+pip3 install matplotlib
+pip3 install plotly
 ```
 
 Please set the OpenAPI API key as an environment variable.
